@@ -1,0 +1,19 @@
+
+Nuevo mensaje de contacto recibido
+
+Fecha: 25/09/2025 16:59:18
+IP: ::1
+User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+
+Datos del contacto:
+- Nombre: Narella Zorzon
+- Email: narellazorzon@gmail.com
+- Teléfono: 03482394605
+- Asunto: Consulta sobre Agricultura
+
+Mensaje:
+testtt
+
+---
+Este mensaje fue enviado desde el formulario de contacto del sitio web.
+Sitio: http://localhost/AlbinoL

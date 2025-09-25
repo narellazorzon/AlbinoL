@@ -1,46 +1,106 @@
-# 📁 Carpeta de Imágenes
+# 🌾 Albino Luis Zorzon e hijos
 
-## 🖼️ Logo de la Empresa
+**Sitio web corporativo para empresa familiar de producción agropecuaria**
 
-### Archivo: `logo.png`
+## 📁 Estructura del Proyecto
 
-**Especificaciones recomendadas:**
-- **Formato**: PNG (con transparencia)
-- **Tamaño**: 200x200 píxeles (mínimo)
-- **Fondo**: Transparente
-- **Estilo**: Preferiblemente en blanco o con colores que contrasten con el fondo verde del header
-
-### 📋 Instrucciones:
-
-1. **Coloca tu archivo de logo** en esta carpeta con el nombre exacto: `logo.png`
-2. **El logo se mostrará automáticamente** en el header de la página
-3. **Si no hay logo**, se mostrará el emoji 🌾 como respaldo
-
-### 🎨 Efectos aplicados automáticamente:
-
-- **Sombra**: Sombra sutil para mejor contraste en el fondo verde
-- **Hover**: Al pasar el mouse, el logo se agrandará ligeramente y aumentará el brillo
-- **Responsive**: Se adaptará automáticamente a diferentes tamaños de pantalla
-- **Animación**: Tendrá un efecto de escala suave al hacer hover
-
-### 🎨 Opciones de color:
-
-**Opción 1 - Logo con colores originales (recomendado):**
-- El logo mantendrá sus colores originales
-- Se aplicará una sombra sutil para mejor contraste
-
-**Opción 2 - Logo blanco:**
-- Si necesitas que el logo sea blanco, agrega la clase `white-logo` al img:
-```html
-<img src="assets/images/logo.png" alt="..." class="logo-img white-logo">
+```
+AlbinoL/
+├── 📄 index.php              # Página principal
+├── 📄 404.php                # Página de error 404
+├── 📁 pages/                 # Páginas del sitio
+│   ├── agricultura.php       # Servicios agrícolas
+│   ├── ganaderia.php         # Servicios ganaderos
+│   ├── maquinaria-logistica.php # Maquinaria y logística
+│   ├── nosotros.php          # Historia de la empresa
+│   ├── rrhh.php              # Recursos humanos
+│   └── contacto.php          # Formulario de contacto
+├── 📁 includes/              # Archivos de procesamiento
+│   ├── config.php            # Configuración del sitio
+│   └── enviar-mensaje.php    # Procesador de formularios
+├── 📁 partials/              # Componentes reutilizables
+│   ├── header.php            # Cabecera del sitio
+│   └── footer.php            # Pie de página
+├── 📁 assets/                # Recursos estáticos
+│   ├── css/
+│   │   └── style.css         # Estilos principales
+│   ├── js/
+│   │   ├── app.js            # JavaScript principal
+│   │   └── form-validation.js # Validación de formularios
+│   └── images/
+│       └── logo.png          # Logo de la empresa
+├── 📁 docs/                  # Documentación
+│   ├── README.md             # Documentación técnica
+│   └── ACCESIBILIDAD.md      # Guía de accesibilidad
+├── 📁 logs/                  # Archivos de registro
+├── 📄 .htaccess              # Configuración del servidor
+└── 📄 README.md              # Este archivo
 ```
 
-### 📱 Tamaños responsivos:
+## 🚀 Características
 
-- **Desktop**: 80px de altura
-- **Tablet**: 60px de altura  
-- **Móvil**: 50px de altura
+- ✅ **Diseño Responsivo** - Adaptable a todos los dispositivos
+- ✅ **Accesibilidad WCAG 2.1 AA** - Formulario completamente accesible
+- ✅ **Estructura Organizada** - Carpetas lógicas y separación de responsabilidades
+- ✅ **Configuración Centralizada** - Archivo config.php para fácil mantenimiento
+- ✅ **Formulario Funcional** - Sistema de contacto con validación
+- ✅ **SEO Optimizado** - Meta tags y estructura semántica
+- ✅ **Seguridad** - Headers de seguridad y validación de datos
+
+## 🛠️ Tecnologías
+
+- **PHP 7.4+** - Backend del sitio
+- **HTML5** - Estructura semántica
+- **CSS3** - Estilos modernos con variables
+- **JavaScript ES6+** - Interactividad y validación
+- **Apache** - Servidor web con .htaccess
+
+## 📋 Instalación
+
+1. Clonar o descargar el proyecto
+2. Colocar en el directorio web de XAMPP (`htdocs/`)
+3. Acceder a `http://localhost/AlbinoL/`
+
+## ⚙️ Configuración
+
+Editar `includes/config.php` para personalizar:
+- Información de contacto
+- Configuración de email
+- URLs del sitio
+- Configuración de base de datos
+
+## 📱 Páginas Disponibles
+
+- **Inicio** - Página principal con resumen de servicios
+- **Agricultura** - Servicios agrícolas y cultivos
+- **Ganadería** - Servicios ganaderos y razas
+- **Maquinaria & Logística** - Equipos y servicios logísticos
+- **Nosotros** - Historia y valores de la empresa
+- **RR.HH.** - Oportunidades laborales
+- **Contacto** - Formulario de contacto accesible
+
+## 🎨 Personalización
+
+### Colores
+Los colores están definidos en variables CSS en `assets/css/style.css`:
+- `--primary-green`: Verde principal
+- `--secondary-green`: Verde secundario
+- `--accent-green`: Verde de acento
+- `--warm-beige`: Beige cálido
+- `--golden-wheat`: Dorado del trigo
+
+### Contenido
+- Editar `partials/header.php` para la navegación
+- Editar `partials/footer.php` para el pie de página
+- Editar `pages/` para el contenido de cada página
+
+## 📞 Soporte
+
+Para soporte técnico o consultas:
+- **Email:** alzorzon@gmail.com
+- **Teléfono:** +54 9 11 1234-5678
+- **WhatsApp:** +54 9 11 1234-5678
 
 ---
 
-**Nota**: Una vez que coloques el archivo `logo.png` en esta carpeta, el logo aparecerá automáticamente en el sitio web.
+*Desarrollado con ❤️ para el campo argentino*

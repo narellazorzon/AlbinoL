@@ -1,35 +1,51 @@
 <?php
+require_once __DIR__ . '/includes/config.php';
+
 $title = "Albino Luis Zorzon — Agricultura y Ganadería";
-$desc = "Empresa familiar con más de 30 años de experiencia en producción agropecuaria de alto rendimiento. Agricultura, ganadería, maquinaria y logística.";
+$desc = "Empresa familiar con más de cinco décadas de experiencia en producción agropecuaria de alto rendimiento. Agricultura y ganadería desde La Lola, Santa Fe.";
 include __DIR__ . "/partials/header.php";
 ?>
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
-  <h1>Albino Luis Zorzon e hijos SH</h1>
-  <p>Producción agropecuaria de alto rendimiento con más de 30 años de experiencia familiar</p>
-  <a href="contacto.php" class="btn">Conocé más</a>
+  <video autoplay muted loop playsinline>
+    <source src="assets/videos/video_header.MP4" type="video/mp4">
+    <!-- Fallback para navegadores que no soportan video -->
+    Tu navegador no soporta videos HTML5.
+  </video>
+  <div class="hero-content">
+            <h1>Albino Luis Zorzon e hijos</h1>
+    <p>Producción agropecuaria de alto rendimiento con más de cinco décadas de experiencia familiar</p>
+    <a href="pages/agricultura.php" class="btn">Conocé más</a>
+  </div>
 </div>
 
 <!-- Estadísticas -->
 <div class="stats fade-in-up">
-  <h2>Nuestros Números</h2>
-  <div class="stats-grid">
-    <div class="stat-item">
-      <span class="stat-number">500+</span>
-      <span class="stat-label">Hectáreas Agrícolas</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number">800+</span>
-      <span class="stat-label">Cabezas de Ganado</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number">30+</span>
-      <span class="stat-label">Años de Experiencia</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number">100%</span>
-      <span class="stat-label">Trabajo Familiar</span>
+  <video autoplay muted loop playsinline>
+    <source src="assets/videos/numeros.mp4" type="video/mp4">
+    <!-- Fallback para navegadores que no soportan video -->
+    Tu navegador no soporta videos HTML5.
+  </video>
+  <div class="stats-content">
+    <h2>Nuestros Números</h2>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-number">500+</span>
+        <span class="stat-label">Hectáreas Agrícolas</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">800+</span>
+        <span class="stat-label">Cabezas de Ganado</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">50+</span>
+        <span class="stat-label">Años de Experiencia</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Trabajo Familiar</span>
+      </div>
     </div>
   </div>
 </div>
@@ -48,24 +64,14 @@ include __DIR__ . "/partials/header.php";
       <h3>Ganadería</h3>
       <p>Cría y engorde de ganado bovino con manejo integral y alimentación balanceada.</p>
     </div>
-    <div class="card">
-      <span class="card-icon">🚜</span>
-      <h3>Maquinaria</h3>
-      <p>Servicios de maquinaria agrícola moderna para siembra, cosecha y laboreo del suelo.</p>
-    </div>
-    <div class="card">
-      <span class="card-icon">📦</span>
-      <h3>Logística</h3>
-      <p>Transporte y almacenamiento de granos con infraestructura propia y certificada.</p>
-    </div>
   </div>
 </section>
 
 <!-- Sobre Nosotros -->
 <section class="fade-in-up">
   <h2>Nuestra Historia</h2>
-  <p>Albino Luis Zorzon e hijos es una empresa familiar que nació hace más de tres décadas con la visión de producir alimentos de calidad para el mundo. Desde nuestros inicios, hemos crecido manteniendo los valores fundamentales del trabajo en familia, el respeto por la tierra y la innovación constante.</p>
-  <p>Hoy somos una empresa consolidada que combina la tradición rural con la tecnología más avanzada, siempre con el compromiso de cuidar el medio ambiente y contribuir al desarrollo de nuestra comunidad.</p>
+  <p><strong>Albino Luis Zorzon e Hijos S.H.</strong> es una empresa familiar con más de cinco décadas de trayectoria en el sector agrícola y ganadero. Nuestros orígenes se remontan a <strong>La Lola, Santa Fe</strong>, donde a comienzos de la década del '70 iniciamos nuestras actividades con esfuerzo, compromiso y una fuerte unión familiar.</p>
+  <p>Con el paso del tiempo, fuimos creciendo y expandiéndonos, siempre manteniendo la esencia que nos caracteriza: <strong>trabajo en familia, responsabilidad con la tierra y pasión por la producción agropecuaria</strong>. Hoy, la empresa continúa con la misma visión que nos impulsó desde el inicio, integrando nuevas generaciones y adaptándonos a los desafíos actuales del campo argentino.</p>
   <div style="text-align: center; margin-top: 2rem;">
     <a href="nosotros.php" class="btn btn-secondary">Conocé nuestra historia</a>
   </div>
