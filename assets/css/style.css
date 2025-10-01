@@ -24,11 +24,13 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Lato', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.6;
   color: var(--text-dark);
   background: linear-gradient(135deg, var(--warm-beige) 0%, var(--cream-white) 100%);
   min-height: 100vh;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 /* Header */
@@ -81,20 +83,23 @@ header {
 }
 
 .logo-text {
-  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  font-family: 'Source Sans Pro', 'Lato', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.8rem;
   line-height: 1.2;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.3);
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .logo-text .company-name {
   font-weight: 700;
-  color: #ffffff;
+  color: #2c1810;
+  letter-spacing: 0.03em;
 }
 
 .logo-text .company-suffix {
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.8);
+  color: #5d4037;
   font-size: 1.4rem;
 }
 
@@ -178,14 +183,14 @@ header {
 .nav-menu a {
   color: var(--text-light);
   text-decoration: none;
-  font-family: 'Poppins', 'Segoe UI', sans-serif;
-  font-weight: 500;
+  font-family: 'Source Sans Pro', 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
   font-size: 0.95rem;
   padding: 0.8rem 1.2rem;
   border-radius: 20px;
   transition: all 0.3s ease;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  letter-spacing: 0.5px;
+  letter-spacing: 0.02em;
   position: relative;
   overflow: hidden;
 }
@@ -297,6 +302,9 @@ main {
   font-size: 3rem;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Source Sans Pro', 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .hero p {
@@ -328,6 +336,9 @@ section h2 {
   margin-bottom: 1rem;
   text-align: center;
   position: relative;
+  font-family: 'Source Sans Pro', 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 section h2::after {
@@ -355,12 +366,131 @@ section p {
   margin: 2rem 0;
 }
 
-/* Grid de 2 columnas en desktop para cultivos */
-@media (min-width: 768px) {
-  .cards-grid.crops-grid {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 800px;
-    margin: 2rem auto;
+/* Grid uniforme para cultivos */
+.crops-grid-uniform {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.crop-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(45, 80, 22, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.crop-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2d5016 0%, #4a7c2d 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.crop-card:hover::before {
+  transform: scaleX(1);
+}
+
+.crop-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  border-color: rgba(45, 80, 22, 0.2);
+}
+
+.crop-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-shrink: 0;
+}
+
+.crop-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+  background: linear-gradient(135deg, #2d5016 0%, #4a7c2d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.crop-card:hover .crop-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.crop-card h4 {
+  font-family: 'Source Sans Pro', 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2d5016;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.crop-card p {
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.crop-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.crop-list li {
+  padding: 0.4rem 0;
+  color: #666;
+  font-size: 0.9rem;
+  position: relative;
+  padding-left: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.crop-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
+  color: #4a7c2d;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.crop-card:hover .crop-list li {
+  color: #555;
+  transform: translateX(3px);
+}
+
+/* Responsive para cultivos */
+@media (max-width: 768px) {
+  .crops-grid-uniform {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  
+  .crop-card {
+    padding: 1.5rem;
   }
 }
 
@@ -422,10 +552,11 @@ section p {
   color: #2d5016;
   font-size: 1.4rem;
   margin-bottom: 1rem;
-  font-weight: 700;
-  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  font-weight: 600;
+  font-family: 'Source Sans Pro', 'Lato', 'Helvetica Neue', Arial, sans-serif;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  letter-spacing: 0.01em;
 }
 
 .card:hover h3 {
@@ -569,6 +700,9 @@ footer {
   color: var(--golden-wheat);
   margin-bottom: 1rem;
   font-size: 1.2rem;
+  font-family: 'Source Sans Pro', 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .footer-section p,

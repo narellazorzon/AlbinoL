@@ -22,52 +22,66 @@ include __DIR__ . "/../partials/header.php";
 <!-- Servicios Agrícolas -->
 <section class="fade-in-up">
   <h2>Nuestros Cultivos</h2>
-  <div class="cards-grid crops-grid">
-    <div class="card">
-      <span class="card-icon">🌾</span>
-      <h3>Trigo</h3>
+  <div class="crops-grid-uniform">
+    <div class="crop-card">
+      <div class="crop-card-header">
+        <span class="crop-icon">🌾</span>
+        <h4>Trigo</h4>
+      </div>
       <p>Producción de variedades adaptadas a la región con manejo integrado.</p>
-      <ul>
+      <ul class="crop-list">
         <li>Alto rendimiento</li>
         <li>Suelo sustentable</li>
         <li>Control de malezas</li>
       </ul>
     </div>
-    <div class="card">
-      <span class="card-icon">🌽</span>
-      <h3>Maíz</h3>
+
+    <div class="crop-card">
+      <div class="crop-card-header">
+        <span class="crop-icon">🌽</span>
+        <h4>Maíz</h4>
+      </div>
       <p>Cultivo con tecnología de punta y fertilización precisa.</p>
-      <ul>
+      <ul class="crop-list">
         <li>Híbridos modernos</li>
         <li>Siembra directa</li>
         <li>Fertilización balanceada</li>
       </ul>
     </div>
-    <div class="card">
-      <span class="card-icon">🌻</span>
-      <h3>Girasol</h3>
+
+    <div class="crop-card">
+      <div class="crop-card-header">
+        <span class="crop-icon">🌻</span>
+        <h4>Girasol</h4>
+      </div>
       <p>Producción para aceite y confitería con rotación de cultivos.</p>
-      <ul>
+      <ul class="crop-list">
         <li>Variedades oleaginosas</li>
         <li>Rotación sustentable</li>
         <li>Manejo integrado de plagas</li>
       </ul>
     </div>
-    <div class="card">
-      <span class="card-icon">🌿</span>
-      <h3>Soja</h3>
+
+    <div class="crop-card">
+      <div class="crop-card-header">
+        <span class="crop-icon">🌿</span>
+        <h4>Soja</h4>
+      </div>
       <p>Cultivo sustentable con semillas inoculadas y manejo biológico.</p>
-      <ul>
+      <ul class="crop-list">
         <li>Inoculación de semillas</li>
         <li>Control biológico</li>
         <li>Sustentabilidad</li>
       </ul>
     </div>
-    <div class="card">
-      <span class="card-icon">🧵</span>
-      <h3>Algodón</h3>
+
+    <div class="crop-card">
+      <div class="crop-card-header">
+        <span class="crop-icon">🧵</span>
+        <h4>Algodón</h4>
+      </div>
       <p>Producción de fibra larga y calidad premium con técnicas modernas.</p>
-      <ul>
+      <ul class="crop-list">
         <li>Fibra de calidad</li>
         <li>Manejo especializado</li>
         <li>Producción premium</li>

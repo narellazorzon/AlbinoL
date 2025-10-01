@@ -28,7 +28,6 @@ include __DIR__ . "/partials/header.php";
     Tu navegador no soporta videos HTML5.
   </video>
   <div class="stats-content">
-    <h2>Nuestros Números</h2>
     <div class="stats-grid">
       <div class="stat-item">
         <span class="stat-number">500+</span>

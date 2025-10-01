@@ -70,8 +70,8 @@ include __DIR__ . "/../partials/header.php";
     </div>
     <div class="card">
       <span class="card-icon">🐂</span>
-      <h3>Hereford</h3>
-      <p>Raza de origen inglés, muy resistente y con buena conversión alimenticia.</p>
+      <h3>Braford</h3>
+      <p>Híbrido entre Brahman y Hereford, combina resistencia al calor con buena calidad de carne.</p>
     </div>
     <div class="card">
       <span class="card-icon">🐃</span>
