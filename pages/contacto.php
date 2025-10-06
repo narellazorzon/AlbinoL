@@ -60,7 +60,6 @@ include __DIR__ . "/../partials/header.php";
                  autocomplete="name"
                  class="form-input"
                  placeholder="Ingrese su nombre completo">
-          <div id="nombre-help" class="form-help">Ingrese su nombre y apellido completos</div>
           <div id="nombre-error" class="form-error" role="alert" aria-live="polite"></div>
         </div>
         
@@ -77,7 +76,6 @@ include __DIR__ . "/../partials/header.php";
                  autocomplete="email"
                  class="form-input"
                  placeholder="ejemplo@correo.com">
-          <div id="email-help" class="form-help">Ingrese una dirección de correo válida</div>
           <div id="email-error" class="form-error" role="alert" aria-live="polite"></div>
         </div>
         
@@ -92,7 +90,6 @@ include __DIR__ . "/../partials/header.php";
                  autocomplete="tel"
                  class="form-input"
                  placeholder="Ingrese su teléfono (opcional)">
-          <div id="telefono-help" class="form-help">Ingrese su número de teléfono (opcional)</div>
           <div id="telefono-error" class="form-error" role="alert" aria-live="polite"></div>
         </div>
       </fieldset>
@@ -114,12 +111,9 @@ include __DIR__ . "/../partials/header.php";
             <option value="">Seleccione un asunto</option>
             <option value="agricultura">Consulta sobre Agricultura</option>
             <option value="ganaderia">Consulta sobre Ganadería</option>
-            <option value="maquinaria">Consulta sobre Maquinaria</option>
-            <option value="logistica">Consulta sobre Logística</option>
             <option value="trabajo">Oportunidades Laborales</option>
             <option value="general">Consulta General</option>
           </select>
-          <div id="asunto-help" class="form-help">Seleccione el tema de su consulta</div>
           <div id="asunto-error" class="form-error" role="alert" aria-live="polite"></div>
         </div>
         
@@ -135,7 +129,6 @@ include __DIR__ . "/../partials/header.php";
                     aria-describedby="mensaje-error mensaje-help"
                     class="form-textarea"
                     placeholder="Escriba su mensaje aquí..."></textarea>
-          <div id="mensaje-help" class="form-help">Describa su consulta o solicitud en detalle</div>
           <div id="mensaje-error" class="form-error" role="alert" aria-live="polite"></div>
         </div>
       </fieldset>
@@ -148,15 +141,6 @@ include __DIR__ . "/../partials/header.php";
           <span class="btn-text">Enviar Mensaje</span>
           <span class="btn-icon" aria-hidden="true">📤</span>
         </button>
-        <button type="reset" 
-                class="btn btn-secondary"
-                style="margin-left: 1rem;">
-          <span class="btn-text">Limpiar Formulario</span>
-          <span class="btn-icon" aria-hidden="true">🔄</span>
-        </button>
-        <div id="submit-help" class="form-help" style="margin-top: 0.5rem;">
-          Al enviar el formulario, recibirá una confirmación por correo electrónico
-        </div>
       </div>
       
       <!-- Mensaje de estado del formulario -->
@@ -170,29 +154,6 @@ include __DIR__ . "/../partials/header.php";
   </div>
 </section>
 
-<!-- Trabajo con Nosotros -->
-<section class="fade-in-up" style="background: linear-gradient(135deg, var(--warm-beige) 0%, var(--cream-white) 100%); padding: 1.5rem; border-radius: 15px; margin: 1.5rem 0; box-shadow: var(--shadow);">
-  <h2>💼 Trabajo con Nosotros</h2>
-  <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-    <p style="font-size: 1rem; margin-bottom: 1rem; color: var(--text-dark);">
-      ¿Te interesa formar parte de nuestro equipo familiar? En <strong>Albino Luis Zorzon e Hijos</strong> valoramos el trabajo en equipo, la pasión por el campo y el compromiso con la excelencia.
-    </p>
-    
-    <div style="background: rgba(255, 255, 255, 0.8); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
-      <h3 style="color: var(--primary-green); margin-bottom: 0.8rem;">📧 Envía tu CV</h3>
-      <p style="margin-bottom: 0.8rem;">
-        Si querés trabajar con nosotros, enviá tu <strong>Currículum Vitae</strong> a:
-      </p>
-      <a href="mailto:<?= SITE_EMAIL ?>?subject=Postulación Laboral - CV" 
-         style="display: inline-block; background: var(--primary-green); color: white; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(45, 80, 22, 0.3);">
-        📧 <?= SITE_EMAIL ?>
-      </a>
-      <p style="margin-top: 0.8rem; font-size: 0.85rem; color: #666;">
-        Asunto sugerido: "Postulación Laboral - CV"
-      </p>
-    </div>
-  </div>
-</section>
 
 
 <!-- Ubicación en Mapa -->
