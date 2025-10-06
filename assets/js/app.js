@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 
+
     // Animación de números en las estadísticas
     const animateNumbers = () => {
         const statNumbers = document.querySelectorAll('.stat-number');
