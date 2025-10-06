@@ -7,9 +7,16 @@ include __DIR__ . "/../partials/header.php";
 ?>
 
 <!-- Hero Section -->
-<div class="hero fade-in-up" style="padding: 1.5rem 1rem;">
-  <h1>📞 Contacto</h1>
-  <p>Envíanos un mensaje y te contactaremos pronto</p>
+<div class="hero fade-in-up">
+  <video autoplay muted loop playsinline>
+    <source src="../assets/videos/video_contacto.MP4" type="video/mp4">
+    <!-- Fallback para navegadores que no soportan video -->
+    Tu navegador no soporta videos HTML5.
+  </video>
+  <div class="hero-content">
+    <h1>📞 Contacto</h1>
+    <p>Envíanos un mensaje y te contactaremos pronto</p>
+  </div>
 </div>
 
 <!-- Mensajes de éxito/error -->
