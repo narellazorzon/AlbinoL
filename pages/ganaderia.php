@@ -8,8 +8,15 @@ include __DIR__ . "/../partials/header.php";
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
-  <h1>Ganadería</h1>
-  <p>Cría y engorde de ganado bovino con manejo integral y alimentación balanceada</p>
+  <video autoplay muted loop playsinline>
+    <source src="../assets/videos/recopilacion_ganaderia.mp4" type="video/mp4">
+    <!-- Fallback para navegadores que no soportan video -->
+    Tu navegador no soporta videos HTML5.
+  </video>
+  <div class="hero-content">
+    <h1>Ganadería</h1>
+    <p>Cría y engorde de ganado bovino con manejo integral y alimentación balanceada</p>
+  </div>
 </div>
 
 <!-- Servicios Ganaderos -->

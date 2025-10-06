@@ -72,7 +72,7 @@ include __DIR__ . "/partials/header.php";
   <p><strong>Albino Luis Zorzon e Hijos S.H.</strong> es una empresa familiar con más de cinco décadas de trayectoria en el sector agrícola y ganadero. Nuestros orígenes se remontan a <strong>La Lola, Santa Fe</strong>, donde a comienzos de la década del '70 iniciamos nuestras actividades con esfuerzo, compromiso y una fuerte unión familiar.</p>
   <p>Con el paso del tiempo, fuimos creciendo y expandiéndonos, siempre manteniendo la esencia que nos caracteriza: <strong>trabajo en familia, responsabilidad con la tierra y pasión por la producción agropecuaria</strong>. Hoy, la empresa continúa con la misma visión que nos impulsó desde el inicio, integrando nuevas generaciones y adaptándonos a los desafíos actuales del campo argentino.</p>
   <div style="text-align: center; margin-top: 2rem;">
-    <a href="nosotros.php" class="btn btn-secondary">Conocé nuestra historia</a>
+    <a href="pages/nosotros.php" class="btn btn-secondary">Conocé mas de nosotros</a>
   </div>
 </section>
 

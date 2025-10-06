@@ -19,18 +19,12 @@ include __DIR__ . "/../partials/header.php";
   
   <p>Con el paso del tiempo, fuimos creciendo y expandiéndonos, siempre manteniendo la esencia que nos caracteriza: <strong>trabajo en familia, responsabilidad con la tierra y pasión por la producción agropecuaria</strong>.</p>
   
-  <p>Hoy, la empresa continúa con la misma visión que <strong>Albino Luis</strong> nos legó desde el inicio, integrando nuevas generaciones y adaptándonos a los desafíos actuales del campo argentino, sin perder de vista los valores que nos trajeron hasta aquí.</p>
 </section>
 
 <!-- Valores -->
 <section class="fade-in-up">
   <h2>Nuestros Valores</h2>
   <div class="cards-grid">
-    <div class="card">
-      <span class="card-icon">👨‍👩‍👧‍👦</span>
-      <h3>Trabajo Familiar</h3>
-      <p>Valores familiares que se transmiten de generación en generación, creando un ambiente de trabajo único basado en la confianza y el respeto mutuo.</p>
-    </div>
     <div class="card">
       <span class="card-icon">🌍</span>
       <h3>Sostenibilidad</h3>
@@ -49,16 +43,30 @@ include __DIR__ . "/../partials/header.php";
   </div>
 </section>
 
+<!-- Video Institucional -->
+<section class="fade-in-up">
+  <h2>Conocé Nuestra Historia</h2>
+  <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+    <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; background: #000; border-radius: 15px; overflow: hidden; box-shadow: var(--shadow);">
+      <iframe 
+        src="https://www.youtube.com/embed/9uru6TGV9GQ?rel=0&modestbranding=1&showinfo=0" 
+        title="Historia de Albino Luis Zorzon e hijos"
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;">
+      </iframe>
+    </div>
+    <p style="margin-top: 1rem; color: var(--text-dark); font-style: italic;">
+      Descubrí más sobre nuestra trayectoria y valores familiares
+    </p>
+  </div>
+</section>
 
 <!-- Ubicación -->
 <section class="fade-in-up">
   <h2>Nuestra Ubicación</h2>
   <div class="cards-grid">
-    <div class="card">
-      <span class="card-icon">📍</span>
-      <h3>Zona Rural La Lola</h3>
-      <p>Ubicados en el corazón de la pampa húmeda, una de las regiones más fértiles de Argentina para la producción agropecuaria.</p>
-    </div>
     <div class="card">
       <span class="card-icon">🌾</span>
       <h3>Clima Ideal</h3>
@@ -100,13 +108,6 @@ include __DIR__ . "/../partials/header.php";
   </div>
 </section>
 
-<!-- Visión -->
-<section class="fade-in-up">
-  <h2>Nuestra Visión</h2>
-  <p>Ser reconocidos como una empresa familiar líder en la producción agropecuaria sustentable, manteniendo nuestros valores tradicionales mientras adoptamos las tecnologías más avanzadas. Aspiramos a ser un referente en la región por nuestra calidad, innovación y compromiso con el medio ambiente.</p>
-  
-  <p>Nuestro objetivo es continuar creciendo de manera sostenible, siempre con el respeto por la tierra que nos da de comer y la tradición familiar que nos define.</p>
-</section>
 
 
 <?php include __DIR__ . "/../partials/footer.php"; ?>

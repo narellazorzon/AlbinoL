@@ -194,18 +194,150 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
+        // Agregar clase para mostrar errores de validación
+        form.classList.add('form-submitted');
+        
         // Validación básica
         const nombre = form.querySelector('#nombre').value.trim();
         const email = form.querySelector('#email').value.trim();
+        const asunto = form.querySelector('#asunto').value.trim();
         const mensaje = form.querySelector('#mensaje').value.trim();
         
-        if (!nombre || !email || !mensaje) {
-            alert('❌ Por favor complete todos los campos obligatorios.');
+        if (!nombre || !email || !asunto || !mensaje) {
+            // Crear mensaje de error estilizado
+            const errorDiv = document.createElement('div');
+            errorDiv.innerHTML = `
+                <div class="error-message" style="
+                    position: fixed;
+                    top: 20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+                    color: white;
+                    padding: 12px 20px;
+                    border-radius: 10px;
+                    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+                    font-family: 'Source Sans Pro', sans-serif;
+                    font-weight: 600;
+                    font-size: 14px;
+                    z-index: 10000;
+                    animation: slideDown 0.3s ease-out;
+                    border-left: 4px solid #ff4757;
+                    max-width: 90%;
+                    width: auto;
+                    min-width: 280px;
+                    text-align: center;
+                    word-wrap: break-word;
+                ">
+                    <span style="font-size: 18px; margin-right: 8px;">⚠️</span>
+                    <span style="display: inline-block;">Por favor complete todos los campos obligatorios (incluyendo el asunto de la consulta)</span>
+                </div>
+                <style>
+                    @keyframes slideDown {
+                        from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+                        to { opacity: 1; transform: translateX(-50%) translateY(0); }
+                    }
+                    @keyframes slideUp {
+                        from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                        to { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+                    }
+                    @media (max-width: 768px) {
+                        .error-message {
+                            top: 10px !important;
+                            left: 10px !important;
+                            right: 10px !important;
+                            transform: none !important;
+                            max-width: none !important;
+                            width: auto !important;
+                            font-size: 13px !important;
+                            padding: 10px 15px !important;
+                        }
+                    }
+                    @media (max-width: 480px) {
+                        .error-message {
+                            font-size: 12px !important;
+                            padding: 8px 12px !important;
+                        }
+                    }
+                </style>
+            `;
+            document.body.appendChild(errorDiv);
+            
+            // Remover el mensaje después de 4 segundos
+            setTimeout(() => {
+                errorDiv.style.animation = 'slideUp 0.3s ease-out';
+                setTimeout(() => errorDiv.remove(), 300);
+            }, 4000);
+            
             return;
         }
         
         if (mensaje.length < 5) {
-            alert('❌ El mensaje debe tener al menos 5 caracteres.');
+            // Crear mensaje de error estilizado
+            const errorDiv = document.createElement('div');
+            errorDiv.innerHTML = `
+                <div class="error-message" style="
+                    position: fixed;
+                    top: 20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+                    color: white;
+                    padding: 12px 20px;
+                    border-radius: 10px;
+                    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+                    font-family: 'Source Sans Pro', sans-serif;
+                    font-weight: 600;
+                    font-size: 14px;
+                    z-index: 10000;
+                    animation: slideDown 0.3s ease-out;
+                    border-left: 4px solid #ff4757;
+                    max-width: 90%;
+                    width: auto;
+                    min-width: 280px;
+                    text-align: center;
+                    word-wrap: break-word;
+                ">
+                    <span style="font-size: 18px; margin-right: 8px;">📝</span>
+                    <span style="display: inline-block;">El mensaje debe tener al menos 5 caracteres</span>
+                </div>
+                <style>
+                    @keyframes slideDown {
+                        from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+                        to { opacity: 1; transform: translateX(-50%) translateY(0); }
+                    }
+                    @keyframes slideUp {
+                        from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                        to { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+                    }
+                    @media (max-width: 768px) {
+                        .error-message {
+                            top: 10px !important;
+                            left: 10px !important;
+                            right: 10px !important;
+                            transform: none !important;
+                            max-width: none !important;
+                            width: auto !important;
+                            font-size: 13px !important;
+                            padding: 10px 15px !important;
+                        }
+                    }
+                    @media (max-width: 480px) {
+                        .error-message {
+                            font-size: 12px !important;
+                            padding: 8px 12px !important;
+                        }
+                    }
+                </style>
+            `;
+            document.body.appendChild(errorDiv);
+            
+            // Remover el mensaje después de 4 segundos
+            setTimeout(() => {
+                errorDiv.style.animation = 'slideUp 0.3s ease-out';
+                setTimeout(() => errorDiv.remove(), 300);
+            }, 4000);
+            
             return;
         }
         
@@ -223,14 +355,15 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                alert('✅ ' + data.message);
+                showNotification('success', '¡Mensaje Enviado!', data.message);
                 form.reset();
+                form.classList.remove('form-submitted');
             } else {
-                alert('❌ ' + (data.message || 'Error al enviar el mensaje'));
+                showNotification('error', 'Error al Enviar', data.message || 'Error al enviar el mensaje');
             }
         })
         .catch(error => {
-            alert('❌ Error al enviar el mensaje. Intente nuevamente.');
+            showNotification('error', 'Error de Conexión', 'Error al enviar el mensaje. Intente nuevamente.');
             console.error('Error:', error);
         })
         .finally(() => {
@@ -239,6 +372,67 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Función para mostrar notificaciones estilizadas
+function showNotification(type, title, message) {
+    // Remover notificaciones existentes
+    const existingNotifications = document.querySelectorAll('.notification');
+    existingNotifications.forEach(notification => notification.remove());
+    
+    // Crear la notificación
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    
+    // Iconos según el tipo
+    const icons = {
+        success: '✅',
+        error: '❌',
+        info: 'ℹ️'
+    };
+    
+    notification.innerHTML = `
+        <span class="notification-icon">${icons[type] || 'ℹ️'}</span>
+        <div class="notification-content">
+            <div class="notification-title">${title}</div>
+            <div class="notification-message">${message}</div>
+        </div>
+        <button class="notification-close" onclick="this.parentElement.remove()" aria-label="Cerrar notificación">×</button>
+    `;
+    
+    // Agregar al DOM
+    document.body.appendChild(notification);
+    
+    // Efecto de pulso para notificaciones de éxito
+    if (type === 'success') {
+        setTimeout(() => {
+            notification.classList.add('pulse');
+        }, 100);
+    }
+    
+    // Auto-remover después de 5 segundos
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.style.animation = 'slideUp 0.3s ease-out';
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 300);
+        }
+    }, 5000);
+    
+    // Agregar evento de click para cerrar
+    notification.addEventListener('click', (e) => {
+        if (e.target.classList.contains('notification-close') || e.target === notification) {
+            notification.style.animation = 'slideUp 0.3s ease-out';
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 300);
+        }
+    });
+}
 </script>
 
 <?php include __DIR__ . "/../partials/footer.php"; ?>

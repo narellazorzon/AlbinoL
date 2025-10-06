@@ -1,0 +1,13 @@
+{
+    "name": "albino-luis-zorzon/website",
+    "description": "Sitio web de Albino Luis Zorzon e hijos",
+    "type": "project",
+    "require": {
+        "phpmailer/phpmailer": "^6.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
