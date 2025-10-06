@@ -11,9 +11,9 @@ define('DB_USER', 'root');
 define('DB_PASS', '');
 
 // Configuración del sitio
-// SITE_NAME definido en email-config.php
+define('SITE_NAME', 'Albino Luis Zorzon e hijos');
 define('SITE_URL', 'http://localhost/AlbinoL');
-// SITE_EMAIL definido en email-config.php
+define('SITE_EMAIL', 'alzorzon@gmail.com');
 
 // Configuración de ubicación
 define('SITE_ADDRESS', 'Zona Rural La Lola');

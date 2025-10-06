@@ -53,16 +53,6 @@ include __DIR__ . "/../partials/header.php";
         <li>Conservación del suelo</li>
       </ul>
     </div>
-    <div class="card">
-      <span class="card-icon">🏥</span>
-      <h3>Sanidad Animal</h3>
-      <p>Programa integral de salud animal con vacunaciones y controles veterinarios.</p>
-      <ul style="text-align: left; margin-top: 1rem;">
-        <li>Vacunaciones programadas</li>
-        <li>Control veterinario</li>
-        <li>Prevención de enfermedades</li>
-      </ul>
-    </div>
   </div>
 </section>
 
