@@ -111,8 +111,8 @@ include __DIR__ . "/../partials/header.php";
             <option value="">Seleccione un asunto</option>
             <option value="agricultura">Consulta sobre Agricultura</option>
             <option value="ganaderia">Consulta sobre Ganadería</option>
-            <option value="trabajo">Oportunidades Laborales</option>
             <option value="general">Consulta General</option>
+            <option value="trabajo">Oportunidades Laborales</option>
           </select>
           <div id="asunto-error" class="form-error" role="alert" aria-live="polite"></div>
         </div>
