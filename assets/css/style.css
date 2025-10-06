@@ -846,11 +846,50 @@ footer {
   }
   
   .hero {
-    padding: 2rem 1rem;
+    padding: 1rem 0.8rem !important;
   }
   
   .hero h1 {
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
+  }
+  
+  .hero p {
+    font-size: 0.9rem !important;
+  }
+  
+  /* Optimizaciones adicionales para formulario en pantallas muy pequeñas */
+  .form-group {
+    margin-bottom: 0.6rem !important;
+  }
+  
+  .form-input,
+  .form-select,
+  .form-textarea {
+    padding: 0.6rem;
+    font-size: 16px;
+  }
+  
+  .form-textarea {
+    min-height: 80px;
+    rows: 3;
+  }
+  
+  .form-actions {
+    margin-top: 0.8rem !important;
+  }
+  
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  section {
+    padding: 0.8rem !important;
+  }
+  
+  /* Reducir padding del formulario */
+  form {
+    padding: 1rem !important;
   }
 }
 
@@ -1133,16 +1172,52 @@ footer {
   .form-select,
   .form-textarea {
     font-size: 16px; /* Evita zoom en iOS */
+    padding: 0.7rem;
+  }
+  
+  .form-group {
+    margin-bottom: 0.8rem !important;
+  }
+  
+  .form-textarea {
+    min-height: 100px;
+  }
+  
+  .form-actions {
+    margin-top: 1rem !important;
   }
   
   .btn {
     width: 100%;
     justify-content: center;
     margin-bottom: 0.5rem;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.95rem;
   }
   
   .btn + .btn {
     margin-left: 0;
+  }
+  
+  .form-help {
+    font-size: 0.8rem;
+  }
+  
+  /* Optimizaciones para hero y secciones */
+  .hero {
+    padding: 1.5rem 1rem !important;
+  }
+  
+  .hero h1 {
+    font-size: 1.8rem !important;
+  }
+  
+  .hero p {
+    font-size: 0.95rem !important;
+  }
+  
+  section {
+    padding: 1rem !important;
   }
   
   /* Tarjetas responsivas */

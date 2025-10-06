@@ -14,8 +14,6 @@ define('DB_PASS', '');
 define('SITE_NAME', 'Albino Luis Zorzon e hijos');
 define('SITE_URL', 'http://localhost/AlbinoL');
 define('SITE_EMAIL', 'alzorzon@gmail.com');
-define('SITE_PHONE', '+54 9 11 1234-5678');
-define('SITE_WHATSAPP', '+54 9 11 1234-5678');
 
 // Configuración de ubicación
 define('SITE_ADDRESS', 'Zona Rural La Lola');

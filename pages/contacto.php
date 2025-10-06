@@ -7,7 +7,7 @@ include __DIR__ . "/../partials/header.php";
 ?>
 
 <!-- Hero Section -->
-<div class="hero fade-in-up">
+<div class="hero fade-in-up" style="padding: 1.5rem 1rem;">
   <h1>📞 Contacto</h1>
   <p>Envíanos un mensaje y te contactaremos pronto</p>
 </div>
@@ -26,14 +26,14 @@ include __DIR__ . "/../partials/header.php";
 <?php endif; ?>
 
 <!-- Formulario de Contacto -->
-<section class="fade-in-up">
+<section class="fade-in-up" style="padding: 1rem;">
   <h2>Envíanos un Mensaje</h2>
   <div style="max-width: 600px; margin: 0 auto;">
     <form id="contact-form"
           novalidate
           role="form"
           aria-labelledby="form-title"
-          style="background: var(--cream-white); padding: 2rem; border-radius: 15px; box-shadow: var(--shadow);">
+          style="background: var(--cream-white); padding: 1.5rem; border-radius: 15px; box-shadow: var(--shadow);">
       
       <!-- Título oculto para lectores de pantalla -->
       <h3 id="form-title" class="sr-only">Formulario de contacto</h3>
@@ -47,7 +47,7 @@ include __DIR__ . "/../partials/header.php";
       <fieldset style="border: none; margin: 0; padding: 0;">
         <legend class="sr-only">Información personal</legend>
         
-        <div class="form-group" style="margin-bottom: 1.5rem;">
+        <div class="form-group" style="margin-bottom: 1rem;">
           <label for="nombre" class="form-label">
             Nombre Completo <span class="required" aria-label="requerido">*</span>
           </label>
@@ -64,7 +64,7 @@ include __DIR__ . "/../partials/header.php";
           <div id="nombre-error" class="form-error" role="alert" aria-live="polite"></div>
         </div>
         
-        <div class="form-group" style="margin-bottom: 1.5rem;">
+        <div class="form-group" style="margin-bottom: 1rem;">
           <label for="email" class="form-label">
             Correo Electrónico <span class="required" aria-label="requerido">*</span>
           </label>
@@ -81,7 +81,7 @@ include __DIR__ . "/../partials/header.php";
           <div id="email-error" class="form-error" role="alert" aria-live="polite"></div>
         </div>
         
-        <div class="form-group" style="margin-bottom: 1.5rem;">
+        <div class="form-group" style="margin-bottom: 1rem;">
           <label for="telefono" class="form-label">
             Teléfono
           </label>
@@ -91,7 +91,7 @@ include __DIR__ . "/../partials/header.php";
                  aria-describedby="telefono-help telefono-error"
                  autocomplete="tel"
                  class="form-input"
-                 placeholder="+54 9 11 1234-5678">
+                 placeholder="Ingrese su teléfono (opcional)">
           <div id="telefono-help" class="form-help">Ingrese su número de teléfono (opcional)</div>
           <div id="telefono-error" class="form-error" role="alert" aria-live="polite"></div>
         </div>
@@ -101,7 +101,7 @@ include __DIR__ . "/../partials/header.php";
       <fieldset style="border: none; margin: 0; padding: 0;">
         <legend class="sr-only">Información de la consulta</legend>
         
-        <div class="form-group" style="margin-bottom: 1.5rem;">
+        <div class="form-group" style="margin-bottom: 1rem;">
           <label for="asunto" class="form-label">
             Asunto de la Consulta <span class="required" aria-label="requerido">*</span>
           </label>
@@ -123,13 +123,13 @@ include __DIR__ . "/../partials/header.php";
           <div id="asunto-error" class="form-error" role="alert" aria-live="polite"></div>
         </div>
         
-        <div class="form-group" style="margin-bottom: 1.5rem;">
+        <div class="form-group" style="margin-bottom: 1rem;">
           <label for="mensaje" class="form-label">
             Mensaje <span class="required" aria-label="requerido">*</span>
           </label>
           <textarea id="mensaje" 
                     name="mensaje" 
-                    rows="5" 
+                    rows="4" 
                     required 
                     aria-required="true"
                     aria-describedby="mensaje-error mensaje-help"
@@ -141,7 +141,7 @@ include __DIR__ . "/../partials/header.php";
       </fieldset>
       
       <!-- Grupo de botones -->
-      <div class="form-actions" style="text-align: center; margin-top: 2rem;">
+      <div class="form-actions" style="text-align: center; margin-top: 1.5rem;">
         <button type="submit" 
                 class="btn btn-primary"
                 aria-describedby="submit-help">
@@ -171,23 +171,23 @@ include __DIR__ . "/../partials/header.php";
 </section>
 
 <!-- Trabajo con Nosotros -->
-<section class="fade-in-up" style="background: linear-gradient(135deg, var(--warm-beige) 0%, var(--cream-white) 100%); padding: 2rem; border-radius: 15px; margin: 2rem 0; box-shadow: var(--shadow);">
+<section class="fade-in-up" style="background: linear-gradient(135deg, var(--warm-beige) 0%, var(--cream-white) 100%); padding: 1.5rem; border-radius: 15px; margin: 1.5rem 0; box-shadow: var(--shadow);">
   <h2>💼 Trabajo con Nosotros</h2>
   <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-    <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-dark);">
-      ¿Te interesa formar parte de nuestro equipo familiar? En <strong>Albino Luis Zorzon e Hijos S.H.</strong> valoramos el trabajo en equipo, la pasión por el campo y el compromiso con la excelencia.
+    <p style="font-size: 1rem; margin-bottom: 1rem; color: var(--text-dark);">
+      ¿Te interesa formar parte de nuestro equipo familiar? En <strong>Albino Luis Zorzon e Hijos</strong> valoramos el trabajo en equipo, la pasión por el campo y el compromiso con la excelencia.
     </p>
     
-    <div style="background: rgba(255, 255, 255, 0.8); padding: 1.5rem; border-radius: 10px; margin: 1.5rem 0;">
-      <h3 style="color: var(--primary-green); margin-bottom: 1rem;">📧 Envía tu CV</h3>
-      <p style="margin-bottom: 1rem;">
+    <div style="background: rgba(255, 255, 255, 0.8); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
+      <h3 style="color: var(--primary-green); margin-bottom: 0.8rem;">📧 Envía tu CV</h3>
+      <p style="margin-bottom: 0.8rem;">
         Si querés trabajar con nosotros, enviá tu <strong>Currículum Vitae</strong> a:
       </p>
       <a href="mailto:<?= SITE_EMAIL ?>?subject=Postulación Laboral - CV" 
-         style="display: inline-block; background: var(--primary-green); color: white; padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(45, 80, 22, 0.3);">
+         style="display: inline-block; background: var(--primary-green); color: white; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(45, 80, 22, 0.3);">
         📧 <?= SITE_EMAIL ?>
       </a>
-      <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+      <p style="margin-top: 0.8rem; font-size: 0.85rem; color: #666;">
         Asunto sugerido: "Postulación Laboral - CV"
       </p>
     </div>
@@ -219,11 +219,7 @@ include __DIR__ . "/../partials/header.php";
   <h2>¿Listo para Contactarnos?</h2>
   <p>No dudes en contactarnos. Estamos aquí para ayudarte con todas tus necesidades agropecuarias.</p>
   <div style="margin-top: 2rem;">
-    <a href="tel:<?= SITE_PHONE ?>" class="btn">Llamar Ahora</a>
-    <a href="https://wa.me/<?= str_replace(['+', ' ', '-'], '', SITE_WHATSAPP) ?>" 
-       target="_blank" 
-       class="btn btn-secondary" 
-       style="margin-left: 1rem;">WhatsApp</a>
+    <a href="mailto:<?= SITE_EMAIL ?>" class="btn">Enviar Email</a>
     <a href="../index.php" class="btn btn-secondary" style="margin-left: 1rem;">Volver al inicio</a>
   </div>
 </section>

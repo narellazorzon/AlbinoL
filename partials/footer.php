@@ -25,12 +25,10 @@ $basePath = $isInPages ? '../' : '';
       <?= SITE_COUNTRY ?></p>
     </div>
     
-    <div class="footer-section">
-      <h3>📞 Contacto</h3>
-      <p>Tel: <?= SITE_PHONE ?><br>
-      Email: <?= SITE_EMAIL ?><br>
-      WhatsApp: <?= SITE_WHATSAPP ?></p>
-    </div>
+        <div class="footer-section">
+          <h3>📧 Contacto</h3>
+          <p>Email: <?= SITE_EMAIL ?></p>
+        </div>
     
     <div class="footer-section">
       <h3>🔗 Enlaces</h3>
@@ -43,7 +41,7 @@ $basePath = $isInPages ? '../' : '';
   </div>
   
   <div class="footer-bottom">
-    <p>© <?= date('Y') ?> <?= SITE_NAME ?> — Todos los derechos reservados. | Desarrollado con ❤️ para el campo argentino</p>
+    <p>© <?= date('Y') ?> <?= SITE_NAME ?> — Todos los derechos reservados.</p>
   </div>
 </footer>
 <script src="<?= $basePath ?>assets/js/app.js"></script>
