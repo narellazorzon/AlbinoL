@@ -6,6 +6,7 @@ $desc = "Contactanos para conocer más sobre nuestros servicios agropecuarios. E
 include __DIR__ . "/../partials/header.php";
 ?>
 
+
 <!-- Hero Section -->
 <div class="hero fade-in-up">
   <video autoplay muted loop playsinline>
@@ -14,7 +15,7 @@ include __DIR__ . "/../partials/header.php";
     Tu navegador no soporta videos HTML5.
   </video>
   <div class="hero-content">
-    <h1>📞 Contacto</h1>
+    <h1>Contacto</h1>
     <p>Envíanos un mensaje y te contactaremos pronto</p>
   </div>
 </div>
@@ -185,9 +186,8 @@ include __DIR__ . "/../partials/header.php";
 <!-- CTA -->
 <section class="fade-in-up" style="text-align: center;">
   <h2>¿Listo para Contactarnos?</h2>
-  <p>No dudes en contactarnos. Estamos aquí para ayudarte con todas tus necesidades agropecuarias.</p>
   <div style="margin-top: 2rem;">
-    <a href="mailto:<?= SITE_EMAIL ?>" class="btn">Enviar Email</a>
+    <a href="#contact-form" class="btn">Envíanos un mensaje</a>
     <a href="../index.php" class="btn btn-secondary" style="margin-left: 1rem;">Volver al inicio</a>
   </div>
 </section>

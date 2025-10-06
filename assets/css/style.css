@@ -27,7 +27,7 @@ body {
   font-family: 'Lato', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.6;
   color: var(--text-dark);
-  background: linear-gradient(135deg, var(--warm-beige) 0%, var(--cream-white) 100%);
+  background: var(--warm-beige);
   min-height: 100vh;
   font-weight: 400;
   letter-spacing: 0.01em;
