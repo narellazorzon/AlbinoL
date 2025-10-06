@@ -11,9 +11,9 @@ define('DB_USER', 'root');
 define('DB_PASS', '');
 
 // Configuración del sitio
-define('SITE_NAME', 'Albino Luis Zorzon e hijos');
+// SITE_NAME definido en email-config.php
 define('SITE_URL', 'http://localhost/AlbinoL');
-define('SITE_EMAIL', 'alzorzon@gmail.com');
+// SITE_EMAIL definido en email-config.php
 
 // Configuración de ubicación
 define('SITE_ADDRESS', 'Zona Rural La Lola');
@@ -29,11 +29,7 @@ define('PARTIALS_PATH', __DIR__ . '/partials/');
 define('SALT', 'albinoluis2024_salt_secure');
 define('SESSION_TIMEOUT', 3600); // 1 hora
 
-// Configuración de email
-define('SMTP_HOST', 'smtp.gmail.com');
-define('SMTP_PORT', 587);
-define('SMTP_USER', 'alzorzon@gmail.com');
-define('SMTP_PASS', '');
+// Configuración de email (movida a email-config.php)
 
 // Configuración de cache
 define('CACHE_ENABLED', true);

@@ -70,11 +70,160 @@ function guardarMensajeEnArchivo($nombre, $email, $telefono, $asunto, $mensaje) 
     return $filename;
 }
 
-// Función para enviar email (versión simplificada)
+// Función para enviar email usando PHPMailer
 function enviarEmailSimple($nombre, $email, $telefono, $asunto, $mensaje) {
-    // Por ahora, solo retornamos éxito para evitar errores
-    // El mensaje ya se guarda en archivo como backup
-    return ['success' => true, 'message' => 'Mensaje guardado correctamente'];
+    try {
+        // Incluir configuración de email
+        require_once __DIR__ . '/email-config.php';
+        
+        // Verificar configuración
+        $errores = verificarConfiguracionEmail();
+        if (!empty($errores)) {
+            error_log('Configuración de email incompleta: ' . implode(', ', $errores));
+            return ['success' => false, 'message' => 'Configuración de email incompleta. Contacta al administrador.'];
+        }
+        
+        // Incluir PHPMailer
+        require_once __DIR__ . '/../PHPMailer-master/src/Exception.php';
+        require_once __DIR__ . '/../PHPMailer-master/src/PHPMailer.php';
+        require_once __DIR__ . '/../PHPMailer-master/src/SMTP.php';
+        
+        $mail = new PHPMailer\PHPMailer\PHPMailer(true);
+        
+        // Configuración del servidor SMTP
+        $mail->isSMTP();
+        $mail->Host = SMTP_HOST;
+        $mail->SMTPAuth = true;
+        $mail->Username = SMTP_USER;
+        $mail->Password = SMTP_PASS;
+        $mail->SMTPSecure = SMTP_SECURE;
+        $mail->Port = SMTP_PORT;
+        $mail->CharSet = 'UTF-8';
+        $mail->SMTPDebug = SMTP_DEBUG ? 2 : 0;
+        
+        // Configuración SSL para desarrollo (XAMPP)
+        $mail->SMTPOptions = array(
+            'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            )
+        );
+        
+        // Configurar remitente y destinatario
+        $mail->setFrom(SMTP_USER, SITE_NAME);
+        $mail->addAddress(SITE_EMAIL, 'Albino Luis Zorzon');
+        $mail->addReplyTo($email, $nombre);
+        
+        // Configurar el contenido del email
+        $mail->isHTML(true);
+        $mail->Subject = 'Nuevo mensaje de contacto: ' . $asunto;
+        
+        // Crear el cuerpo del email
+        $cuerpoEmail = "
+        <html>
+        <head>
+            <style>
+                body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+                .header { background: #2d5016; color: white; padding: 20px; text-align: center; }
+                .content { padding: 20px; background: #f9f9f9; }
+                .field { margin-bottom: 15px; }
+                .label { font-weight: bold; color: #2d5016; }
+                .value { margin-left: 10px; }
+                .footer { background: #4a6b2a; color: white; padding: 15px; text-align: center; font-size: 12px; }
+            </style>
+        </head>
+        <body>
+            <div class='header'>
+                <h2>🌾 Nuevo Mensaje de Contacto</h2>
+                <p>Albino Luis Zorzon e hijos</p>
+            </div>
+            
+            <div class='content'>
+                <div class='field'>
+                    <span class='label'>👤 Nombre:</span>
+                    <span class='value'>" . htmlspecialchars($nombre) . "</span>
+                </div>
+                
+                <div class='field'>
+                    <span class='label'>📧 Email:</span>
+                    <span class='value'>" . htmlspecialchars($email) . "</span>
+                </div>";
+        
+        if (!empty($telefono)) {
+            $cuerpoEmail .= "
+                <div class='field'>
+                    <span class='label'>📞 Teléfono:</span>
+                    <span class='value'>" . htmlspecialchars($telefono) . "</span>
+                </div>";
+        }
+        
+        $cuerpoEmail .= "
+                <div class='field'>
+                    <span class='label'>📋 Asunto:</span>
+                    <span class='value'>" . htmlspecialchars($asunto) . "</span>
+                </div>
+                
+                <div class='field'>
+                    <span class='label'>💬 Mensaje:</span>
+                    <div class='value' style='background: white; padding: 15px; border-left: 4px solid #2d5016; margin-top: 10px;'>
+                        " . nl2br(htmlspecialchars($mensaje)) . "
+                    </div>
+                </div>
+                
+                <div class='field'>
+                    <span class='label'>🕒 Fecha:</span>
+                    <span class='value'>" . date('d/m/Y H:i:s') . "</span>
+                </div>
+                
+                <div class='field'>
+                    <span class='label'>🌐 IP:</span>
+                    <span class='value'>" . ($_SERVER['REMOTE_ADDR'] ?? 'No disponible') . "</span>
+                </div>
+            </div>
+            
+            <div class='footer'>
+                <p>Este mensaje fue enviado desde el formulario de contacto del sitio web de Albino Luis Zorzon e hijos.</p>
+                <p>Responder directamente a este email para contactar al cliente.</p>
+            </div>
+        </body>
+        </html>";
+        
+        $mail->Body = $cuerpoEmail;
+        
+        // Versión de texto plano
+        $textoPlano = "
+NUEVO MENSAJE DE CONTACTO - ALBINO LUIS ZORZON
+
+Nombre: " . $nombre . "
+Email: " . $email . "
+Teléfono: " . ($telefono ?: 'No proporcionado') . "
+Asunto: " . $asunto . "
+
+Mensaje:
+" . $mensaje . "
+
+Fecha: " . date('d/m/Y H:i:s') . "
+IP: " . ($_SERVER['REMOTE_ADDR'] ?? 'No disponible') . "
+
+---
+Este mensaje fue enviado desde el formulario de contacto del sitio web.
+        ";
+        
+        $mail->AltBody = $textoPlano;
+        
+        // Enviar el email
+        $mail->send();
+        
+        return ['success' => true, 'message' => 'Mensaje enviado correctamente. Te contactaremos pronto.'];
+        
+    } catch (Exception $e) {
+        // Log del error
+        error_log('Error al enviar email: ' . $e->getMessage());
+        
+        // Retornar error pero no fallar completamente
+        return ['success' => false, 'message' => 'Error al enviar email: ' . $e->getMessage()];
+    }
 }
 
 // Verificar método de solicitud
