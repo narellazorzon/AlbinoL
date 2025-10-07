@@ -9,7 +9,7 @@ include __DIR__ . "/../partials/header.php";
 <!-- Hero Section -->
 <div class="hero fade-in-up">
   <video autoplay muted loop playsinline>
-    <source src="../assets/videos/compilado_agricultura.mp4" type="video/mp4">
+    <source src="../assets/videos/videos_agronomia.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     Tu navegador no soporta videos HTML5.
   </video>
@@ -77,7 +77,7 @@ include __DIR__ . "/../partials/header.php";
 
     <div class="crop-card">
       <div class="crop-card-header">
-        <span class="crop-icon">🧵</span>
+        <span class="crop-icon"></span>
         <h4>Algodón</h4>
       </div>
       <p>Producción de fibra larga y calidad premium con técnicas modernas.</p>
@@ -114,24 +114,31 @@ include __DIR__ . "/../partials/header.php";
 
 <!-- Estadísticas Agrícolas -->
 <div class="stats fade-in-up">
-  <h2>Nuestros Números Agrícolas</h2>
-  <div class="stats-grid">
+  <video autoplay muted loop playsinline style="transform: scale(1.3 );" playbackRate="1.3">
+    <source src="../assets/videos/nuestros_numeros_agricolas.MP4" type="video/mp4">
+    <!-- Fallback para navegadores que no soportan video -->
+    Tu navegador no soporta videos HTML5.
+  </video>
+  <div class="stats-content">
+    <h2>Nuestros Números Agrícolas</h2>
+    <div class="stats-grid">
     <div class="stat-item">
-      <span class="stat-number">500+</span>
+      <span class="stat-number">8000+</span>
       <span class="stat-label">Hectáreas Cultivadas</span>
     </div>
     <div class="stat-item">
-      <span class="stat-number">4</span>
+      <span class="stat-number">5</span>
       <span class="stat-label">Cultivos Principales</span>
     </div>
     <div class="stat-item">
-      <span class="stat-number">100%</span>
+      <span class="stat-number">50%</span>
       <span class="stat-label">Siembra Directa</span>
     </div>
     <div class="stat-item">
-      <span class="stat-number">50+</span>
-      <span class="stat-label">Años de Experiencia</span>
+      <span class="stat-number">50%</span>
+      <span class="stat-label">Siembra Convencional</span>
     </div>
+  </div>
   </div>
 </div>
 

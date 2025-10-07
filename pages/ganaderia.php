@@ -9,7 +9,7 @@ include __DIR__ . "/../partials/header.php";
 <!-- Hero Section -->
 <div class="hero fade-in-up">
   <video autoplay muted loop playsinline>
-    <source src="../assets/videos/recopilacion_ganaderia.mp4" type="video/mp4">
+    <source src="../assets/videos/recopilacion_ganaderia.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     Tu navegador no soporta videos HTML5.
   </video>
@@ -60,7 +60,12 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up">
   <h2>Razas que Trabajamos</h2>
   <div class="cards-grid">
-    <div class="card">
+  <div class="card">
+      <span class="card-icon">🐃</span>
+      <h3>Brangus</h3>
+      <p>Híbrido entre Angus y Brahman, combina calidad de carne con resistencia al calor.</p>
+    </div>
+  <div class="card">
       <span class="card-icon">🐄</span>
       <h3>Angus</h3>
       <p>Raza británica conocida por su excelente calidad de carne y adaptabilidad al clima.</p>
@@ -70,11 +75,7 @@ include __DIR__ . "/../partials/header.php";
       <h3>Braford</h3>
       <p>Híbrido entre Brahman y Hereford, combina resistencia al calor con buena calidad de carne.</p>
     </div>
-    <div class="card">
-      <span class="card-icon">🐃</span>
-      <h3>Brangus</h3>
-      <p>Híbrido entre Angus y Brahman, combina calidad de carne con resistencia al calor.</p>
-    </div>
+
   </div>
 </section>
 
@@ -83,7 +84,7 @@ include __DIR__ . "/../partials/header.php";
   <h2>Nuestros Números Ganaderos</h2>
   <div class="stats-grid">
     <div class="stat-item">
-      <span class="stat-number">800+</span>
+      <span class="stat-number">3000+</span>
       <span class="stat-label">Cabezas de Ganado</span>
     </div>
     <div class="stat-item">
@@ -95,7 +96,7 @@ include __DIR__ . "/../partials/header.php";
       <span class="stat-label">Trazabilidad</span>
     </div>
     <div class="stat-item">
-      <span class="stat-number">365</span>
+      <span class="stat-number">3204+</span>
       <span class="stat-label">Días de Cuidado</span>
     </div>
   </div>

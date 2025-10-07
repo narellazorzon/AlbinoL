@@ -19,7 +19,7 @@
   --text-light: #ffffff;
   --shadow: 0 4px 6px rgba(45, 80, 22, 0.15);
   --shadow-hover: 0 8px 15px rgba(45, 80, 22, 0.25);
-  --gradient-primary: linear-gradient(135deg, #2d5016 0%, #4a6b2a 100%);
+  --gradient-primary: linear-gradient(110deg, #2d5016 0%, #4a6b2a 100%);
   --gradient-warm: linear-gradient(135deg, #8b7355 0%, #a8b88a 100%);
 }
 
@@ -258,7 +258,7 @@ main {
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  background: linear-gradient(rgba(45, 80, 22, 0.85), rgba(74, 107, 42, 0.85));
+  background: linear-gradient(rgba(45, 80, 22, 0.1), rgba(74, 107, 42, 0.1));
 }
 
 .hero .hero-content {
