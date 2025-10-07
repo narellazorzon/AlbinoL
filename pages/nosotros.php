@@ -26,34 +26,36 @@ include __DIR__ . "/../partials/header.php";
   
   <p>Con el paso del tiempo, fuimos creciendo y expandiéndonos, siempre manteniendo la esencia que nos caracteriza: <strong>trabajo en familia, responsabilidad con la tierra y pasión por la producción agropecuaria</strong>.</p>
   
-  <!-- Carrusel de imágenes históricas -->
-  <div class="carousel-container" style="margin: 2rem 0; position: relative; padding: 1rem 0;">
-    <div class="carousel-wrapper" style="overflow-x: auto; overflow-y: hidden; scroll-behavior: smooth; padding: 10px 0; scrollbar-width: thin; scrollbar-color: var(--primary-color) transparent;">
-      <div class="carousel-track" style="display: flex; gap: 1rem; padding: 0 1rem; min-width: max-content;">
-        <div class="carousel-item" onclick="openModal('../assets/images/imagenes_albino_page-0002.jpg', 'Historia familiar Albino Luis Zorzon')" style="cursor: pointer; flex-shrink: 0; width: 250px; height: 180px;">
-          <img src="../assets/images/imagenes_albino_page-0002.jpg" alt="Historia familiar Albino Luis Zorzon" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+  <!-- Galería de imágenes históricas -->
+  <div class="gallery-container" style="margin: 2rem 0; position: relative;">
+    <div class="gallery-wrapper" style="overflow-x: auto; overflow-y: hidden; scroll-behavior: smooth; padding: 15px 0; scrollbar-width: thin; scrollbar-color: var(--primary-color) transparent;">
+      <div class="gallery-track" style="display: flex; gap: 1.5rem; padding: 0 2rem; min-width: max-content; align-items: center;">
+        <div class="gallery-item" onclick="openModal('../assets/images/imagenes_albino_page-0002.jpg', 'Historia familiar Albino Luis Zorzon')" style="cursor: pointer; flex-shrink: 0; width: 280px; height: 200px; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+          <img src="../assets/images/imagenes_albino_page-0002.jpg" alt="Historia familiar Albino Luis Zorzon" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <div class="gallery-label" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; padding: 15px; font-size: 14px; font-weight: 500; opacity: 0; transform: translateY(100%); transition: all 0.3s ease;">Campo La Lola, Santa Fe</div>
         </div>
-        <div class="carousel-item" onclick="openModal('../assets/images/imagenes_albino_page-0004.jpg', 'Tradición familiar en la producción agropecuaria')" style="cursor: pointer; flex-shrink: 0; width: 250px; height: 180px;">
-          <img src="../assets/images/imagenes_albino_page-0004.jpg" alt="Tradición familiar en la producción agropecuaria" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div class="gallery-item" onclick="openModal('../assets/images/imagenes_albino_page-0004.jpg', 'Tabaco y producción agropecuaria')" style="cursor: pointer; flex-shrink: 0; width: 280px; height: 200px; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+          <img src="../assets/images/imagenes_albino_page-0004.jpg" alt="Cosecha de tabaco y producción agropecuaria" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <div class="gallery-label" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; padding: 15px; font-size: 14px; font-weight: 500; opacity: 0; transform: translateY(100%); transition: all 0.3s ease;">Cosecha de tabaco</div>
         </div>
-        <div class="carousel-item" onclick="openModal('../assets/images/imagenes_albino_page-0007.jpg', 'Actividades de la empresa familiar')" style="cursor: pointer; flex-shrink: 0; width: 250px; height: 180px;">
-          <img src="../assets/images/imagenes_albino_page-0007.jpg" alt="Actividades de la empresa familiar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div class="gallery-item" onclick="openModal('../assets/images/imagenes_albino_page-0008.jpg', 'Producción agropecuaria familiar')" style="cursor: pointer; flex-shrink: 0; width: 280px; height: 200px; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+          <img src="../assets/images/imagenes_albino_page-0008.jpg" alt="Producción agropecuaria familiar" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <div class="gallery-label" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; padding: 15px; font-size: 14px; font-weight: 500; opacity: 0; transform: translateY(100%); transition: all 0.3s ease;">Campo familiar</div>
         </div>
-        <div class="carousel-item" onclick="openModal('../assets/images/imagenes_albino_page-0008.jpg', 'Producción agropecuaria familiar')" style="cursor: pointer; flex-shrink: 0; width: 250px; height: 180px;">
-          <img src="../assets/images/imagenes_albino_page-0008.jpg" alt="Producción agropecuaria familiar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div class="gallery-item" onclick="openModal('../assets/images/imagenes_albino_page-0009.jpg', 'Tradición en el campo')" style="cursor: pointer; flex-shrink: 0; width: 280px; height: 200px; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+          <img src="../assets/images/imagenes_albino_page-0009.jpg" alt="Tradición en el campo" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <div class="gallery-label" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; padding: 15px; font-size: 14px; font-weight: 500; opacity: 0; transform: translateY(100%); transition: all 0.3s ease;">Tradición y modernidad</div>
         </div>
-        <div class="carousel-item" onclick="openModal('../assets/images/imagenes_albino_page-0009.jpg', 'Tradición y modernidad en el campo')" style="cursor: pointer; flex-shrink: 0; width: 250px; height: 180px;">
-          <img src="../assets/images/imagenes_albino_page-0009.jpg" alt="Tradición y modernidad en el campo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-        </div>
-        <div class="carousel-item" onclick="openModal('../assets/images/imagenes_albino_page-0010.jpg', 'Compromiso con la tierra y la familia')" style="cursor: pointer; flex-shrink: 0; width: 250px; height: 180px;">
-          <img src="../assets/images/imagenes_albino_page-0010.jpg" alt="Compromiso con la tierra y la familia" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; box-shadow: var(--shadow); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div class="gallery-item" onclick="openModal('../assets/images/imagenes_albino_page-0010.jpg', 'Compromiso con la tierra y la familia')" style="cursor: pointer; flex-shrink: 0; width: 280px; height: 200px; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+          <img src="../assets/images/imagenes_albino_page-0010.jpg" alt="Compromiso con la tierra y la familia" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <div class="gallery-label" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; padding: 15px; font-size: 14px; font-weight: 500; opacity: 0; transform: translateY(100%); transition: all 0.3s ease;">Compromiso familiar</div>
         </div>
       </div>
     </div>
     
-    <!-- Indicadores de scroll -->
-    <div style="text-align: center; margin-top: 1rem; color: var(--text-light); font-size: 14px;">
-      <span>← Desliza para ver más imágenes →</span>
+    <!-- Indicadores de scroll mejorados -->
+    <div style="text-align: center; margin-top: 1.5rem; color: var(--text-light); font-size: 14px;">
+      <span style="background: var(--primary-color); color: white; padding: 8px 16px; border-radius: 20px; font-weight: 500;">← Desliza para ver más imágenes →</span>
     </div>
   </div>
 
@@ -67,52 +69,83 @@ include __DIR__ . "/../partials/header.php";
   </div>
 
   <style>
-    /* Estilos para el carrusel */
-    .carousel-wrapper::-webkit-scrollbar {
+    /* Estilos para la galería mejorada */
+    .gallery-wrapper::-webkit-scrollbar {
       height: 8px;
     }
     
-    .carousel-wrapper::-webkit-scrollbar-track {
+    .gallery-wrapper::-webkit-scrollbar-track {
       background: rgba(0,0,0,0.1);
       border-radius: 4px;
     }
     
-    .carousel-wrapper::-webkit-scrollbar-thumb {
+    .gallery-wrapper::-webkit-scrollbar-thumb {
       background: var(--primary-color);
       border-radius: 4px;
     }
     
-    .carousel-wrapper::-webkit-scrollbar-thumb:hover {
+    .gallery-wrapper::-webkit-scrollbar-thumb:hover {
       background: var(--primary-dark);
     }
     
     /* Efecto de desvanecimiento en los bordes */
-    .carousel-container::before,
-    .carousel-container::after {
+    .gallery-container::before,
+    .gallery-container::after {
       content: '';
       position: absolute;
       top: 0;
       bottom: 0;
-      width: 30px;
+      width: 40px;
       pointer-events: none;
       z-index: 1;
     }
     
-    .carousel-container::before {
+    .gallery-container::before {
       left: 0;
       background: linear-gradient(to right, var(--bg-color), transparent);
     }
     
-    .carousel-container::after {
+    .gallery-container::after {
       right: 0;
       background: linear-gradient(to left, var(--bg-color), transparent);
     }
     
+    /* Efectos hover mejorados */
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2) !important;
+    }
+    
+    /* Etiquetas que aparecen solo en hover */
+    .gallery-item:hover .gallery-label {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    
+    /* Estado por defecto de las etiquetas (invisibles) */
+    .gallery-label {
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.3s ease;
+    }
+    
     /* Responsive para móviles */
     @media (max-width: 768px) {
-      .carousel-item {
+      .gallery-item {
+        width: 240px !important;
+        height: 160px !important;
+      }
+      
+      .gallery-track {
+        gap: 1rem !important;
+        padding: 0 1rem !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .gallery-item {
         width: 200px !important;
-        height: 150px !important;
+        height: 140px !important;
       }
     }
   </style>
