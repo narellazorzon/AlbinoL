@@ -8,7 +8,7 @@ include __DIR__ . "/../partials/header.php";
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
-  <video autoplay muted loop playsinline>
+  <video autoplay muted loop playsinline preload="metadata" poster="../assets/images/logo.png">
     <source src="../assets/videos/nosotros.mp4" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     Tu navegador no soporta videos HTML5.
@@ -228,6 +228,30 @@ include __DIR__ . "/../partials/header.php";
       #imageModal .modal-container {
         padding: 20px 10px 10px 10px !important;
       }
+    }
+    
+    /* Optimización de videos para mejor calidad */
+    video {
+      object-fit: cover;
+      object-position: center;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+    
+    /* Mejoras específicas para videos de fondo */
+    .hero video {
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   </style>
 

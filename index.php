@@ -69,7 +69,7 @@ include __DIR__ . "/partials/header.php";
 <!-- Sobre Nosotros -->
 <section class="fade-in-up">
   <h2>Nuestra Historia</h2>
-  <p><strong>Albino Luis Zorzon e Hijos S.H.</strong> es una empresa familiar con más de cinco décadas de trayectoria en el sector agrícola y ganadero. Nuestros orígenes se remontan a <strong>La Lola, Santa Fe</strong>, donde a comienzos de la década del '70 iniciamos nuestras actividades con esfuerzo, compromiso y una fuerte unión familiar.</p>
+  <p><strong>Albino Luis Zorzon e Hijos S.H.</strong> es una empresa familiar del Norte de Santa Fe con más de cinco décadas de trayectoria en el sector agrícola y ganadero. Nuestros orígenes se remontan a <strong>La Lola, Santa Fe</strong>, donde a comienzos de la década del '70 iniciamos nuestras actividades con esfuerzo, compromiso y una fuerte unión familiar.</p>
   <p>Con el paso del tiempo, fuimos creciendo y expandiéndonos, siempre manteniendo la esencia que nos caracteriza: <strong>trabajo en familia, responsabilidad con la tierra y pasión por la producción agropecuaria</strong>. Hoy, la empresa continúa con la misma visión que nos impulsó desde el inicio, integrando nuevas generaciones y adaptándonos a los desafíos actuales del campo argentino.</p>
   <div style="text-align: center; margin-top: 2rem;">
     <a href="pages/nosotros.php" class="btn btn-secondary">Conocé mas de nosotros</a>
@@ -88,7 +88,7 @@ include __DIR__ . "/partials/header.php";
     <div class="card">
       <span class="card-icon">👨‍👩‍👧‍👦</span>
       <h3>Trabajo Familiar</h3>
-      <p>Valores familiares que se transmiten de generación en generación, creando un ambiente de trabajo único.</p>
+      <p>Valores familiares que se transmiten de generación en generación.</p>
     </div>
     <div class="card">
       <span class="card-icon">🔬</span>

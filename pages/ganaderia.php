@@ -8,7 +8,7 @@ include __DIR__ . "/../partials/header.php";
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
-  <video autoplay muted loop playsinline>
+  <video id="heroVideo" autoplay muted loop playsinline preload="none" poster="../assets/images/logo.png">
     <source src="../assets/videos/recopilacion_ganaderia.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     Tu navegador no soporta videos HTML5.
@@ -88,9 +88,20 @@ include __DIR__ . "/../partials/header.php";
 </section>
 
 <!-- Estadísticas Ganaderas -->
-<div class="stats fade-in-up">
-  <h2>Nuestros Números Ganaderos</h2>
-  <div class="stats-grid">
+<div class="stats fade-in-up" style="position: relative; overflow: hidden;">
+  <!-- Video de fondo para números ganaderos -->
+  <video autoplay muted loop playsinline preload="none" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.6; filter: saturate(0.7) contrast(1.2) brightness(0.9);">
+    <source src="../assets/videos/numeros_ganaderos.MP4" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+  </video>
+  
+  <!-- Overlay para mejorar contraste del texto -->
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(20deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 20%, rgba(0,0,0,0.2) 90%); z-index: 1.5;"></div>
+  
+  <!-- Contenido sobre el video -->
+  <div style="position: relative; z-index: 2;">
+    <h2>Nuestros Números Ganaderos</h2>
+    <div class="stats-grid">
     <div class="stat-item">
       <span class="stat-number">3000+</span>
       <span class="stat-label">Cabezas de Ganado</span>
@@ -106,6 +117,7 @@ include __DIR__ . "/../partials/header.php";
     <div class="stat-item">
       <span class="stat-number">3204+</span>
       <span class="stat-label">Días de Cuidado</span>
+    </div>
     </div>
   </div>
 </div>
@@ -137,6 +149,51 @@ include __DIR__ . "/../partials/header.php";
   </div>
 </section>
 
-
+<script>
+// Carga inteligente del video para mejor rendimiento
+document.addEventListener('DOMContentLoaded', function() {
+  const heroVideo = document.getElementById('heroVideo');
+  if (heroVideo) {
+    // Cargar video solo cuando esté en viewport
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          heroVideo.load();
+          observer.unobserve(heroVideo);
+        }
+      });
+    });
+    observer.observe(heroVideo);
+    
+    // Fallback: cargar después de 1 segundo si no está en viewport
+    setTimeout(() => {
+      if (heroVideo.readyState === 0) {
+        heroVideo.load();
+      }
+    }, 1000);
+  }
+  
+  // Carga inteligente del video de números ganaderos
+  const statsVideo = document.querySelector('.stats video');
+  if (statsVideo) {
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          statsVideo.load();
+          statsObserver.unobserve(statsVideo);
+        }
+      });
+    });
+    statsObserver.observe(statsVideo);
+    
+    // Fallback para el video de estadísticas
+    setTimeout(() => {
+      if (statsVideo.readyState === 0) {
+        statsVideo.load();
+      }
+    }, 2000);
+  }
+});
+</script>
 
 <?php include __DIR__ . "/../partials/footer.php"; ?>

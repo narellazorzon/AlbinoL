@@ -42,6 +42,9 @@ $basePath = $isInPages ? '../' : '';
   
   <div class="footer-bottom">
     <p>© <?= date('Y') ?> <?= SITE_NAME ?> — Todos los derechos reservados.</p>
+    <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-light);">
+      Desarrollado por <strong>Narella Zorzon</strong>
+    </p>
   </div>
 </footer>
 <script src="<?= $basePath ?>assets/js/app.js"></script>

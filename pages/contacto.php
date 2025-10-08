@@ -9,7 +9,7 @@ include __DIR__ . "/../partials/header.php";
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
-  <video autoplay muted loop playsinline>
+  <video id="heroVideo" autoplay muted loop playsinline preload="none" poster="../assets/images/logo.png">
     <source src="../assets/videos/video_contacto.MP4" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     Tu navegador no soporta videos HTML5.
@@ -452,6 +452,30 @@ function showNotification(type, title, message) {
         }
     });
 }
+
+// Carga inteligente del video para mejor rendimiento
+document.addEventListener('DOMContentLoaded', function() {
+  const video = document.getElementById('heroVideo');
+  if (video) {
+    // Cargar video solo cuando esté en viewport
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          video.load();
+          observer.unobserve(video);
+        }
+      });
+    });
+    observer.observe(video);
+    
+    // Fallback: cargar después de 1 segundo si no está en viewport
+    setTimeout(() => {
+      if (video.readyState === 0) {
+        video.load();
+      }
+    }, 1000);
+  }
+});
 </script>
 
 <?php include __DIR__ . "/../partials/footer.php"; ?>
