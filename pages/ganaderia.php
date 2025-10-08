@@ -1,10 +1,13 @@
 <?php
 require_once __DIR__ . '/../includes/config.php';
+require_once __DIR__ . '/../php/ganaderia-functions.php';
 
 $title = "Ganadería - Albino Luis Zorzon";
 $desc = "Cría y engorde de ganado bovino con manejo integral y alimentación balanceada.";
 include __DIR__ . "/../partials/header.php";
 ?>
+
+<link rel="stylesheet" href="../css/ganaderia.css">
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
@@ -26,38 +29,7 @@ include __DIR__ . "/../partials/header.php";
     <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 100px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>Nuestras Actividades Ganaderas</h2>
-  <div class="cards-grid">
-    <div class="card">
-      <span class="card-icon">🐂</span>
-      <h3>Cría de Ganado</h3>
-      <p>Selección y cría de reproductores de alta calidad genética para mejorar la producción.</p>
-      <ul style="text-align: left; margin-top: 1rem;">
-        <li>Selección genética</li>
-        <li>Reproducción controlada</li>
-        <li>Registro genealógico</li>
-      </ul>
-    </div>
-    <div class="card">
-      <span class="card-icon">🌾</span>
-      <h3>Engorde a Corral</h3>
-      <p>Sistema de engorde intensivo con alimentación balanceada y control sanitario.</p>
-      <ul style="text-align: left; margin-top: 1rem;">
-        <li>Alimentación balanceada</li>
-        <li>Control sanitario</li>
-        <li>Manejo del estrés</li>
-      </ul>
-    </div>
-    <div class="card">
-      <span class="card-icon">🌱</span>
-      <h3>Pastoreo Rotativo</h3>
-      <p>Sistema de pastoreo que optimiza el uso del forraje y mantiene la calidad del pasto.</p>
-      <ul style="text-align: left; margin-top: 1rem;">
-        <li>Rotación de potreros</li>
-        <li>Mejora de pasturas</li>
-        <li>Conservación del suelo</li>
-      </ul>
-    </div>
-  </div>
+  <?= generateActivitiesHTML() ?>
 </section>
 
 <!-- Razas -->
@@ -67,24 +39,7 @@ include __DIR__ . "/../partials/header.php";
     <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 80px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>Razas que Trabajamos</h2>
-  <div class="cards-grid">
-  <div class="card">
-      <span class="card-icon">🐃</span>
-      <h3>Brangus</h3>
-      <p>Híbrido entre Angus y Brahman, combina calidad de carne con resistencia al calor.</p>
-    </div>
-  <div class="card">
-      <span class="card-icon">🐄</span>
-      <h3>Angus</h3>
-      <p>Raza británica conocida por su excelente calidad de carne y adaptabilidad al clima.</p>
-    </div>
-    <div class="card">
-      <span class="card-icon">🐂</span>
-      <h3>Braford</h3>
-      <p>Híbrido entre Brahman y Hereford, combina resistencia al calor con buena calidad de carne.</p>
-    </div>
-
-  </div>
+  <?= generateRazasHTML() ?>
 </section>
 
 <!-- Estadísticas Ganaderas -->
@@ -101,24 +56,7 @@ include __DIR__ . "/../partials/header.php";
   <!-- Contenido sobre el video -->
   <div style="position: relative; z-index: 2;">
     <h2>Nuestros Números Ganaderos</h2>
-    <div class="stats-grid">
-    <div class="stat-item">
-      <span class="stat-number">3000+</span>
-      <span class="stat-label">Cabezas de Ganado</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number">3</span>
-      <span class="stat-label">Razas Principales</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number">100%</span>
-      <span class="stat-label">Trazabilidad</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number">3204+</span>
-      <span class="stat-label">Días de Cuidado</span>
-    </div>
-    </div>
+    <?= generateStatsHTML() ?>
   </div>
 </div>
 
@@ -130,70 +68,9 @@ include __DIR__ . "/../partials/header.php";
   </div>
   <h2>Alimentación Balanceada</h2>
   <p>Nuestro programa de alimentación está diseñado para maximizar la eficiencia y calidad de la producción.</p>
-  <div class="cards-grid">
-    <div class="card">
-      <span class="card-icon">🌾</span>
-      <h3>Forrajes Propios</h3>
-      <p>Producción de alfalfa, sorgo y otros forrajes de alta calidad nutricional.</p>
-    </div>
-    <div class="card">
-      <span class="card-icon">🌽</span>
-      <h3>Granos de Calidad</h3>
-      <p>Maíz y soja de nuestra propia producción para alimentación balanceada.</p>
-    </div>
-    <div class="card">
-      <span class="card-icon">🧪</span>
-      <h3>Suplementos</h3>
-      <p>Minerales y vitaminas específicas para cada etapa del desarrollo animal.</p>
-    </div>
-  </div>
+  <?= generateAlimentacionHTML() ?>
 </section>
 
-<script>
-// Carga inteligente del video para mejor rendimiento
-document.addEventListener('DOMContentLoaded', function() {
-  const heroVideo = document.getElementById('heroVideo');
-  if (heroVideo) {
-    // Cargar video solo cuando esté en viewport
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          heroVideo.load();
-          observer.unobserve(heroVideo);
-        }
-      });
-    });
-    observer.observe(heroVideo);
-    
-    // Fallback: cargar después de 1 segundo si no está en viewport
-    setTimeout(() => {
-      if (heroVideo.readyState === 0) {
-        heroVideo.load();
-      }
-    }, 1000);
-  }
-  
-  // Carga inteligente del video de números ganaderos
-  const statsVideo = document.querySelector('.stats video');
-  if (statsVideo) {
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          statsVideo.load();
-          statsObserver.unobserve(statsVideo);
-        }
-      });
-    });
-    statsObserver.observe(statsVideo);
-    
-    // Fallback para el video de estadísticas
-    setTimeout(() => {
-      if (statsVideo.readyState === 0) {
-        statsVideo.load();
-      }
-    }, 2000);
-  }
-});
-</script>
+<script src="../js/ganaderia.js"></script>
 
 <?php include __DIR__ . "/../partials/footer.php"; ?>
