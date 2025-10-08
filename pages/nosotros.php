@@ -6,6 +6,205 @@ $desc = "Conoce nuestra historia familiar de más de cinco décadas en la produc
 include __DIR__ . "/../partials/header.php";
 ?>
 
+<style>
+  /* Estilos para la galería mejorada */
+  .gallery-wrapper::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .gallery-wrapper::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+    border-radius: 4px;
+  }
+  
+  .gallery-wrapper::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+  
+  .gallery-wrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+  }
+  
+  /* Efecto de desvanecimiento en los bordes */
+  .gallery-container::before,
+  .gallery-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .gallery-container::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-color), transparent);
+  }
+  
+  .gallery-container::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-color), transparent);
+  }
+  
+  /* Estilos para el modal */
+  .modal-container {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px 20px 20px;
+    box-sizing: border-box;
+  }
+  
+  .modal-image {
+    max-width: 90%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+    display: block;
+  }
+  
+  .modal-caption {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    background: rgba(0,0,0,0.7);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 20px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .modal-close {
+    position: fixed;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-logo {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1001;
+    opacity: 0.7;
+  }
+  
+  /* Modal responsive */
+  @media (max-width: 768px) {
+    #imageModal .modal-container {
+      padding: 40px 10px 10px 10px !important;
+    }
+    
+    #imageModal .modal-image {
+      max-width: 95% !important;
+      max-height: 70vh !important;
+    }
+    
+    #imageModal .modal-caption {
+      font-size: 14px !important;
+      padding: 8px 15px !important;
+    }
+    
+    #imageModal .modal-close {
+      top: 10px !important;
+      right: 15px !important;
+      width: 40px !important;
+      height: 40px !important;
+      font-size: 30px !important;
+    }
+    
+    #imageModal .modal-logo {
+      bottom: 10px !important;
+      left: 10px !important;
+    }
+    
+    #imageModal .modal-logo img {
+      width: 60px !important;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #imageModal .modal-image {
+      max-width: 98% !important;
+      max-height: 60vh !important;
+    }
+    
+    #imageModal .modal-caption {
+      font-size: 13px !important;
+      padding: 6px 12px !important;
+    }
+  }
+  
+  @media (max-width: 1024px) and (min-width: 769px) {
+    #imageModal .modal-image {
+      max-width: 85% !important;
+      max-height: 75vh !important;
+    }
+    
+    #imageModal .modal-caption {
+      font-size: 15px !important;
+    }
+  }
+  
+  /* Orientación landscape en móviles */
+  @media (max-width: 768px) and (orientation: landscape) {
+    #imageModal .modal-image {
+      max-height: 85vh !important;
+    }
+    
+    #imageModal .modal-container {
+      padding: 20px 10px 10px 10px !important;
+    }
+  }
+  
+  /* Optimización de videos para mejor calidad */
+  video {
+    object-fit: cover;
+    object-position: center;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  
+  /* Mejoras específicas para videos de fondo */
+  .hero video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
+
 <!-- Hero Section -->
 <div class="hero fade-in-up">
   <video autoplay muted loop playsinline preload="metadata" poster="../assets/images/logo.png">
@@ -68,7 +267,7 @@ include __DIR__ . "/../partials/header.php";
   <div id="imageModal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); overflow-y: auto; overflow-x: hidden;">
     <div class="modal-container" style="position: relative; width: 100%; min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 20px 20px 20px; box-sizing: border-box;">
       <span class="modal-close" onclick="closeModal()" style="position: fixed; top: 20px; right: 35px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 1001; background: rgba(0,0,0,0.5); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">&times;</span>
-      <img id="modalImage" class="modal-image" style="max-width: 90%; max-height: 80vh; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); margin: 20px 0; display: block;">
+      <img id="modalImage" class="modal-image" src="" alt="Imagen ampliada" style="max-width: 90%; max-height: 80vh; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); margin: 20px 0; display: block;">
       <div id="modalCaption" class="modal-caption" style="position: relative; color: #fff; text-align: center; background: rgba(0,0,0,0.7); padding: 10px 20px; border-radius: 5px; font-size: 16px; margin-top: 20px; max-width: 80%; margin-left: auto; margin-right: auto;"></div>
       
       <!-- Logo en el modal -->
@@ -77,8 +276,6 @@ include __DIR__ . "/../partials/header.php";
       </div>
     </div>
   </div>
-
-  <style>
     /* Estilos para la galería mejorada */
     .gallery-wrapper::-webkit-scrollbar {
       height: 8px;
@@ -343,10 +540,9 @@ include __DIR__ . "/../partials/header.php";
       <iframe 
         src="https://www.youtube.com/embed/9uru6TGV9GQ?rel=0&modestbranding=1&showinfo=0" 
         title="Ingenierio agronomo Cristian Zorzon, parte de la familia Zorzon"
-        frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;">
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-width: 0;">
       </iframe>
     </div>
     <p style="margin-top: 1rem; color: var(--text-dark); font-style: italic;">
