@@ -20,18 +20,18 @@ video {
 
 /* Estilos para la sección de estadísticas con video de fondo */
 .stats {
-    position: relative;
-    overflow: hidden;
-    min-height: 45vh;
-    max-height: 55vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    padding: 2rem 4rem;
-  }
-
+  position: relative;
+  overflow: hidden;
+  min-height: 45vh;
+  max-height: 55vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 4rem 2rem;
+  
+}
 .stats video {
   position: absolute;
   top: 0;
@@ -46,7 +46,7 @@ video {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;

@@ -51,7 +51,7 @@ include __DIR__ . "/../partials/header.php";
   </video>
   
   <!-- Overlay para mejorar contraste del texto -->
-  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(20deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 20%, rgba(0,0,0,0.2) 90%); z-index: 1.5;"></div>
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(20deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 20%, rgba(0,0,0,0.2) 90%); z-index: 1;"></div>
   
   <!-- Contenido sobre el video -->
   <div style="position: relative; z-index: 2;">

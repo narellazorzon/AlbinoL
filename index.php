@@ -31,10 +31,7 @@ include __DIR__ . "/partials/header.php";
     Tu navegador no soporta videos HTML5.
   </video>
   
-  <!-- Overlay para mejorar contraste del texto -->
-  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.2) 100%); z-index: 1.5;"></div>
-  
-  <div style="position: relative; z-index: 2;">
+  <div class="stats-content">
     <?= generateIndexStatsHTML() ?>
   </div>
 </div>

@@ -42,7 +42,7 @@ include __DIR__ . "/../partials/header.php";
   <div id="imageModal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); overflow-y: auto; overflow-x: hidden;">
     <div class="modal-container" style="position: relative; width: 100%; min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 20px 20px 20px; box-sizing: border-box;">
       <span class="modal-close" onclick="closeModal()" style="position: fixed; top: 20px; right: 35px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 1001; background: rgba(0,0,0,0.5); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">&times;</span>
-      <img id="modalImage" class="modal-image" src="" alt="Imagen ampliada" style="max-width: 90%; max-height: 80vh; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); margin: 20px 0; display: block;">
+      <img id="modalImage" class="modal-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Imagen ampliada" style="max-width: 90%; max-height: 80vh; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); margin: 20px 0; display: block;">
       <div id="modalCaption" class="modal-caption" style="position: relative; color: #fff; text-align: center; background: rgba(0,0,0,0.7); padding: 10px 20px; border-radius: 5px; font-size: 16px; margin-top: 20px; max-width: 80%; margin-left: auto; margin-right: auto;"></div>
       
       <!-- Logo en el modal -->
