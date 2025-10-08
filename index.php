@@ -7,7 +7,7 @@ $desc = "Empresa familiar con más de cinco décadas de experiencia en producci�
 include __DIR__ . "/partials/header.php";
 ?>
 
-<link rel="stylesheet" href="assets/css/index.css">
+<link rel="stylesheet" href="assets/css/index.css?v=<?= time() ?>">
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
