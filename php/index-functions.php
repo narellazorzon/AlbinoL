@@ -10,11 +10,11 @@
 function getIndexStats() {
     return [
         [
-            'number' => '500+',
+            'number' => '8000+',
             'label' => 'Hectáreas Agrícolas'
         ],
         [
-            'number' => '800+',
+            'number' => '3000+',
             'label' => 'Cabezas de Ganado'
         ],
         [
