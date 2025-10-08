@@ -7,7 +7,7 @@ $desc = "Producción de cereales, oleaginosas y forrajeras con tecnología de pu
 include __DIR__ . "/../partials/header.php";
 ?>
 
-<link rel="stylesheet" href="../css/agricultura.css">
+<link rel="stylesheet" href="../assets/css/agricultura.css">
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
@@ -70,6 +70,6 @@ include __DIR__ . "/../partials/header.php";
   <?= generateSustentabilidadHTML() ?>
 </section>
 
-<script src="../js/agricultura.js"></script>
+<script src="../assets/js/agricultura.js"></script>
 
 <?php include __DIR__ . "/../partials/footer.php"; ?>

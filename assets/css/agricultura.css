@@ -1,4 +1,4 @@
-/* Estilos específicos para la página de Ganadería */
+/* Estilos específicos para la página de Agricultura */
 
 /* Optimización de videos para mejor calidad */
 video {
@@ -18,17 +18,82 @@ video {
   transform: translateZ(0);
 }
 
-/* Estilos para la sección de estadísticas con video de fondo */
+/* Grid uniforme para cultivos */
+.crops-grid-uniform {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.crop-card {
+  background: rgba(var(--primary-color-rgb), 0.05);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(var(--primary-color-rgb), 0.1);
+}
+
+.crop-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.crop-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.crop-icon {
+  font-size: 2.5rem;
+  display: block;
+}
+
+.crop-card h4 {
+  color: var(--primary-color);
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.crop-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.crop-list li {
+  padding: 0.3rem 0;
+  color: var(--text-dark);
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.crop-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* Estilos para la sección de estadísticas - más delgada y centrada */
 .stats {
   position: relative;
   overflow: hidden;
-  min-height: 400px;
+  min-height: 45vh;
+  max-height: 55vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
-  padding: 4rem 2rem;
+  padding: 2rem 4rem;
+  
 }
 
 .stats video {
@@ -102,6 +167,10 @@ video {
   .stat-label {
     font-size: 0.9rem;
   }
+  
+  .crops-grid-uniform {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 480px) {
@@ -110,6 +179,10 @@ video {
   }
   
   .stat-item {
-    padding: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .crop-card {
+    padding: 1.5rem;
   }
 }

@@ -8,7 +8,7 @@ include __DIR__ . "/../partials/header.php";
 ?>
 
 <!-- CSS específico para la página Nosotros -->
-<link rel="stylesheet" href="../css/nosotros.css">
+<link rel="stylesheet" href="../assets/css/nosotros.css">
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
@@ -53,7 +53,7 @@ include __DIR__ . "/../partials/header.php";
   </div>
 
 <!-- JavaScript específico para la página Nosotros -->
-<script src="../js/nosotros.js"></script>
+<script src="../assets/js/nosotros.js"></script>
 </section>
 
 <!-- Valores -->

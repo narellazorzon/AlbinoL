@@ -1,10 +1,13 @@
 <?php
 require_once __DIR__ . '/includes/config.php';
+require_once __DIR__ . '/php/index-functions.php';
 
 $title = "Albino Luis Zorzon — Agricultura y Ganadería";
 $desc = "Empresa familiar con más de cinco décadas de experiencia en producción agropecuaria de alto rendimiento. Agricultura y ganadería desde La Lola, Santa Fe.";
 include __DIR__ . "/partials/header.php";
 ?>
+
+<link rel="stylesheet" href="assets/css/index.css">
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
@@ -22,48 +25,24 @@ include __DIR__ . "/partials/header.php";
 
 <!-- Estadísticas -->
 <div class="stats fade-in-up">
-  <video autoplay muted loop playsinline>
+  <video autoplay muted loop playsinline preload="none">
     <source src="assets/videos/numeros.mp4" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     Tu navegador no soporta videos HTML5.
   </video>
-  <div class="stats-content">
-    <div class="stats-grid">
-      <div class="stat-item">
-        <span class="stat-number">500+</span>
-        <span class="stat-label">Hectáreas Agrícolas</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">800+</span>
-        <span class="stat-label">Cabezas de Ganado</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">50+</span>
-        <span class="stat-label">Años de Experiencia</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">100%</span>
-        <span class="stat-label">Trabajo Familiar</span>
-      </div>
-    </div>
+  
+  <!-- Overlay para mejorar contraste del texto -->
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.2) 100%); z-index: 1.5;"></div>
+  
+  <div style="position: relative; z-index: 2;">
+    <?= generateIndexStatsHTML() ?>
   </div>
 </div>
 
 <!-- Servicios -->
 <section class="fade-in-up">
   <h2>Nuestros Servicios</h2>
-  <div class="cards-grid">
-    <div class="card">
-      <span class="card-icon">🌱</span>
-      <h3>Agricultura</h3>
-      <p>Producción de cereales, oleaginosas y forrajeras con tecnología de punta y prácticas sustentables.</p>
-    </div>
-    <div class="card">
-      <span class="card-icon">🐄</span>
-      <h3>Ganadería</h3>
-      <p>Cría y engorde de ganado bovino con manejo integral y alimentación balanceada.</p>
-    </div>
-  </div>
+  <?= generateIndexServiciosHTML() ?>
 </section>
 
 <!-- Sobre Nosotros -->
@@ -79,23 +58,9 @@ include __DIR__ . "/partials/header.php";
 <!-- Compromiso -->
 <section class="fade-in-up">
   <h2>Nuestro Compromiso</h2>
-  <div class="cards-grid">
-    <div class="card">
-      <span class="card-icon">🌍</span>
-      <h3>Sostenibilidad</h3>
-      <p>Prácticas agrícolas que respetan el medio ambiente y preservan los recursos naturales para las futuras generaciones.</p>
-    </div>
-    <div class="card">
-      <span class="card-icon">👨‍👩‍👧‍👦</span>
-      <h3>Trabajo Familiar</h3>
-      <p>Valores familiares que se transmiten de generación en generación.</p>
-    </div>
-    <div class="card">
-      <span class="card-icon">🔬</span>
-      <h3>Innovación</h3>
-      <p>Adopción de nuevas tecnologías y técnicas que nos permiten ser más eficientes y competitivos.</p>
-    </div>
-  </div>
+  <?= generateIndexCompromisosHTML() ?>
 </section>
+
+<script src="assets/js/index.js"></script>
 
 <?php include __DIR__ . "/partials/footer.php"; ?>
