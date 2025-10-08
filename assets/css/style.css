@@ -723,6 +723,27 @@ footer {
   color: rgba(255, 255, 255, 0.8);
 }
 
+/* Estilos para el sello SSL */
+#comodoTL {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#comodoTL:hover {
+  color: var(--golden-wheat);
+}
+
+/* Contenedor para el sello SSL */
+.ssl-badge {
+  text-align: center;
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .header-container {
