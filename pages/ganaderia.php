@@ -20,7 +20,11 @@ include __DIR__ . "/../partials/header.php";
 </div>
 
 <!-- Servicios Ganaderos -->
-<section class="fade-in-up">
+<section class="fade-in-up" style="position: relative;">
+  <!-- Marca de agua en ganadería -->
+  <div style="position: absolute; top: 20px; right: 20px; opacity: 0.08; z-index: 1; pointer-events: none;">
+    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 100px; height: auto; filter: grayscale(100%);">
+  </div>
   <h2>Nuestras Actividades Ganaderas</h2>
   <div class="cards-grid">
     <div class="card">
@@ -57,7 +61,11 @@ include __DIR__ . "/../partials/header.php";
 </section>
 
 <!-- Razas -->
-<section class="fade-in-up">
+<section class="fade-in-up" style="position: relative;">
+  <!-- Marca de agua en razas -->
+  <div style="position: absolute; top: 20px; left: 20px; opacity: 0.06; z-index: 1; pointer-events: none;">
+    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 80px; height: auto; filter: grayscale(100%);">
+  </div>
   <h2>Razas que Trabajamos</h2>
   <div class="cards-grid">
   <div class="card">
@@ -103,7 +111,11 @@ include __DIR__ . "/../partials/header.php";
 </div>
 
 <!-- Alimentación -->
-<section class="fade-in-up">
+<section class="fade-in-up" style="position: relative;">
+  <!-- Marca de agua en alimentación -->
+  <div style="position: absolute; top: 20px; right: 20px; opacity: 0.05; z-index: 1; pointer-events: none;">
+    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 90px; height: auto; filter: grayscale(100%);">
+  </div>
   <h2>Alimentación Balanceada</h2>
   <p>Nuestro programa de alimentación está diseñado para maximizar la eficiencia y calidad de la producción.</p>
   <div class="cards-grid">

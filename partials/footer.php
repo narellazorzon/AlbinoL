@@ -14,7 +14,7 @@ $basePath = $isInPages ? '../' : '';
 <footer>
   <div class="footer-content">
     <div class="footer-section">
-      <h3>🌾 Albino Luis Zorzon e hijos</h3>
+      <h3>Albino Luis Zorzon e hijos</h3>
       <p>Empresa familiar dedicada a la producción agropecuaria de alto rendimiento, con más de cinco décadas de experiencia en el sector.</p>
     </div>
     

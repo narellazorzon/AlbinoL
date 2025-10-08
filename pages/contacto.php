@@ -34,7 +34,11 @@ include __DIR__ . "/../partials/header.php";
 <?php endif; ?>
 
 <!-- Formulario de Contacto -->
-<section class="fade-in-up" style="padding: 1rem;">
+<section class="fade-in-up" style="padding: 1rem; position: relative;">
+  <!-- Marca de agua en formulario -->
+  <div style="position: absolute; top: 20px; right: 20px; opacity: 0.08; z-index: 1; pointer-events: none;">
+    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 100px; height: auto; filter: grayscale(100%);">
+  </div>
   <h2>Envíanos un Mensaje</h2>
   <div style="max-width: 600px; margin: 0 auto;">
     <form id="contact-form"
@@ -165,7 +169,11 @@ include __DIR__ . "/../partials/header.php";
 
 
 <!-- Ubicación en Mapa -->
-<section class="fade-in-up">
+<section class="fade-in-up" style="position: relative;">
+  <!-- Marca de agua en ubicación -->
+  <div style="position: absolute; top: 20px; left: 20px; opacity: 0.06; z-index: 1; pointer-events: none;">
+    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 80px; height: auto; filter: grayscale(100%);">
+  </div>
   <h2>¿Cómo Llegar?</h2>
   <div style="background: var(--cream-white); padding: 2rem; border-radius: 15px; box-shadow: var(--shadow); text-align: center;">
     <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">
@@ -184,7 +192,11 @@ include __DIR__ . "/../partials/header.php";
 
 
 <!-- CTA -->
-<section class="fade-in-up" style="text-align: center;">
+<section class="fade-in-up" style="text-align: center; position: relative;">
+  <!-- Marca de agua en CTA -->
+  <div style="position: absolute; top: 20px; right: 20px; opacity: 0.05; z-index: 1; pointer-events: none;">
+    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 90px; height: auto; filter: grayscale(100%);">
+  </div>
   <h2>¿Listo para Contactarnos?</h2>
   <div style="margin-top: 2rem;">
     <a href="#contact-form" class="btn">Envíanos un mensaje</a>

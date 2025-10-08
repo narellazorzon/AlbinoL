@@ -20,11 +20,16 @@ include __DIR__ . "/../partials/header.php";
 </div>
 
 <!-- Historia -->
-<section class="fade-in-up">
+<section class="fade-in-up" style="position: relative;">
   <h2>Nuestra Historia</h2>
   <p><strong>Albino Luis Zorzon e Hijos</strong> es una empresa familiar con más de cinco décadas de trayectoria en el sector agrícola y ganadero. Nuestros orígenes se remontan a <strong>La Lola, Santa Fe</strong>, donde a comienzos de la década del '70 <strong>Albino Luis Zorzon</strong> inició nuestras actividades con esfuerzo, compromiso y una fuerte unión familiar.</p>
   
   <p>Con el paso del tiempo, fuimos creciendo y expandiéndonos, siempre manteniendo la esencia que nos caracteriza: <strong>trabajo en familia, responsabilidad con la tierra y pasión por la producción agropecuaria</strong>.</p>
+  
+  <!-- Logo como marca de agua -->
+  <div style="position: absolute; top: 20px; right: 20px; opacity: 0.1; z-index: 1; pointer-events: none;">
+    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 120px; height: auto; filter: grayscale(100%);">
+  </div>
   
   <!-- Galería de imágenes históricas -->
   <div class="gallery-container" style="margin: 2rem 0; position: relative;">
@@ -61,10 +66,15 @@ include __DIR__ . "/../partials/header.php";
 
   <!-- Modal para ver imágenes en tamaño completo -->
   <div id="imageModal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); overflow-y: auto; overflow-x: hidden;">
-    <div style="position: relative; width: 100%; min-height: 100%; display: flex; align-items: center; justify-content: center; padding: 60px 20px 20px 20px; box-sizing: border-box;">
-      <span onclick="closeModal()" style="position: fixed; top: 20px; right: 35px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 1001; background: rgba(0,0,0,0.5); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">&times;</span>
-      <img id="modalImage" style="max-width: 100%; max-height: none; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); margin: 20px 0;">
-      <div id="modalCaption" style="position: relative; color: #fff; text-align: center; background: rgba(0,0,0,0.7); padding: 10px 20px; border-radius: 5px; font-size: 16px; margin-top: 20px; max-width: 80%; margin-left: auto; margin-right: auto;"></div>
+    <div class="modal-container" style="position: relative; width: 100%; min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 20px 20px 20px; box-sizing: border-box;">
+      <span class="modal-close" onclick="closeModal()" style="position: fixed; top: 20px; right: 35px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 1001; background: rgba(0,0,0,0.5); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">&times;</span>
+      <img id="modalImage" class="modal-image" style="max-width: 90%; max-height: 80vh; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); margin: 20px 0; display: block;">
+      <div id="modalCaption" class="modal-caption" style="position: relative; color: #fff; text-align: center; background: rgba(0,0,0,0.7); padding: 10px 20px; border-radius: 5px; font-size: 16px; margin-top: 20px; max-width: 80%; margin-left: auto; margin-right: auto;"></div>
+      
+      <!-- Logo en el modal -->
+      <div class="modal-logo" style="position: fixed; bottom: 20px; left: 20px; z-index: 1001; opacity: 0.7;">
+        <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 80px; height: auto; filter: brightness(0) invert(1);">
+      </div>
     </div>
   </div>
 
@@ -148,6 +158,77 @@ include __DIR__ . "/../partials/header.php";
         height: 140px !important;
       }
     }
+    
+    /* Modal responsive */
+    @media (max-width: 768px) {
+      #imageModal .modal-container {
+        padding: 40px 10px 10px 10px !important;
+      }
+      
+      #imageModal .modal-image {
+        max-width: 95% !important;
+        max-height: 70vh !important;
+      }
+      
+      #imageModal .modal-caption {
+        font-size: 14px !important;
+        padding: 8px 15px !important;
+        max-width: 90% !important;
+      }
+      
+      #imageModal .modal-close {
+        top: 10px !important;
+        right: 15px !important;
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 30px !important;
+      }
+      
+      #imageModal .modal-logo {
+        width: 60px !important;
+        bottom: 10px !important;
+        left: 10px !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      #imageModal .modal-image {
+        max-width: 98% !important;
+        max-height: 60vh !important;
+      }
+      
+      #imageModal .modal-caption {
+        font-size: 12px !important;
+        padding: 6px 12px !important;
+      }
+      
+      #imageModal .modal-logo {
+        width: 50px !important;
+      }
+    }
+    
+    /* Mejoras adicionales para tablets */
+    @media (max-width: 1024px) and (min-width: 769px) {
+      #imageModal .modal-image {
+        max-width: 85% !important;
+        max-height: 75vh !important;
+      }
+      
+      #imageModal .modal-caption {
+        font-size: 15px !important;
+      }
+    }
+    
+    /* Orientación landscape en móviles */
+    @media (max-width: 768px) and (orientation: landscape) {
+      #imageModal .modal-image {
+        max-height: 85vh !important;
+      }
+      
+      #imageModal .modal-container {
+        padding: 20px 10px 10px 10px !important;
+      }
+    }
   </style>
 
   <script>
@@ -199,7 +280,11 @@ include __DIR__ . "/../partials/header.php";
 </section>
 
 <!-- Valores -->
-<section class="fade-in-up">
+<section class="fade-in-up" style="position: relative;">
+  <!-- Marca de agua en valores -->
+  <div style="position: absolute; top: 20px; right: 20px; opacity: 0.08; z-index: 1; pointer-events: none;">
+    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 100px; height: auto; filter: grayscale(100%);">
+  </div>
   <h2>Nuestros Valores</h2>
   <div class="cards-grid">
     <div class="card">
@@ -217,6 +302,12 @@ include __DIR__ . "/../partials/header.php";
       <h3>Compromiso</h3>
       <p>Compromiso con la calidad, la excelencia y el servicio a nuestros clientes y la comunidad.</p>
     </div>
+  </div>
+  
+  <!-- Logo en la sección de valores -->
+  <div style="text-align: center; margin-top: 2rem; padding: 1rem; background: rgba(var(--primary-color-rgb), 0.05); border-radius: 10px;">
+    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 100px; height: auto; opacity: 0.8;">
+    <p style="margin-top: 0.5rem; color: var(--text-light); font-size: 14px; font-style: italic;">Más de cinco décadas de tradición familiar</p>
   </div>
 </section>
 
@@ -241,7 +332,11 @@ include __DIR__ . "/../partials/header.php";
 </section>
 
 <!-- Ubicación -->
-<section class="fade-in-up">
+<section class="fade-in-up" style="position: relative;">
+  <!-- Marca de agua en ubicación -->
+  <div style="position: absolute; top: 20px; left: 20px; opacity: 0.06; z-index: 1; pointer-events: none;">
+    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 80px; height: auto; filter: grayscale(100%);">
+  </div>
   <h2>Nuestra Ubicación</h2>
   <div class="cards-grid">
     <div class="card">
@@ -264,7 +359,11 @@ include __DIR__ . "/../partials/header.php";
 
 
 <!-- Certificaciones -->
-<section class="fade-in-up">
+<section class="fade-in-up" style="position: relative;">
+  <!-- Marca de agua en certificaciones -->
+  <div style="position: absolute; top: 20px; right: 20px; opacity: 0.05; z-index: 1; pointer-events: none;">
+    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 90px; height: auto; filter: grayscale(100%);">
+  </div>
   <h2>Certificaciones y Compromisos</h2>
   <div class="cards-grid">
     <div class="card">

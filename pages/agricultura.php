@@ -20,7 +20,11 @@ include __DIR__ . "/../partials/header.php";
 </div>
 
 <!-- Servicios Agrícolas -->
-<section class="fade-in-up">
+<section class="fade-in-up" style="position: relative;">
+  <!-- Marca de agua en cultivos -->
+  <div style="position: absolute; top: 20px; right: 20px; opacity: 0.08; z-index: 1; pointer-events: none;">
+    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 100px; height: auto; filter: grayscale(100%);">
+  </div>
   <h2>Nuestros Cultivos</h2>
   <div class="crops-grid-uniform">
     <div class="crop-card">
@@ -91,7 +95,11 @@ include __DIR__ . "/../partials/header.php";
 </section>
 
 <!-- Tecnología -->
-<section class="fade-in-up">
+<section class="fade-in-up" style="position: relative;">
+  <!-- Marca de agua en tecnología -->
+  <div style="position: absolute; top: 20px; left: 20px; opacity: 0.06; z-index: 1; pointer-events: none;">
+    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 80px; height: auto; filter: grayscale(100%);">
+  </div>
   <h2>Tecnología Agrícola</h2>
   <div class="cards-grid">
     <div class="card">
@@ -143,7 +151,11 @@ include __DIR__ . "/../partials/header.php";
 </div>
 
 <!-- Sustentabilidad -->
-<section class="fade-in-up">
+<section class="fade-in-up" style="position: relative;">
+  <!-- Marca de agua en sustentabilidad -->
+  <div style="position: absolute; top: 20px; right: 20px; opacity: 0.05; z-index: 1; pointer-events: none;">
+    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 90px; height: auto; filter: grayscale(100%);">
+  </div>
   <h2>Compromiso Sustentable</h2>
   <p>En Albino Luis Zorzon, creemos en una agricultura que respete el medio ambiente y preserve los recursos para las futuras generaciones.</p>
   <div class="cards-grid">
