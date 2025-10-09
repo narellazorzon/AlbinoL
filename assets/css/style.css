@@ -24,7 +24,7 @@
 }
 
 body {
-  font-family: 'Lato', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.6;
   color: var(--text-dark);
   background: var(--warm-beige);
@@ -83,7 +83,7 @@ header {
 }
 
 .logo-text {
-  font-family: 'Source Sans Pro', 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.8rem;
   line-height: 1.2;
   text-shadow: 0 1px 3px rgba(255, 255, 255, 0.3);
@@ -183,7 +183,7 @@ header {
 .nav-menu a {
   color: var(--text-light);
   text-decoration: none;
-  font-family: 'Source Sans Pro', 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   font-weight: 600;
   font-size: 0.95rem;
   padding: 0.8rem 1.2rem;
@@ -302,7 +302,7 @@ main {
   font-size: 3rem;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  font-family: 'Source Sans Pro', 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   font-weight: 700;
   letter-spacing: 0.02em;
 }
@@ -336,7 +336,7 @@ section h2 {
   margin-bottom: 1rem;
   text-align: center;
   position: relative;
-  font-family: 'Source Sans Pro', 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   font-weight: 600;
   letter-spacing: 0.02em;
 }
@@ -434,7 +434,7 @@ section p {
 }
 
 .crop-card h4 {
-  font-family: 'Source Sans Pro', 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.3rem;
   font-weight: 600;
   color: #2d5016;
@@ -553,7 +553,7 @@ section p {
   font-size: 1.4rem;
   margin-bottom: 1rem;
   font-weight: 600;
-  font-family: 'Source Sans Pro', 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   letter-spacing: 0.01em;
@@ -700,7 +700,7 @@ footer {
   color: var(--golden-wheat);
   margin-bottom: 1rem;
   font-size: 1.2rem;
-  font-family: 'Source Sans Pro', 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   font-weight: 600;
   letter-spacing: 0.02em;
 }
@@ -723,25 +723,16 @@ footer {
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* Estilos para el sello SSL */
-#comodoTL {
-  display: inline-block;
-  margin-top: 1rem;
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  transition: color 0.3s ease;
+
+/* Video lazy loading styles */
+.video-wrapper:hover .play-button {
+  background: rgba(0,0,0,0.9);
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
-#comodoTL:hover {
-  color: var(--golden-wheat);
-}
-
-/* Contenedor para el sello SSL */
-.ssl-badge {
-  text-align: center;
-  margin-top: 1rem;
-  padding: 0.5rem;
+.play-button:hover {
+  background: rgba(0,0,0,0.9) !important;
+  transform: translate(-50%, -50%) scale(1.1) !important;
 }
 
 /* Responsive design */
@@ -1206,7 +1197,7 @@ footer {
   padding: 1rem 1.5rem;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  font-family: 'Source Sans Pro', 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   font-weight: 600;
   font-size: 14px;
   text-align: center;

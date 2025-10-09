@@ -26,13 +26,8 @@
   <title><?= htmlspecialchars($title) ?></title>
   <meta name="description" content="<?= htmlspecialchars($desc) ?>">
   <meta name="keywords" content="agricultura, ganadería, producción agropecuaria, Albino Luis Zorzon, La Lola Santa Fe, Reconquista , trigo, maíz, soja, girasol, algodón, Angus, Braford, Brangus, empresa familiar, campo argentino, siembra directa, agricultura de precisión, cría de ganado, engorde a corral, pastoreo rotativo, sanidad animal">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="<?= $basePath ?>assets/css/style.css?v=<?= time() ?>">
   
-  <!-- Certificado SSL -->
-  <script type="text/javascript">const tlJsHost = ((window.location.protocol == "https:") ? "https://secure.trust-provider.com/" : "http://www.trustlogo.com/"); document.write(unescape("<script src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript' %3E%3C/script%3E"));</script>
 </head>
 <body>
 <header>

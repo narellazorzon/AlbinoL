@@ -105,7 +105,7 @@ function generateGalleryHTML() {
     
     $html .= '</div></div>';
     $html .= '<div style="text-align: center; margin-top: 1.5rem; color: var(--text-light); font-size: 14px;">';
-    $html .= '<span style="background: var(--primary-color); color: white; padding: 8px 16px; border-radius: 20px; font-weight: 500;">← Desliza para ver más imágenes →</span>';
+    $html .= '<span style="background: var(--primary-color); color: #8B4513; padding: 8px 16px; border-radius: 20px; font-weight: 500;">← Desliza para ver más imágenes →</span>';
     $html .= '</div></div>';
     
     return $html;

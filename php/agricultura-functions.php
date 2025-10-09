@@ -32,7 +32,7 @@ function getAgriculturaCultivos() {
         [
             'icon' => '🌻',
             'title' => 'Girasol',
-            'description' => 'Producción para aceite y confitería con rotación de cultivos.',
+            'description' => 'Producción para aceite con rotación de cultivos.',
             'features' => [
                 'Variedades oleaginosas',
                 'Rotación sustentable',
@@ -42,17 +42,16 @@ function getAgriculturaCultivos() {
         [
             'icon' => '🌿',
             'title' => 'Soja',
-            'description' => 'Cultivo sustentable con semillas inoculadas y manejo biológico.',
+            'description' => 'Cultivo sustentable con semillas inoculadas.',
             'features' => [
                 'Inoculación de semillas',
-                'Control biológico',
                 'Sustentabilidad'
             ]
         ],
         [
-            'icon' => '🧵',
+            'icon' => '',
             'title' => 'Algodón',
-            'description' => 'Producción de fibra larga y calidad premium con técnicas modernas.',
+            'description' => 'Producción de rollos de algodón con técnicas modernas.',
             'features' => [
                 'Fibra de calidad',
                 'Manejo especializado',

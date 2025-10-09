@@ -46,11 +46,6 @@ $basePath = $isInPages ? '../' : '';
       Desarrollado por <strong>Narella Zorzon</strong>
     </p>
     
-    <!-- Sello de Certificado SSL -->
-    <div class="ssl-badge">
-      <script language="JavaScript" type="text/javascript">TrustLogo("https://micuenta.donweb.com/img/sectigo_positive_sm.png", "CL1", "none");</script>
-      <a href="https://donweb.com/es-ar/certificados-ssl" id="comodoTL" title="Certificados SSL Argentina">Certificados SSL Argentina</a>
-    </div>
   </div>
 </footer>
 <script src="<?= $basePath ?>assets/js/app.js"></script>

@@ -68,7 +68,7 @@ include __DIR__ . "/../partials/header.php";
   <!-- Logo en la sección de valores -->
   <div style="text-align: center; margin-top: 2rem; padding: 1rem; background: rgba(var(--primary-color-rgb), 0.05); border-radius: 10px;">
     <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 100px; height: auto; opacity: 0.8;">
-    <p style="margin-top: 0.5rem; color: var(--text-light); font-size: 14px; font-style: italic;">Más de cinco décadas de tradición familiar</p>
+    <p style="margin-top: 0.5rem; color: rgb(77, 57, 25); font-size: 14px; font-style: italic;">Más de cinco décadas de tradición familiar</p>
   </div>
 </section>
 
@@ -76,14 +76,9 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up">
   <h2>Conocé más sobre nosotros</h2>
   <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-    <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; background: #000; border-radius: 15px; overflow: hidden; box-shadow: var(--shadow);">
-      <iframe 
-        src="https://www.youtube.com/embed/9uru6TGV9GQ?rel=0&modestbranding=1&showinfo=0" 
-        title="Ingenierio agronomo Cristian Zorzon, parte de la familia Zorzon"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-width: 0;">
-      </iframe>
+    <div class="video-wrapper" onclick="loadVideo(this)" style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; background: #000; border-radius: 15px; overflow: hidden; box-shadow: var(--shadow); cursor: pointer;">
+      <img src="../assets/images/youtube-thumbnail.jpg" alt="Video institucional - Ingenierio agronomo Cristian Zorzon" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+      <button class="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); border: none; border-radius: 50%; width: 80px; height: 80px; color: white; font-size: 24px; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;">▶️</button>
     </div>
     <p style="margin-top: 1rem; color: var(--text-dark); font-style: italic;">
       Ingeniero Agronomo Cristian Zorzon, parte de la familia fundadora y de la empresa
@@ -137,8 +132,12 @@ include __DIR__ . "/../partials/header.php";
       <p>Sistema completo de trazabilidad desde la producción hasta el consumidor final.</p>
     </div>
   </div>
-</section>
+  </section>
 
-
+<script>
+function loadVideo(el) {
+  el.innerHTML = '<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/9uru6TGV9GQ?autoplay=1&rel=0&modestbranding=1&showinfo=0&cc_load_policy=1&iv_load_policy=3&fs=1&disablekb=1&modestbranding=1&playsinline=1&enablejsapi=0" title="Ingenierio agronomo Cristian Zorzon, parte de la familia Zorzon" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-width: 0;"></iframe>';
+}
+</script>
 
 <?php include __DIR__ . "/../partials/footer.php"; ?>
