@@ -33,7 +33,7 @@
 <header>
   <div class="header-container">
     <a href="<?= $basePath ?>index.php" class="logo">
-        <img src="<?= $basePath ?>assets/images/logo.png?v=<?= time() ?>" alt="Albino Luis Zorzon e hijos" class="logo-img">
+        <img src="<?= $basePath ?>assets/images/logo_comp.png?v=<?= time() ?>" alt="Albino Luis Zorzon e hijos" class="logo-img">
       <div class="logo-text">
         <div class="company-name">Albino Luis Zorzon</div>
         <div class="company-suffix">e hijos</div>

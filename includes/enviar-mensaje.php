@@ -1,7 +1,7 @@
 <?php
 /**
  * Script mejorado para procesar el formulario de contacto
- * Albino Luis Zorzon e hijos - Con PHPMailer y Gmail
+ * Albino Luis Zorzon e hijos - Con validación anti-spam y anti-bot
  */
 
 // Configuración de errores - CRÍTICO para JSON
@@ -28,6 +28,52 @@ function enviarRespuesta($success, $message, $data = []) {
     exit;
 }
 
+// Función para sanitizar datos
+function sanitizarDatos($data) {
+    return htmlspecialchars(trim($data), ENT_QUOTES, 'UTF-8');
+}
+
+// Función para validar email
+function validarEmail($email) {
+    return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+}
+
+// Función para validar teléfono
+function validarTelefono($telefono) {
+    if (empty($telefono)) return true; // Opcional
+    return preg_match('/^[0-9]{7,15}$/', $telefono);
+}
+
+// Función para validar nombre
+function validarNombre($nombre) {
+    return preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{3,50}$/', $nombre);
+}
+
+// Función para validar mensaje
+function validarMensaje($mensaje) {
+    $length = strlen($mensaje);
+    return $length >= 10 && $length <= 1000;
+}
+
+// Función para detectar spam en el mensaje
+function detectarSpam($mensaje) {
+    $palabrasSpam = [
+        'viagra', 'casino', 'poker', 'lottery', 'winner', 'congratulations',
+        'free money', 'click here', 'buy now', 'discount', 'offer',
+        'urgent', 'act now', 'limited time', 'guaranteed'
+    ];
+    
+    $mensajeLower = strtolower($mensaje);
+    
+    foreach ($palabrasSpam as $palabra) {
+        if (strpos($mensajeLower, $palabra) !== false) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
 // Función para limpiar datos
 function limpiarDatos($data) {
     $data = trim($data);
@@ -35,6 +81,97 @@ function limpiarDatos($data) {
     $data = htmlspecialchars($data);
     return $data;
 }
+
+// ===== VALIDACIONES Y PROCESAMIENTO PRINCIPAL =====
+
+// Verificar que sea POST
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    enviarRespuesta(false, 'Método no permitido.');
+}
+
+// Verificar honeypot (protección anti-bot)
+if (!empty($_POST['empresa'])) {
+    enviarRespuesta(false, 'Solicitud bloqueada por seguridad.');
+}
+
+// Obtener y sanitizar datos
+$nombre = sanitizarDatos($_POST['nombre'] ?? '');
+$email = sanitizarDatos($_POST['email'] ?? '');
+$telefono = sanitizarDatos($_POST['telefono'] ?? '');
+$asunto = sanitizarDatos($_POST['asunto'] ?? '');
+$mensaje = sanitizarDatos($_POST['mensaje'] ?? '');
+
+// ===== VALIDACIONES DEL SERVIDOR =====
+
+// Validar campos obligatorios
+if (empty($nombre)) {
+    enviarRespuesta(false, 'El nombre es obligatorio.');
+}
+
+if (empty($email)) {
+    enviarRespuesta(false, 'El email es obligatorio.');
+}
+
+if (empty($asunto)) {
+    enviarRespuesta(false, 'Debe seleccionar un asunto.');
+}
+
+if (empty($mensaje)) {
+    enviarRespuesta(false, 'El mensaje es obligatorio.');
+}
+
+// Validar formato de datos
+if (!validarNombre($nombre)) {
+    enviarRespuesta(false, 'El nombre debe contener solo letras y tener entre 3 y 50 caracteres.');
+}
+
+if (!validarEmail($email)) {
+    enviarRespuesta(false, 'El formato del email no es válido.');
+}
+
+if (!validarTelefono($telefono)) {
+    enviarRespuesta(false, 'El teléfono debe contener solo números y tener entre 7 y 15 dígitos.');
+}
+
+if (!validarMensaje($mensaje)) {
+    enviarRespuesta(false, 'El mensaje debe tener entre 10 y 1000 caracteres.');
+}
+
+// Detectar spam
+if (detectarSpam($mensaje)) {
+    enviarRespuesta(false, 'El mensaje contiene contenido no permitido.');
+}
+
+// Validar asunto contra valores permitidos
+$asuntosPermitidos = [
+    'agricultura',
+    'ganaderia', 
+    'general',
+    'trabajo'
+];
+
+if (!in_array($asunto, $asuntosPermitidos)) {
+    enviarRespuesta(false, 'El asunto seleccionado no es válido.');
+}
+
+// ===== PROCESAMIENTO SEGURO =====
+
+// Limpiar datos adicionales
+$nombre = limpiarDatos($nombre);
+$email = limpiarDatos($email);
+$telefono = limpiarDatos($telefono);
+$asunto = limpiarDatos($asunto);
+$mensaje = limpiarDatos($mensaje);
+
+// Convertir asunto a texto legible
+$asuntosTexto = [
+    'agricultura' => 'Consulta sobre Agricultura',
+    'ganaderia' => 'Consulta sobre Ganadería',
+    'general' => 'Consulta General',
+    'trabajo' => 'Oportunidades Laborales'
+];
+
+$asuntoTexto = $asuntosTexto[$asunto] ?? 'Consulta General';
 
 // Función para guardar mensaje en archivo (backup)
 function guardarMensajeEnArchivo($nombre, $email, $telefono, $asunto, $mensaje) {
@@ -226,52 +363,15 @@ Este mensaje fue enviado desde el formulario de contacto del sitio web.
     }
 }
 
-// Verificar método de solicitud
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    enviarRespuesta(false, 'Método no permitido');
-}
 
-// Obtener datos del formulario
-$nombre = isset($_POST['nombre']) ? limpiarDatos($_POST['nombre']) : '';
-$email = isset($_POST['email']) ? limpiarDatos($_POST['email']) : '';
-$telefono = isset($_POST['telefono']) ? limpiarDatos($_POST['telefono']) : '';
-$asunto = isset($_POST['asunto']) ? limpiarDatos($_POST['asunto']) : '';
-$mensaje = isset($_POST['mensaje']) ? limpiarDatos($_POST['mensaje']) : '';
 
-// Validaciones
-$errors = array();
-
-if (empty($nombre) || strlen($nombre) < 2 || strlen($nombre) > 100) {
-    $errors[] = 'El nombre debe tener entre 2 y 100 caracteres';
-}
-
-if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $errors[] = 'El email es obligatorio y debe ser válido';
-}
-
-if (empty($asunto)) {
-    $errors[] = 'El asunto es obligatorio';
-}
-
-if (empty($mensaje) || strlen($mensaje) < 5 || strlen($mensaje) > 2000) {
-    $errors[] = 'El mensaje debe tener entre 5 y 2000 caracteres';
-}
-
-// Validar teléfono si se proporciona
-if (!empty($telefono) && !preg_match('/^[\d\s\-\+\(\)]+$/', $telefono)) {
-    $errors[] = 'El formato del teléfono no es válido';
-}
-
-// Si hay errores, devolverlos
-if (!empty($errors)) {
-    enviarRespuesta(false, 'Errores de validación', ['errors' => $errors]);
-}
+// ===== PROCESAMIENTO FINAL =====
 
 // Guardar mensaje en archivo (siempre como backup)
-$archivo_guardado = guardarMensajeEnArchivo($nombre, $email, $telefono, $asunto, $mensaje);
+$archivo_guardado = guardarMensajeEnArchivo($nombre, $email, $telefono, $asuntoTexto, $mensaje);
 
 // Intentar enviar email
-$email_result = enviarEmailSimple($nombre, $email, $telefono, $asunto, $mensaje);
+$email_result = enviarEmailSimple($nombre, $email, $telefono, $asuntoTexto, $mensaje);
 
 if ($email_result['success']) {
     enviarRespuesta(true, 'Mensaje enviado correctamente. Te contactaremos pronto.', [

@@ -12,8 +12,8 @@ include __DIR__ . "/../partials/header.php";
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
-  <video id="heroVideo" autoplay muted loop playsinline preload="none" poster="../assets/images/logo.png">
-    <source src="../assets/videos/video_contacto.MP4" type="video/mp4">
+  <video id="heroVideo" autoplay muted loop playsinline preload="none" poster="../assets/images/logo_comp.png">
+    <source src="../assets/videos/video_contacto_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     Tu navegador no soporta videos HTML5.
   </video>
@@ -30,7 +30,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up contact-form-container">
   <!-- Marca de agua en formulario -->
   <div style="position: absolute; top: 20px; right: 20px; opacity: 0.08; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 100px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png" alt="Albino Luis Zorzon e Hijos" style="width: 100px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>Envíanos un Mensaje</h2>
   <div class="contact-form">
@@ -41,6 +41,9 @@ include __DIR__ . "/../partials/header.php";
       
       <!-- Título oculto para lectores de pantalla -->
       <h3 id="form-title" class="sr-only">Formulario de contacto</h3>
+      
+      <!-- Honeypot field para protección anti-bot -->
+      <input type="text" name="empresa" style="display: none !important; position: absolute; left: -9999px;" tabindex="-1" autocomplete="off">
       
       <!-- Instrucciones del formulario -->
       <div role="note" aria-live="polite" id="form-instructions" class="form-instructions">
@@ -164,7 +167,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up" style="position: relative;">
   <!-- Marca de agua en ubicación -->
   <div style="position: absolute; top: 20px; left: 20px; opacity: 0.06; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 80px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png" alt="Albino Luis Zorzon e Hijos" style="width: 80px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>¿Cómo Llegar?</h2>
   <div style="background: var(--cream-white); padding: 2rem; border-radius: 15px; box-shadow: var(--shadow); text-align: center;">
@@ -188,7 +191,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up" style="text-align: center; position: relative;">
   <!-- Marca de agua en CTA -->
   <div style="position: absolute; top: 20px; right: 20px; opacity: 0.05; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 90px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png" alt="Albino Luis Zorzon e Hijos" style="width: 90px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>¿Listo para Contactarnos?</h2>
   <div style="margin-top: 2rem;">
@@ -199,4 +202,5 @@ include __DIR__ . "/../partials/header.php";
 
 <script src="../assets/js/contacto.js"></script>
 
+<script src="../assets/js/contacto-validation.js"></script>
 <?php include __DIR__ . "/../partials/footer.php"; ?>

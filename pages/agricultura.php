@@ -11,8 +11,8 @@ include __DIR__ . "/../partials/header.php";
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
-  <video id="heroVideo" autoplay muted loop playsinline preload="none" poster="../assets/images/logo.png">
-    <source src="../assets/videos/videos_agronomia.mp4?v=<?= time() ?>" type="video/mp4">
+  <video id="heroVideo" autoplay muted loop playsinline preload="none" poster="../assets/images/logo_comp.png">
+    <source src="../assets/videos/videos_agronomia_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     Tu navegador no soporta videos HTML5.
   </video>
@@ -26,7 +26,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up" style="position: relative;">
   <!-- Marca de agua en cultivos -->
   <div style="position: absolute; top: 20px; right: 20px; opacity: 0.08; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 100px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png" alt="Albino Luis Zorzon e Hijos" style="width: 100px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>Nuestros Cultivos</h2>
   <?= generateCultivosHTML() ?>
@@ -36,7 +36,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up" style="position: relative;">
   <!-- Marca de agua en tecnología -->
   <div style="position: absolute; top: 20px; left: 20px; opacity: 0.06; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 80px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png" alt="Albino Luis Zorzon e Hijos" style="width: 80px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>Tecnología Agrícola</h2>
   <?= generateTecnologiaHTML() ?>
@@ -45,7 +45,7 @@ include __DIR__ . "/../partials/header.php";
 <!-- Estadísticas Agrícolas -->
 <div class="stats fade-in-up">
   <video autoplay muted loop playsinline preload="none">
-    <source src="../assets/videos/nuestros_numeros_agricolas.MP4" type="video/mp4">
+    <source src="../assets/videos/nuestros_numeros_agricolas_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     Tu navegador no soporta videos HTML5.
   </video>
@@ -63,7 +63,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up" style="position: relative;">
   <!-- Marca de agua en sustentabilidad -->
   <div style="position: absolute; top: 20px; right: 20px; opacity: 0.05; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 90px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png" alt="Albino Luis Zorzon e Hijos" style="width: 90px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>Compromiso Sustentable</h2>
   <p>En Albino Luis Zorzon, creemos en una agricultura que respete el medio ambiente y preserve los recursos para las futuras generaciones.</p>

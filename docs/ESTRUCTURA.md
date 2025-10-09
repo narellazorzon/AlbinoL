@@ -31,7 +31,7 @@ AlbinoL/
 │   │   ├── app.js            # JavaScript principal
 │   │   └── form-validation.js # Validación de formularios
 │   └── images/
-│       └── logo.png          # Logo de la empresa
+│       └── logo_comp.png          # Logo de la empresa
 ├── 📁 docs/                  # Documentación
 │   ├── README.md             # Documentación técnica
 │   ├── ACCESIBILIDAD.md      # Guía de accesibilidad

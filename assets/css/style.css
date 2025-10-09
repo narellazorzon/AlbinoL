@@ -723,7 +723,6 @@ footer {
   color: rgba(255, 255, 255, 0.8);
 }
 
-
 /* Video lazy loading styles */
 .video-wrapper:hover .play-button {
   background: rgba(0,0,0,0.9);
@@ -733,6 +732,38 @@ footer {
 .play-button:hover {
   background: rgba(0,0,0,0.9) !important;
   transform: translate(-50%, -50%) scale(1.1) !important;
+}
+
+/* Estilos para validación de formulario */
+.form-input.error,
+.form-select.error,
+.form-textarea.error {
+  border-color: #d32f2f !important;
+  box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.2) !important;
+}
+
+.form-error {
+  color: #d32f2f;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+.form-instructions p {
+  margin: 0;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.form-instructions p[style*="color: #d32f2f"] {
+  background-color: #ffebee;
+  border: 1px solid #ffcdd2;
+}
+
+.form-instructions p[style*="color: #2e7d32"] {
+  background-color: #e8f5e8;
+  border: 1px solid #c8e6c9;
 }
 
 /* Responsive design */

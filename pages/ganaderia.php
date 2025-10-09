@@ -11,8 +11,8 @@ include __DIR__ . "/../partials/header.php";
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
-  <video id="heroVideo" autoplay muted loop playsinline preload="none" poster="../assets/images/logo.png">
-    <source src="../assets/videos/recopilacion_ganaderia.mp4?v=<?= time() ?>" type="video/mp4">
+  <video id="heroVideo" autoplay muted loop playsinline preload="none" poster="../assets/images/logo_comp.png">
+    <source src="../assets/videos/recopilacion_ganaderia_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     Tu navegador no soporta videos HTML5.
   </video>
@@ -26,7 +26,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up" style="position: relative;">
   <!-- Marca de agua en ganadería -->
   <div style="position: absolute; top: 20px; right: 20px; opacity: 0.08; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 100px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png" alt="Albino Luis Zorzon e Hijos" style="width: 100px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>Nuestras Actividades Ganaderas</h2>
   <?= generateActivitiesHTML() ?>
@@ -36,7 +36,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up" style="position: relative;">
   <!-- Marca de agua en razas -->
   <div style="position: absolute; top: 20px; left: 20px; opacity: 0.06; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 80px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png" alt="Albino Luis Zorzon e Hijos" style="width: 80px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>Razas que Trabajamos</h2>
   <?= generateRazasHTML() ?>
@@ -64,7 +64,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up" style="position: relative;">
   <!-- Marca de agua en alimentación -->
   <div style="position: absolute; top: 20px; right: 20px; opacity: 0.05; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 90px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png" alt="Albino Luis Zorzon e Hijos" style="width: 90px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>Alimentación Balanceada</h2>
   <p>Nuestro programa de alimentación está diseñado para maximizar la eficiencia y calidad de la producción.</p>

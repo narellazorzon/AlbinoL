@@ -12,7 +12,7 @@ include __DIR__ . "/../partials/header.php";
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
-  <video autoplay muted loop playsinline preload="metadata" poster="../assets/images/logo.png">
+  <video autoplay muted loop playsinline preload="metadata" poster="../assets/images/logo_comp.png">
     <source src="../assets/videos/nosotros.mp4" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     Tu navegador no soporta videos HTML5.
@@ -32,7 +32,7 @@ include __DIR__ . "/../partials/header.php";
   
   <!-- Logo como marca de agua -->
   <div style="position: absolute; top: 20px; right: 20px; opacity: 0.1; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 120px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png" alt="Albino Luis Zorzon e Hijos" style="width: 120px; height: auto; filter: grayscale(100%);">
   </div>
   
   <!-- Galería de imágenes históricas -->
@@ -47,7 +47,7 @@ include __DIR__ . "/../partials/header.php";
       
       <!-- Logo en el modal -->
       <div class="modal-logo" style="position: fixed; bottom: 20px; left: 20px; z-index: 1001; opacity: 0.7;">
-        <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 80px; height: auto; filter: brightness(0) invert(1);">
+        <img src="../assets/images/logo_comp.png" alt="Albino Luis Zorzon e Hijos" style="width: 80px; height: auto; filter: brightness(0) invert(1);">
       </div>
     </div>
   </div>
@@ -60,14 +60,14 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up" style="position: relative;">
   <!-- Marca de agua en valores -->
   <div style="position: absolute; top: 20px; right: 20px; opacity: 0.08; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 100px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png" alt="Albino Luis Zorzon e Hijos" style="width: 100px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>Nuestros Valores</h2>
   <?= generateValuesHTML() ?>
   
   <!-- Logo en la sección de valores -->
   <div style="text-align: center; margin-top: 2rem; padding: 1rem; background: rgba(var(--primary-color-rgb), 0.05); border-radius: 10px;">
-    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 100px; height: auto; opacity: 0.8;">
+    <img src="../assets/images/logo_comp.png" alt="Albino Luis Zorzon e Hijos" style="width: 100px; height: auto; opacity: 0.8;">
     <p style="margin-top: 0.5rem; color: rgb(77, 57, 25); font-size: 14px; font-style: italic;">Más de cinco décadas de tradición familiar</p>
   </div>
 </section>
@@ -90,7 +90,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up" style="position: relative;">
   <!-- Marca de agua en ubicación -->
   <div style="position: absolute; top: 20px; left: 20px; opacity: 0.06; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 80px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png" alt="Albino Luis Zorzon e Hijos" style="width: 80px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>Nuestra Ubicación</h2>
   <div class="cards-grid">
@@ -117,7 +117,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up" style="position: relative;">
   <!-- Marca de agua en certificaciones -->
   <div style="position: absolute; top: 20px; right: 20px; opacity: 0.05; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo.png" alt="Albino Luis Zorzon e Hijos" style="width: 90px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png" alt="Albino Luis Zorzon e Hijos" style="width: 90px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>Certificaciones y Compromisos</h2>
   <div class="cards-grid">
