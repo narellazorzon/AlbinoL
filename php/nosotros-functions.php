@@ -63,11 +63,6 @@ function getCompanyValues() {
             'icon' => '🚜',
             'title' => 'Innovación',
             'description' => 'Adopción de tecnologías modernas para optimizar la producción agropecuaria.'
-        ],
-        [
-            'icon' => '🤝',
-            'title' => 'Compromiso',
-            'description' => 'Dedicación constante hacia nuestros clientes y la calidad de nuestros productos.'
         ]
     ];
 }

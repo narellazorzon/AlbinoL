@@ -3,7 +3,7 @@ require_once __DIR__ . '/../includes/config.php';
 require_once __DIR__ . '/../php/contacto-functions.php';
 
 $title = "Contacto - Albino Luis Zorzon";
-$desc = "Contactanos para conocer más sobre nuestros servicios agropecuarios. Estamos en Zona Rural La Lola, Santa Fe.";
+$desc = "Contactanos para conocer más sobre nuestros servicios agropecuarios. Estamos en Zona Rural La Lola RP 1 km 306, Santa Fe.";
 include __DIR__ . "/../partials/header.php";
 ?>
 
@@ -172,7 +172,7 @@ include __DIR__ . "/../partials/header.php";
   <h2>¿Cómo Llegar?</h2>
   <div style="background: var(--cream-white); padding: 2rem; border-radius: 15px; box-shadow: var(--shadow); text-align: center;">
     <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">
-      Estamos ubicados en la Zona Rural La Lola, Provincia de Santa Fe. 
+      Estamos ubicados en la Zona Rural La Lola RP 1 km 306, Provincia de Santa Fe. 
       Para llegar a nuestras instalaciones, puedes contactarnos y te enviaremos las indicaciones detalladas.
     </p>
     <div style="background: var(--warm-beige); padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">

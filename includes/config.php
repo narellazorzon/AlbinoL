@@ -16,7 +16,7 @@ define('SITE_URL', 'http://localhost/AlbinoL');
 define('SITE_EMAIL', 'alzorzon@gmail.com');
 
 // Configuración de ubicación
-define('SITE_ADDRESS', 'Zona Rural La Lola');
+define('SITE_ADDRESS', 'Zona Rural La Lola RP 1 km 306');
 define('SITE_CITY', 'Provincia de Santa Fe');
 define('SITE_COUNTRY', 'Argentina');
 

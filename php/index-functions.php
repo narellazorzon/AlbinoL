@@ -14,16 +14,16 @@ function getIndexStats() {
             'label' => 'Hectáreas Agrícolas'
         ],
         [
-            'number' => '3000+',
-            'label' => 'Cabezas de Ganado'
+            'number' => '10000+',
+            'label' => 'Hectáreas sembradas'
         ],
         [
             'number' => '50+',
             'label' => 'Años de Experiencia'
         ],
         [
-            'number' => '100%',
-            'label' => 'Trabajo Familiar'
+            'number' => '3000+',
+            'label' => 'Cabezas de Ganado'
         ]
     ];
 }
@@ -37,7 +37,7 @@ function getIndexServicios() {
         [
             'icon' => '🌱',
             'title' => 'Agricultura',
-            'description' => 'Producción de cereales, oleaginosas y forrajeras con tecnología de punta y prácticas sustentables.'
+            'description' => 'Producción sustentable de cereales y oleaginosas integrando toda la cadena agrícola con tecnología, maquinaria propia y sustentabilidad.'
         ],
         [
             'icon' => '🐄',

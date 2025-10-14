@@ -3,7 +3,7 @@ require_once __DIR__ . '/../includes/config.php';
 require_once __DIR__ . '/../php/agricultura-functions.php';
 
 $title = "Agricultura - Albino Luis Zorzon";
-$desc = "Producción de cereales, oleaginosas y forrajeras con tecnología de punta y prácticas sustentables.";
+$desc = "Producción sustentable de cereales y oleaginosas integrando toda la cadena agrícola con tecnología, maquinaria propia y sustentabilidad.";
 include __DIR__ . "/../partials/header.php";
 ?>
 
@@ -18,7 +18,7 @@ include __DIR__ . "/../partials/header.php";
   </video>
   <div class="hero-content">
     <h1>Agricultura</h1>
-    <p>Producción de cereales, oleaginosas y forrajeras con tecnología de punta y prácticas sustentables</p>
+    <p>Producción sustentable de cereales y oleaginosas integrando toda la cadena agrícola con tecnología, maquinaria propia y sustentabilidad.</p>
   </div>
 </div>
 

@@ -93,6 +93,16 @@ include __DIR__ . "/../partials/header.php";
     <img src="../assets/images/logo_comp.png" alt="Albino Luis Zorzon e Hijos" style="width: 80px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>Nuestra Ubicación</h2>
+  
+  <!-- Dirección específica -->
+  <div style="text-align: center; margin-bottom: 2rem; padding: 1.5rem; background: rgba(var(--primary-color-rgb), 0.05); border-radius: 10px; border-left: 4px solid var(--primary-color);">
+    <h3 style="color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.3rem;">📍 Ubicación</h3>
+    <p style="font-size: 1.1rem; color: var(--text-dark); margin: 0; font-weight: 500;">
+      Zona Rural La Lola RP 1 km 306<br>
+      <span style="color: var(--text-light); font-size: 1rem;">Provincia de Santa Fe, Argentina</span>
+    </p>
+  </div>
+  
   <div class="cards-grid">
     <div class="card">
       <span class="card-icon">🌾</span>
@@ -136,7 +146,10 @@ include __DIR__ . "/../partials/header.php";
 
 <script>
 function loadVideo(el) {
-  el.innerHTML = '<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/9uru6TGV9GQ?autoplay=1&rel=0&modestbranding=1&showinfo=0&cc_load_policy=1&iv_load_policy=3&fs=1&disablekb=1&modestbranding=1&playsinline=1&enablejsapi=0" title="Ingenierio agronomo Cristian Zorzon, parte de la familia Zorzon" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-width: 0;"></iframe>';
+  // Obtener el título del video desde el párrafo descriptivo
+  const videoTitle = "Ingeniero Agronomo Cristian Zorzon, parte de la familia fundadora y de la empresa";
+  
+  el.innerHTML = '<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/9uru6TGV9GQ?autoplay=1&rel=0&modestbranding=1&showinfo=0&cc_load_policy=1&iv_load_policy=3&fs=1&disablekb=1&modestbranding=1&playsinline=1&enablejsapi=0" title="' + videoTitle + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-width: 0;"></iframe>';
 }
 </script>
 
