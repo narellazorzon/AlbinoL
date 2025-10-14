@@ -26,7 +26,7 @@ include __DIR__ . "/partials/header.php";
 <!-- Estadísticas -->
 <div class="stats fade-in-up">
   <video autoplay muted loop playsinline preload="none">
-    <source src="assets/videos/numeros.mp4" type="video/mp4">
+    <source src="assets/videos/numeros_index_comprimido.mp4" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     Tu navegador no soporta videos HTML5.
   </video>

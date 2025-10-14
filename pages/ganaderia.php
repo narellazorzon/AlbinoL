@@ -46,7 +46,7 @@ include __DIR__ . "/../partials/header.php";
 <div class="stats fade-in-up" style="position: relative; overflow: hidden;">
   <!-- Video de fondo para números ganaderos -->
   <video autoplay muted loop playsinline preload="none" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.6; filter: saturate(0.7) contrast(1.2) brightness(0.9);">
-    <source src="../assets/videos/numeros_ganaderos.MP4" type="video/mp4">
+    <source src="../assets/videos/numeros_ganaderos_comprimido.mp4" type="video/mp4">
     Tu navegador no soporta videos HTML5.
   </video>
   
