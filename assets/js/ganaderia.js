@@ -1,52 +1,84 @@
 // JavaScript específico para la página de Ganadería
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Carga inteligente del video hero para mejor rendimiento
+  // Carga y reproducción de videos con manejo de errores
   const heroVideo = document.getElementById('heroVideo');
   if (heroVideo) {
-    // Cargar video solo cuando esté en viewport
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          heroVideo.load();
-          observer.unobserve(heroVideo);
-        }
+    // Configurar eventos del video hero
+    heroVideo.addEventListener('loadeddata', function() {
+      console.log('Hero video loaded successfully');
+      this.play().catch(e => {
+        console.log('Hero video autoplay failed, trying user interaction:', e);
+        // Mostrar botón de play si falla el autoplay
+        showPlayButton(this);
       });
     });
-    observer.observe(heroVideo);
     
-    // Fallback: cargar después de 1 segundo si no está en viewport
-    setTimeout(() => {
-      if (heroVideo.readyState === 0) {
-        heroVideo.load();
+    heroVideo.addEventListener('error', function(e) {
+      console.error('Hero video error:', e);
+      // Mostrar imagen de fallback
+      this.style.display = 'none';
+      const fallback = this.nextElementSibling;
+      if (fallback && fallback.tagName === 'IMG') {
+        fallback.style.display = 'block';
       }
-    }, 1000);
+    });
+    
+    // Cargar el video
+    heroVideo.load();
   }
   
-  // Carga inteligente del video de números ganaderos
+  // Video de estadísticas
   const statsVideo = document.querySelector('.stats video');
   if (statsVideo) {
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          statsVideo.load();
-          statsObserver.unobserve(statsVideo);
-        }
+    statsVideo.addEventListener('loadeddata', function() {
+      console.log('Stats video loaded successfully');
+      this.play().catch(e => {
+        console.log('Stats video autoplay failed:', e);
       });
     });
-    statsObserver.observe(statsVideo);
     
-    // Fallback para el video de estadísticas
-    setTimeout(() => {
-      if (statsVideo.readyState === 0) {
-        statsVideo.load();
-      }
-    }, 2000);
+    statsVideo.addEventListener('error', function(e) {
+      console.error('Stats video error:', e);
+    });
+    
+    // Cargar el video
+    statsVideo.load();
   }
 
   // Animación de conteo para estadísticas
   initCounterAnimation();
 });
+
+/**
+ * Muestra un botón de play si el autoplay falla
+ */
+function showPlayButton(video) {
+  const playButton = document.createElement('button');
+  playButton.innerHTML = '▶️';
+  playButton.style.cssText = `
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.8);
+    border: none;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+  `;
+  
+  playButton.addEventListener('click', function() {
+    video.play();
+    this.remove();
+  });
+  
+  video.parentElement.appendChild(playButton);
+}
 
 /**
  * Inicializa la animación de conteo para las estadísticas

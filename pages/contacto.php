@@ -30,7 +30,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up contact-form-container">
   <!-- Marca de agua en formulario -->
   <div style="position: absolute; top: 20px; right: 20px; opacity: 0.08; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo_comp.png" alt="Albino Luis Zorzon e Hijos" style="width: 100px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png" alt="" style="width: 100px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>Envíanos un Mensaje</h2>
   <div class="contact-form">
@@ -167,7 +167,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up" style="position: relative;">
   <!-- Marca de agua en ubicación -->
   <div style="position: absolute; top: 20px; left: 20px; opacity: 0.06; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo_comp.png" alt="Albino Luis Zorzon e Hijos" style="width: 80px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png" alt="" style="width: 80px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>¿Cómo Llegar?</h2>
   <div style="background: var(--cream-white); padding: 2rem; border-radius: 15px; box-shadow: var(--shadow); text-align: center;">
@@ -191,7 +191,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up" style="text-align: center; position: relative;">
   <!-- Marca de agua en CTA -->
   <div style="position: absolute; top: 20px; right: 20px; opacity: 0.05; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo_comp.png" alt="Albino Luis Zorzon e Hijos" style="width: 90px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png" alt="" style="width: 90px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>¿Listo para Contactarnos?</h2>
   <div style="margin-top: 2rem;">

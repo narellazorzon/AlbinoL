@@ -19,7 +19,7 @@
   --text-light: #ffffff;
   --shadow: 0 4px 6px rgba(45, 80, 22, 0.15);
   --shadow-hover: 0 8px 15px rgba(45, 80, 22, 0.25);
-  --gradient-primary: linear-gradient(110deg, #2d5016 0%, #4a6b2a 100%);
+  --gradient-primary: transparent;
   --gradient-warm: linear-gradient(135deg, #8b7355 0%, #a8b88a 100%);
 }
 
@@ -237,7 +237,7 @@ main {
 /* Hero section */
 .hero {
   position: relative;
-  background: linear-gradient(rgba(45, 80, 22, 0.85), rgba(74, 107, 42, 0.85));
+  background: transparent;
   color: var(--text-light);
   text-align: center;
   padding: 4rem 2rem;
@@ -258,7 +258,7 @@ main {
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  background: linear-gradient(rgba(45, 80, 22, 0.1), rgba(74, 107, 42, 0.1));
+  background: transparent;
 }
 
 .hero .hero-content {
@@ -267,16 +267,7 @@ main {
 }
 
 /* Overlay para mejor legibilidad */
-.hero::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(45, 80, 22, 0.3), rgba(74, 107, 42, 0.3));
-  z-index: 1;
-}
+/* Overlay verde eliminado */
 
 /* Asegurar que el video no interfiera con el contenido */
 .hero h1,
@@ -286,17 +277,7 @@ main {
   z-index: 2;
 }
 
-/* Efecto de overlay para mejor legibilidad */
-.hero::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(45, 80, 22, 0.6), rgba(74, 107, 42, 0.6));
-  z-index: 1;
-}
+/* Efecto de overlay verde eliminado */
 
 .hero h1 {
   font-size: 3rem;
@@ -613,7 +594,7 @@ section p {
 /* Stats section */
 .stats {
   position: relative;
-  background: var(--gradient-primary);
+  background: transparent;
   color: var(--text-light);
   padding: 3rem 2rem;
   border-radius: 15px;
@@ -633,7 +614,7 @@ section p {
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  background: var(--gradient-primary);
+  background: transparent;
 }
 
 .stats .stats-content {
@@ -641,17 +622,7 @@ section p {
   z-index: 2;
 }
 
-/* Overlay para mejor legibilidad en stats */
-.stats::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(45, 80, 22, 0.7), rgba(74, 107, 42, 0.7));
-  z-index: 1;
-}
+/* Overlay para mejor legibilidad en stats - ELIMINADO */
 
 .stats-grid {
   display: grid;

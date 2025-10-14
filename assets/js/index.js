@@ -1,51 +1,84 @@
 // JavaScript específico para la página de inicio (index.php)
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Carga inteligente del video hero
+  // Carga y reproducción de videos con manejo de errores
   const heroVideo = document.querySelector('.hero video');
   if (heroVideo) {
-    const heroObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          heroVideo.load();
-          heroObserver.unobserve(heroVideo);
-        }
+    // Configurar eventos del video hero
+    heroVideo.addEventListener('loadeddata', function() {
+      console.log('Index hero video loaded successfully');
+      this.play().catch(e => {
+        console.log('Index hero video autoplay failed, trying user interaction:', e);
+        // Mostrar botón de play si falla el autoplay
+        showPlayButton(this);
       });
     });
-    heroObserver.observe(heroVideo);
     
-    // Fallback para el video hero
-    setTimeout(() => {
-      if (heroVideo.readyState === 0) {
-        heroVideo.load();
+    heroVideo.addEventListener('error', function(e) {
+      console.error('Index hero video error:', e);
+      // Mostrar imagen de fallback
+      this.style.display = 'none';
+      const fallback = this.nextElementSibling;
+      if (fallback && fallback.tagName === 'IMG') {
+        fallback.style.display = 'block';
       }
-    }, 1000);
+    });
+    
+    // Cargar el video
+    heroVideo.load();
   }
   
-  // Carga inteligente del video de estadísticas
+  // Video de estadísticas
   const statsVideo = document.querySelector('.stats video');
   if (statsVideo) {
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          statsVideo.load();
-          statsObserver.unobserve(statsVideo);
-        }
+    statsVideo.addEventListener('loadeddata', function() {
+      console.log('Index stats video loaded successfully');
+      this.play().catch(e => {
+        console.log('Index stats video autoplay failed:', e);
       });
     });
-    statsObserver.observe(statsVideo);
     
-    // Fallback para el video de estadísticas
-    setTimeout(() => {
-      if (statsVideo.readyState === 0) {
-        statsVideo.load();
-      }
-    }, 2000);
+    statsVideo.addEventListener('error', function(e) {
+      console.error('Index stats video error:', e);
+    });
+    
+    // Cargar el video
+    statsVideo.load();
   }
 
   // Animación de conteo para estadísticas
   initCounterAnimation();
 });
+
+/**
+ * Muestra un botón de play si el autoplay falla
+ */
+function showPlayButton(video) {
+  const playButton = document.createElement('button');
+  playButton.innerHTML = '▶️';
+  playButton.style.cssText = `
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.8);
+    border: none;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+  `;
+  
+  playButton.addEventListener('click', function() {
+    video.play();
+    this.remove();
+  });
+  
+  video.parentElement.appendChild(playButton);
+}
 
 /**
  * Inicializa la animación de conteo para las estadísticas
@@ -140,3 +173,4 @@ function animateCounter(element, target, originalText) {
   
   requestAnimationFrame(updateCounter);
 }
+

@@ -11,10 +11,10 @@ include __DIR__ . "/partials/header.php";
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
-  <video autoplay muted loop playsinline>
-    <source src="assets/videos/index1080_preview.mp4" type="video/mp4">
+  <video autoplay muted loop playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: cover;">
+    <source src="assets/videos/index1080_preview.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
-    Tu navegador no soporta videos HTML5.
+    <img src="assets/images/logo_comp.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
   </video>
   <div class="hero-content">
             <h1>Albino Luis Zorzon e hijos</h1>
@@ -25,13 +25,16 @@ include __DIR__ . "/partials/header.php";
 
 <!-- Estadísticas -->
 <div class="stats fade-in-up">
-  <video autoplay muted loop playsinline preload="none">
-    <source src="assets/videos/numeros_index_comprimido.mp4" type="video/mp4">
+  <video autoplay muted loop playsinline preload="metadata" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.6;">
+    <source src="assets/videos/numeros.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
-    Tu navegador no soporta videos HTML5.
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%); z-index: 1;"></div>
   </video>
   
-  <div class="stats-content">
+  <!-- Overlay para mejorar contraste del texto -->
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(139,69,19,0.4) 0%, rgba(160,82,45,0.2) 50%, rgba(101,67,33,0.3) 100%); z-index: 1;"></div>
+  
+  <div class="stats-content" style="position: relative; z-index: 2;">
     <?= generateIndexStatsHTML() ?>
   </div>
 </div>
