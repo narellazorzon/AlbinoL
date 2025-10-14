@@ -1,6 +1,97 @@
-# Albino Luis Zorzon - Configuración del servidor web
+# ===============================================
+# CONFIGURACIÓN DE MANTENIMIENTO - AlbinoL
+# ===============================================
+# 
+# INSTRUCCIONES DE USO:
+# 1. Para ACTIVAR el modo mantenimiento: descomenta las líneas del bloque "MODO MANTENIMIENTO ACTIVO"
+# 2. Para DESACTIVAR el modo mantenimiento: comenta las líneas del bloque "MODO MANTENIMIENTO ACTIVO"
+# 3. Cambia la IP en la línea "RewriteCond %{REMOTE_ADDR} !^190\.23\.45\.67$" por tu IP real
+#
+# ===============================================
 
-# Habilitar compresión gzip
+# Configuración básica de Apache
+RewriteEngine On
+
+# ===============================================
+# MODO MANTENIMIENTO ACTIVO
+# ===============================================
+# Descomenta las siguientes líneas para activar el modo mantenimiento
+# Comenta las siguientes líneas para desactivar el modo mantenimiento
+
+# Excluir la IP del administrador (cambiar por tu IP real)
+# RewriteCond %{REMOTE_ADDR} !^190\.23\.45\.67$
+
+# Excluir la página de mantenimiento para evitar bucles infinitos
+# RewriteCond %{REQUEST_URI} !^/maintenance\.html$
+
+# Excluir recursos estáticos de la página de mantenimiento
+# RewriteCond %{REQUEST_URI} !^/assets/images/logo\.png$
+# RewriteCond %{REQUEST_URI} !^/assets/css/.*$
+# RewriteCond %{REQUEST_URI} !^/assets/js/.*$
+# RewriteCond %{REQUEST_URI} !^/assets/videos/.*$
+
+# Excluir archivos del sistema que podrían ser necesarios
+# RewriteCond %{REQUEST_URI} !^/favicon\.ico$
+# RewriteCond %{REQUEST_URI} !^/robots\.txt$
+# RewriteCond %{REQUEST_URI} !^/sitemap\.xml$
+
+# Redirigir todo el tráfico a la página de mantenimiento
+# RewriteRule ^(.*)$ /maintenance.html [R=302,L]
+
+# ===============================================
+# CONFIGURACIÓN NORMAL DEL SITIO (cuando NO está en mantenimiento)
+# ===============================================
+
+# Redirección de la página principal
+RewriteRule ^$ index.php [L]
+
+# Redirección de páginas sin .php
+RewriteRule ^agricultura/?$ pages/agricultura.php [L]
+RewriteRule ^ganaderia/?$ pages/ganaderia.php [L]
+RewriteRule ^nosotros/?$ pages/nosotros.php [L]
+RewriteRule ^contacto/?$ pages/contacto.php [L]
+
+# Redirección de archivos PHP en la raíz (solo si no existe en la raíz)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]+)\.php$ pages/$1.php [L]
+
+# Configuración de seguridad
+# Ocultar archivos sensibles
+<Files "composer.json">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "*.log">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|inc|bak)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Proteger directorios sensibles
+RedirectMatch 403 ^/includes/.*\.(log|txt)$
+RedirectMatch 403 ^/logs/.*$
+
+# Configuración de caché para recursos estáticos
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+    ExpiresByType video/mp4 "access plus 1 month"
+</IfModule>
+
+# Compresión GZIP
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/plain
     AddOutputFilterByType DEFLATE text/html
@@ -13,49 +104,23 @@
     AddOutputFilterByType DEFLATE application/x-javascript
 </IfModule>
 
-# Configurar cache para archivos estáticos
-<IfModule mod_expires.c>
-    ExpiresActive on
-    ExpiresByType text/css "access plus 1 month"
-    ExpiresByType application/javascript "access plus 1 month"
-    ExpiresByType image/png "access plus 1 month"
-    ExpiresByType image/jpg "access plus 1 month"
-    ExpiresByType image/jpeg "access plus 1 month"
-    ExpiresByType image/gif "access plus 1 month"
-    ExpiresByType image/svg+xml "access plus 1 month"
-</IfModule>
-
-# Configurar headers de seguridad
+# Configuración de headers de seguridad
 <IfModule mod_headers.c>
     Header always set X-Content-Type-Options nosniff
     Header always set X-Frame-Options DENY
     Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
 # Página de error personalizada
 ErrorDocument 404 /404.php
 
-# Redirecciones para la nueva estructura
-RewriteEngine On
-
-# Redireccionar páginas antiguas a la nueva estructura
-RewriteRule ^agricultura\.php$ pages/agricultura.php [R=301,L]
-RewriteRule ^ganaderia\.php$ pages/ganaderia.php [R=301,L]
-RewriteRule ^nosotros\.php$ pages/nosotros.php [R=301,L]
-RewriteRule ^contacto\.php$ pages/contacto.php [R=301,L]
-
-# Redireccionar www a no-www (opcional)
-# RewriteEngine On
-# RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-# RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
-
-# Ocultar archivos sensibles
-<Files ".htaccess">
-    Order allow,deny
-    Deny from all
-</Files>
-
-<Files "*.log">
-    Order allow,deny
-    Deny from all
-</Files>
+# ===============================================
+# NOTAS IMPORTANTES:
+# ===============================================
+# 1. Para activar mantenimiento: descomenta la línea "RewriteRule ^(.*)$ /maintenance.html [R=302,L]"
+# 2. Para desactivar mantenimiento: comenta la línea "RewriteRule ^(.*)$ /maintenance.html [R=302,L]"
+# 3. Cambia "190.23.45.67" por tu IP real para poder acceder al sitio durante el mantenimiento
+# 4. La IP debe estar en formato CIDR si necesitas rangos (ej: 190.23.45.0/24)
+# 5. Puedes agregar múltiples IPs duplicando la línea RewriteCond con diferentes IPs
+# ===============================================
