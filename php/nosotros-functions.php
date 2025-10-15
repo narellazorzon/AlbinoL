@@ -11,31 +11,31 @@
 function getGalleryImages() {
     return [
         [
-            'src' => '../assets/images/imagenes_albino_page-0002.jpg',
+            'src' => '../assets/images/imagenes_albino_page-0002_small.webp',
             'alt' => 'Historia familiar Albino Luis Zorzon',
             'caption' => 'Historia familiar Albino Luis Zorzon',
             'label' => 'Campo La Lola, Santa Fe'
         ],
         [
-            'src' => '../assets/images/imagenes_albino_page-0004.jpg',
+            'src' => '../assets/images/imagenes_albino_page-0004_small.webp',
             'alt' => 'Cosecha de tabaco y producción agropecuaria',
             'caption' => 'Tabaco y producción agropecuaria',
             'label' => 'Cosecha de tabaco'
         ],
         [
-            'src' => '../assets/images/imagenes_albino_page-0008.jpg',
+            'src' => '../assets/images/imagenes_albino_page-0008_small.webp',
             'alt' => 'Producción agropecuaria familiar',
             'caption' => 'Producción agropecuaria familiar',
             'label' => 'Campo familiar'
         ],
         [
-            'src' => '../assets/images/imagenes_albino_page-0009.jpg',
+            'src' => '../assets/images/imagenes_albino_page-0009_small.webp',
             'alt' => 'Tradición en el campo',
             'caption' => 'Tradición en el campo',
             'label' => 'Tradición y modernidad'
         ],
         [
-            'src' => '../assets/images/imagenes_albino_page-0010.jpg',
+            'src' => '../assets/images/imagenes_albino_page-0010_small.webp',
             'alt' => 'Compromiso con la tierra y la familia',
             'caption' => 'Compromiso con la tierra y la familia',
             'label' => 'Compromiso familiar'
