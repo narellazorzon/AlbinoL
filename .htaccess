@@ -1,11 +1,11 @@
 # ===============================================
-# CONFIGURACIÓN PARA DESARROLLO LOCAL (XAMPP)
+# CONFIGURACIÓN DE MANTENIMIENTO - AlbinoL
 # ===============================================
 # 
-# INSTRUCCIONES:
-# 1. Renombra este archivo a .htaccess cuando trabajes en localhost
-# 2. Renombra de vuelta a .htaccess.localhost cuando subas a producción
-# 3. O simplemente usa este archivo en localhost
+# INSTRUCCIONES DE USO:
+# 1. Para ACTIVAR el modo mantenimiento: descomenta las líneas del bloque "MODO MANTENIMIENTO ACTIVO"
+# 2. Para DESACTIVAR el modo mantenimiento: comenta las líneas del bloque "MODO MANTENIMIENTO ACTIVO"
+# 3. Cambia la IP en la línea "RewriteCond %{REMOTE_ADDR} !^190\.23\.45\.67$" por tu IP real
 #
 # ===============================================
 
@@ -13,11 +13,34 @@
 RewriteEngine On
 
 # ===============================================
-# CONFIGURACIÓN PARA DESARROLLO LOCAL
+# MODO MANTENIMIENTO ACTIVO
 # ===============================================
-# Sin redirecciones HTTPS en localhost
-# Sin headers de seguridad estrictos
-# Con compresión habilitada para testing
+# Descomenta las siguientes líneas para activar el modo mantenimiento
+# Comenta las siguientes líneas para desactivar el modo mantenimiento
+
+# Excluir la IP del administrador (cambiar por tu IP real)
+# RewriteCond %{REMOTE_ADDR} !^190\.23\.45\.67$
+
+# Excluir la página de mantenimiento para evitar bucles infinitos
+# RewriteCond %{REQUEST_URI} !^/maintenance\.html$
+
+# Excluir recursos estáticos de la página de mantenimiento
+# RewriteCond %{REQUEST_URI} !^/assets/images/logo\.png$
+# RewriteCond %{REQUEST_URI} !^/assets/css/.*$
+# RewriteCond %{REQUEST_URI} !^/assets/js/.*$
+# RewriteCond %{REQUEST_URI} !^/assets/videos/.*$
+
+# Excluir archivos del sistema que podrían ser necesarios
+# RewriteCond %{REQUEST_URI} !^/favicon\.ico$
+# RewriteCond %{REQUEST_URI} !^/robots\.txt$
+# RewriteCond %{REQUEST_URI} !^/sitemap\.xml$
+
+# Redirigir todo el tráfico a la página de mantenimiento
+# RewriteRule ^(.*)$ /maintenance.html [R=302,L]
+
+# ===============================================
+# CONFIGURACIÓN NORMAL DEL SITIO (cuando NO está en mantenimiento)
+# ===============================================
 
 # Redirección de la página principal
 RewriteRule ^$ index.php [L]
@@ -32,9 +55,7 @@ RewriteRule ^contacto/?$ pages/contacto.php [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^/]+)\.php$ pages/$1.php [L]
 
-# ===============================================
-# CONFIGURACIÓN DE SEGURIDAD BÁSICA
-# ===============================================
+# Configuración de seguridad
 # Ocultar archivos sensibles
 <Files "composer.json">
     Order Allow,Deny
@@ -55,53 +76,109 @@ RewriteRule ^([^/]+)\.php$ pages/$1.php [L]
 RedirectMatch 403 ^/includes/.*\.(log|txt)$
 RedirectMatch 403 ^/logs/.*$
 
-# ===============================================
-# CACHÉ BÁSICO PARA DESARROLLO
-# ===============================================
+# Configuración de caché para recursos estáticos
 <IfModule mod_expires.c>
     ExpiresActive On
     
-    # HTML (sin caché para desarrollo)
-    ExpiresByType text/html "access plus 0 seconds"
+    # Imágenes (1 año)
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/ico "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
     
-    # CSS y JS (caché corto para desarrollo)
-    ExpiresByType text/css "access plus 1 hour"
-    ExpiresByType text/javascript "access plus 1 hour"
-    ExpiresByType application/javascript "access plus 1 hour"
+    # CSS y JavaScript (1 mes)
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
     
-    # Imágenes (caché corto para desarrollo)
-    ExpiresByType image/webp "access plus 1 hour"
-    ExpiresByType image/jpeg "access plus 1 hour"
-    ExpiresByType image/png "access plus 1 hour"
-    ExpiresByType image/gif "access plus 1 hour"
-    ExpiresByType image/svg+xml "access plus 1 hour"
+    # Fuentes (1 año)
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
     
-    # Videos (caché corto para desarrollo)
-    ExpiresByType video/mp4 "access plus 1 hour"
-    ExpiresByType video/webm "access plus 1 hour"
+    # Videos (1 mes)
+    ExpiresByType video/mp4 "access plus 1 month"
+    ExpiresByType video/webm "access plus 1 month"
+    ExpiresByType video/ogg "access plus 1 month"
+    
+    # Documentos (1 mes)
+    ExpiresByType application/pdf "access plus 1 month"
+    
+    # HTML (1 día para evitar obsolescencia)
+    ExpiresByType text/html "access plus 1 day"
+    
+    # JSON y XML (1 semana)
+    ExpiresByType application/json "access plus 1 week"
+    ExpiresByType application/xml "access plus 1 week"
+    ExpiresByType text/xml "access plus 1 week"
 </IfModule>
 
-# ===============================================
-# COMPRESIÓN BÁSICA PARA DESARROLLO
-# ===============================================
+# Cache-Control headers para recursos estáticos
+<IfModule mod_headers.c>
+    # Recursos estáticos con versionado (1 año)
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico|woff2|woff|ttf|otf)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    
+    # CSS y JS con versionado (1 mes)
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+    
+    # Videos (1 mes)
+    <FilesMatch "\.(mp4|webm|ogg)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+    
+    # HTML (1 día)
+    <FilesMatch "\.(html|htm|php)$">
+        Header set Cache-Control "public, max-age=86400"
+    </FilesMatch>
+    
+    # JSON y XML (1 semana)
+    <FilesMatch "\.(json|xml)$">
+        Header set Cache-Control "public, max-age=604800"
+    </FilesMatch>
+</IfModule>
+
+# Compresión GZIP
 <IfModule mod_deflate.c>
-    # Compresión básica para desarrollo
+    AddOutputFilterByType DEFLATE text/plain
     AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
     AddOutputFilterByType DEFLATE text/css
-    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
     AddOutputFilterByType DEFLATE application/javascript
-    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>
+
+# Configuración de headers de seguridad
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
 # Página de error personalizada
 ErrorDocument 404 /404.php
 
 # ===============================================
-# NOTAS PARA DESARROLLO:
+# NOTAS IMPORTANTES:
 # ===============================================
-# 1. Este archivo está optimizado para desarrollo local
-# 2. No incluye redirecciones HTTPS (evita errores de certificado)
-# 3. Caché reducido para ver cambios inmediatamente
-# 4. Compresión básica para testing de performance
-# 5. Headers de seguridad relajados para desarrollo
+# 1. Para activar mantenimiento: descomenta la línea "RewriteRule ^(.*)$ /maintenance.html [R=302,L]"
+# 2. Para desactivar mantenimiento: comenta la línea "RewriteRule ^(.*)$ /maintenance.html [R=302,L]"
+# 3. Cambia "190.23.45.67" por tu IP real para poder acceder al sitio durante el mantenimiento
+# 4. La IP debe estar en formato CIDR si necesitas rangos (ej: 190.23.45.0/24)
+# 5. Puedes agregar múltiples IPs duplicando la línea RewriteCond con diferentes IPs
 # ===============================================

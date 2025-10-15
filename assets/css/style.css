@@ -41,7 +41,7 @@ header {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   position: sticky;
   top: 0;
-  z-index: 9999;
+  z-index: 1000;
 }
 
 .header-container {
@@ -342,12 +342,9 @@ section p {
 /* Cards grid */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
   margin: 2rem 0;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* Grid uniforme para cultivos */
@@ -785,7 +782,7 @@ footer {
     padding: 5rem 2rem 2rem;
     gap: 1rem;
     transition: right 0.3s ease;
-    z-index: 9998;
+    z-index: 1000;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
   }
   
@@ -828,17 +825,6 @@ footer {
   
   .cards-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    max-width: 100%;
-  }
-}
-
-/* Tablet breakpoint para compromisos */
-@media (max-width: 768px) {
-  .cards-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    max-width: 100%;
   }
 }
 

@@ -207,26 +207,36 @@ function guardarMensajeEnArchivo($nombre, $email, $telefono, $asunto, $mensaje) 
     return $filename;
 }
 
-// Función para enviar email usando PHPMailer (SISTEMA ÚNICO)
+// Función para enviar email usando PHPMailer
 function enviarEmailSimple($nombre, $email, $telefono, $asunto, $mensaje) {
     try {
-        // Incluir PHPMailer directamente (sin configuraciones duplicadas)
+        // Incluir configuración de email
+        require_once __DIR__ . '/email-config.php';
+        
+        // Verificar configuración
+        $errores = verificarConfiguracionEmail();
+        if (!empty($errores)) {
+            error_log('Configuración de email incompleta: ' . implode(', ', $errores));
+            return ['success' => false, 'message' => 'Configuración de email incompleta. Contacta al administrador.'];
+        }
+        
+        // Incluir PHPMailer
         require_once __DIR__ . '/../PHPMailer-master/src/Exception.php';
         require_once __DIR__ . '/../PHPMailer-master/src/PHPMailer.php';
         require_once __DIR__ . '/../PHPMailer-master/src/SMTP.php';
         
         $mail = new PHPMailer\PHPMailer\PHPMailer(true);
         
-        // Configuración del servidor SMTP (UNA SOLA CONFIGURACIÓN)
+        // Configuración del servidor SMTP
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
+        $mail->Host = SMTP_HOST;
         $mail->SMTPAuth = true;
-        $mail->Username = 'alzorzon@gmail.com';
-        $mail->Password = 'ibge ngxn jcxj rvzd'; // SOLO UNA CONTRASEÑA
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 587;
+        $mail->Username = SMTP_USER;
+        $mail->Password = SMTP_PASS;
+        $mail->SMTPSecure = SMTP_SECURE;
+        $mail->Port = SMTP_PORT;
         $mail->CharSet = 'UTF-8';
-        $mail->SMTPDebug = 0; // Desactivado para evitar duplicados
+        $mail->SMTPDebug = SMTP_DEBUG ? 2 : 0;
         
         // Configuración SSL para desarrollo (XAMPP)
         $mail->SMTPOptions = array(
@@ -238,8 +248,8 @@ function enviarEmailSimple($nombre, $email, $telefono, $asunto, $mensaje) {
         );
         
         // Configurar remitente y destinatario
-        $mail->setFrom('alzorzon@gmail.com', 'Albino Luis Zorzon e hijos');
-        $mail->addAddress('alzorzon@gmail.com', 'Albino Luis Zorzon');
+        $mail->setFrom(SMTP_USER, SITE_NAME);
+        $mail->addAddress(SITE_EMAIL, 'Albino Luis Zorzon');
         $mail->addReplyTo($email, $nombre);
         
         // Configurar el contenido del email
@@ -339,7 +349,7 @@ Este mensaje fue enviado desde el formulario de contacto del sitio web.
         
         $mail->AltBody = $textoPlano;
         
-        // Enviar el email (UNA SOLA VEZ)
+        // Enviar el email
         $mail->send();
         
         return ['success' => true, 'message' => 'Mensaje enviado correctamente. Te contactaremos pronto.'];
