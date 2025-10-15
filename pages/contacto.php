@@ -7,12 +7,23 @@ $desc = "Contactanos para conocer más sobre nuestros servicios agropecuarios. E
 include __DIR__ . "/../partials/header.php";
 ?>
 
-<link rel="stylesheet" href="../assets/css/contacto.css?v=<?= time() ?>">
+<!-- =============================================== -->
+<!-- OPTIMIZACIÓN MÓVIL - Recursos críticos Contacto -->
+<!-- =============================================== -->
+
+<!-- Preload de recursos críticos para FCP/LCP -->
+<link rel="preload" href="../assets/css/contacto.css?v=<?= time() ?>" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="../assets/videos/video_contacto_comprimido.mp4?v=<?= time() ?>" as="video" fetchpriority="high">
+<link rel="preload" href="../assets/images/logo_comp.png?v=<?= time() ?>" as="image" fetchpriority="high">
+
+<!-- Fallback para navegadores sin JavaScript -->
+<noscript><link rel="stylesheet" href="../assets/css/contacto.css?v=<?= time() ?>"></noscript>
 
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
-  <video id="heroVideo" autoplay muted loop playsinline preload="none" poster="../assets/images/logo_comp.png">
+  <!-- Prioridad alta para LCP video -->
+  <video id="heroVideo" autoplay muted loop playsinline preload="auto" fetchpriority="high" poster="../assets/images/logo_comp.png?v=<?= time() ?>">
     <source src="../assets/videos/video_contacto_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     Tu navegador no soporta videos HTML5.
@@ -30,7 +41,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up contact-form-container">
   <!-- Marca de agua en formulario -->
   <div style="position: absolute; top: 20px; right: 20px; opacity: 0.08; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo_comp.png" alt="" style="width: 100px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png?v=<?= time() ?>" alt="" style="width: 100px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>Envíanos un Mensaje</h2>
   <div class="contact-form">
@@ -167,7 +178,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up" style="position: relative;">
   <!-- Marca de agua en ubicación -->
   <div style="position: absolute; top: 20px; left: 20px; opacity: 0.06; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo_comp.png" alt="" style="width: 80px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png?v=<?= time() ?>" alt="" style="width: 80px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>¿Cómo Llegar?</h2>
   <div style="background: var(--cream-white); padding: 2rem; border-radius: 15px; box-shadow: var(--shadow); text-align: center;">
@@ -191,7 +202,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up" style="text-align: center; position: relative;">
   <!-- Marca de agua en CTA -->
   <div style="position: absolute; top: 20px; right: 20px; opacity: 0.05; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo_comp.png" alt="" style="width: 90px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png?v=<?= time() ?>" alt="" style="width: 90px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>¿Listo para Contactarnos?</h2>
   <div style="margin-top: 2rem;">
@@ -200,7 +211,7 @@ include __DIR__ . "/../partials/header.php";
   </div>
 </section>
 
-<script src="../assets/js/contacto.js?v=<?= time() ?>"></script>
-
-<script src="../assets/js/contacto-validation.js?v=<?= time() ?>"></script>
+<!-- Scripts optimizados con defer para mejor rendimiento -->
+<script src="../assets/js/contacto.js?v=<?= time() ?>" defer></script>
+<script src="../assets/js/contacto-validation.js?v=<?= time() ?>" defer></script>
 <?php include __DIR__ . "/../partials/footer.php"; ?>

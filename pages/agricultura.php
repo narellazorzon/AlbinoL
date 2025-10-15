@@ -7,11 +7,22 @@ $desc = "Producción sustentable de cereales y oleaginosas integrando toda la ca
 include __DIR__ . "/../partials/header.php";
 ?>
 
-<link rel="stylesheet" href="../assets/css/agricultura.css?v=<?= time() ?>">
+<!-- =============================================== -->
+<!-- OPTIMIZACIÓN MÓVIL - Recursos críticos Agricultura -->
+<!-- =============================================== -->
+
+<!-- Preload de recursos críticos para FCP/LCP -->
+<link rel="preload" href="../assets/css/agricultura.css?v=<?= time() ?>" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="../assets/videos/videos_agronomia_comprimido.mp4?v=<?= time() ?>" as="video" fetchpriority="high">
+<link rel="preload" href="../assets/images/logo_comp.png?v=<?= time() ?>" as="image" fetchpriority="high">
+
+<!-- Fallback para navegadores sin JavaScript -->
+<noscript><link rel="stylesheet" href="../assets/css/agricultura.css?v=<?= time() ?>"></noscript>
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
-  <video id="heroVideo" autoplay muted loop playsinline preload="none" poster="../assets/images/logo_comp.png">
+  <!-- Prioridad alta para LCP video -->
+  <video id="heroVideo" autoplay muted loop playsinline preload="auto" fetchpriority="high" poster="../assets/images/logo_comp.png?v=<?= time() ?>">
     <source src="../assets/videos/videos_agronomia_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     Tu navegador no soporta videos HTML5.
@@ -26,7 +37,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up" style="position: relative;">
   <!-- Marca de agua en cultivos -->
   <div style="position: absolute; top: 20px; right: 20px; opacity: 0.08; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo_comp.png" alt="" style="width: 100px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png?v=<?= time() ?>" alt="" style="width: 100px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>Nuestros Cultivos</h2>
   <?= generateCultivosHTML() ?>
@@ -36,7 +47,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up" style="position: relative;">
   <!-- Marca de agua en tecnología -->
   <div style="position: absolute; top: 20px; left: 20px; opacity: 0.06; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo_comp.png" alt="" style="width: 80px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png?v=<?= time() ?>" alt="" style="width: 80px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>Tecnología Agrícola</h2>
   <?= generateTecnologiaHTML() ?>
@@ -70,7 +81,7 @@ include __DIR__ . "/../partials/header.php";
     </video>
     <div class="sustentabilidad-overlay"></div>
     <div class="sustentabilidad-content">
-      <h2 class="sustentabilidad-title">🌿 Sustentabilidad y Compromiso Ambiental</h2>
+      <h2 class="sustentabilidad-title"> Sustentabilidad y Compromiso Ambiental</h2>
       <p class="sustentabilidad-subtitle">Trabajamos con la convicción de que producir alimentos de calidad implica cuidar los recursos naturales y el equilibrio del suelo</p>
     </div>
   </header>
@@ -102,16 +113,96 @@ include __DIR__ . "/../partials/header.php";
     </article>
   </div>
 
-  <!-- Bloque destacado del propósito -->
-  <footer class="sustentabilidad-highlight">
-    <div class="highlight-content">
-      <div class="highlight-icon">💚</div>
-      <h3>Nuestro Propósito</h3>
-      <p>Generar alimentos de calidad, proteger la salud del suelo e integrar innovación tecnológica y respeto por la tierra que nos vio crecer.</p>
-    </div>
-  </footer>
 </section>
 
-<script src="../assets/js/agricultura.js?v=<?= time() ?>"></script>
+<!-- Cumplimiento Normativo - Provincia de Santa Fe -->
+<section class="normativa-section">
+  <!-- Header con video de fondo -->
+  <header class="normativa-header">
+    <video class="normativa-video" autoplay muted loop playsinline>
+      <source src="<?= $basePath ?>assets/videos/cumplimiento_normativo_comprimido.mp4" type="video/mp4">
+    </video>
+    <div class="normativa-overlay"></div>
+    <div class="normativa-content">
+      <h2 class="normativa-title">Cumplimiento Normativo – Provincia de Santa Fe</h2>
+      <p class="normativa-subtitle">Todas nuestras labores de pulverización se realizan bajo los lineamientos de la Ley Provincial 11.273 y su Decreto Reglamentario 552/97, que regulan el uso responsable de productos fitosanitarios en Santa Fe.</p>
+    </div>
+  </header>
+
+  <!-- Cards de cumplimiento normativo -->
+  <div class="normativa-cards">
+    <article class="normativa-card fade-in-up">
+      <div class="card-icon">✅</div>
+      <h3>Equipos Habilitados</h3>
+      <p>Utilizamos únicamente pulverizadoras registradas y aprobadas por el Ministerio de Producción, Ciencia y Tecnología de la provincia.</p>
+    </article>
+
+    <article class="normativa-card fade-in-up">
+      <div class="card-icon">👩‍🌾</div>
+      <h3>Aplicaciones Seguras</h3>
+      <p>Las tareas son supervisadas por ingenieros agrónomos matriculados, con recetas fitosanitarias que garantizan el cumplimiento técnico y legal.</p>
+    </article>
+
+    <article class="normativa-card fade-in-up">
+      <div class="card-icon">🌎</div>
+      <h3>Responsabilidad Ambiental</h3>
+      <p>Trabajamos con precisión y control para minimizar la deriva, proteger el suelo y cuidar la biodiversidad.</p>
+    </article>
+
+  </div>
+
+  <!-- Enlaces a normativas -->
+  <div class="normativa-links">
+    <a href="https://www.santafe.gov.ar/index.php/web/content/download/3686/21012/" target="_blank" class="normativa-link">
+      🔗 Ley 11.273 de Productos Fitosanitarios (Santa Fe)
+    </a>
+    <a href="https://www.ecofield.net/Legales/SantaFe/dec552-97.htm" target="_blank" class="normativa-link">
+      🔗 Decreto Reglamentario 552/97
+    </a>
+  </div>
+</section>
+
+<!-- Cadena Completa de Transporte -->
+<section class="transporte-section fade-in-up">
+  <div class="transporte-container">
+    <div class="transporte-content">
+      <h2> Cadena Completa de Transporte</h2>
+      <p>Contamos con nuestra propia flota de camiones, lo que nos permite mantener una <strong>cadena productiva completa</strong> desde la siembra hasta la entrega final. Esta integración nos garantiza:</p>
+      
+      <div class="transporte-beneficios">
+        <div class="beneficio-item">
+          <span class="beneficio-icon">⚡</span>
+          <h3>Eficiencia Logística</h3>
+          <p>Control total de tiempos y rutas de entrega</p>
+        </div>
+        
+        <div class="beneficio-item">
+          <span class="beneficio-icon">🛡️</span>
+          <h3>Calidad Garantizada</h3>
+          <p>Cuidado especializado de nuestros productos durante el transporte</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="transporte-video-container">
+      <video autoplay muted loop playsinline preload="metadata" class="transporte-video">
+        <source src="../assets/videos/camion_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
+        <!-- Fallback para navegadores que no soportan video -->
+        <div class="transporte-video-fallback">
+          <div class="fallback-content">
+            <span class="fallback-icon"></span>
+            <p>Nuestra flota de camiones</p>
+          </div>
+        </div>
+      </video>
+      
+      <!-- Overlay verde para tono verde -->
+      <div class="transporte-video-overlay"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Script optimizado con defer para mejor rendimiento -->
+<script src="../assets/js/agricultura.js?v=<?= time() ?>" defer></script>
 
 <?php include __DIR__ . "/../partials/footer.php"; ?>

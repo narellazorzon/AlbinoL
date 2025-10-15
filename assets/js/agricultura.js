@@ -168,9 +168,33 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     
-    // Cargar el video
-    sustentabilidadVideo.load();
-  }
+  // Cargar el video
+  sustentabilidadVideo.load();
+}
+
+// Cargar video de transporte
+const transporteVideo = document.querySelector('.transporte-video');
+if (transporteVideo) {
+  transporteVideo.addEventListener('loadeddata', function() {
+    console.log('Transporte video loaded successfully');
+    this.play().catch(e => {
+      console.log('Transporte video autoplay failed:', e);
+    });
+  });
+  
+  transporteVideo.addEventListener('error', function(e) {
+    console.error('Transporte video error:', e);
+    // Mostrar fallback si el video falla
+    const fallback = this.querySelector('.transporte-video-fallback');
+    if (fallback) {
+      fallback.style.display = 'flex';
+    }
+  });
+  
+  // Cargar el video
+  transporteVideo.load();
+}
+
   
   // Observar cards de sustentabilidad
   const sustentabilidadCards = document.querySelectorAll('.sustentabilidad-card');
@@ -189,11 +213,23 @@ document.addEventListener('DOMContentLoaded', function() {
   if (sustentabilidadHighlight) {
     sustentabilidadObserver.observe(sustentabilidadHighlight);
   }
+  
+  // Observar cards de normativa
+  const normativaCards = document.querySelectorAll('.normativa-card');
+  normativaCards.forEach(card => {
+    sustentabilidadObserver.observe(card);
+  });
+  
+  // Observar header de normativa
+  const normativaHeader = document.querySelector('.normativa-header');
+  if (normativaHeader) {
+    sustentabilidadObserver.observe(normativaHeader);
+  }
 });
 
 // Animaciones adicionales para efectos hover
 document.addEventListener('DOMContentLoaded', function() {
-  const cards = document.querySelectorAll('.sustentabilidad-card');
+  const cards = document.querySelectorAll('.sustentabilidad-card, .normativa-card');
   
   cards.forEach(card => {
     // Efecto de parallax sutil en hover

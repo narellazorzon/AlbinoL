@@ -48,9 +48,13 @@ $basePath = $isInPages ? '../' : '';
     
   </div>
 </footer>
-<script src="<?= $basePath ?>assets/js/app.js?v=<?= time() ?>"></script>
+
+<!-- Scripts optimizados con defer para mejor rendimiento -->
+<script src="<?= $basePath ?>assets/js/app.js?v=<?= time() ?>" defer></script>
+
+<!-- Script crítico inline para funcionalidad esencial del menú móvil -->
 <script>
-// Menú hamburguesa
+// Menú hamburguesa - Script crítico inline para funcionalidad esencial
 document.addEventListener('DOMContentLoaded', function() {
   const mobileToggle = document.querySelector('.mobile-menu-toggle');
   const navMenu = document.querySelector('.nav-menu');

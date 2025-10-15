@@ -7,12 +7,22 @@ $desc = "Conoce nuestra historia familiar de más de cinco décadas en la produc
 include __DIR__ . "/../partials/header.php";
 ?>
 
-<!-- CSS específico para la página Nosotros -->
-<link rel="stylesheet" href="../assets/css/nosotros.css?v=<?= time() ?>">
+<!-- =============================================== -->
+<!-- OPTIMIZACIÓN MÓVIL - Recursos críticos Nosotros -->
+<!-- =============================================== -->
+
+<!-- Preload de recursos críticos para FCP/LCP -->
+<link rel="preload" href="../assets/css/nosotros.css?v=<?= time() ?>" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="../assets/videos/nosotros.mp4" as="video" fetchpriority="high">
+<link rel="preload" href="../assets/images/logo_comp.png?v=<?= time() ?>" as="image" fetchpriority="high">
+
+<!-- Fallback para navegadores sin JavaScript -->
+<noscript><link rel="stylesheet" href="../assets/css/nosotros.css?v=<?= time() ?>"></noscript>
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
-  <video autoplay muted loop playsinline preload="metadata" poster="../assets/images/logo_comp.png">
+  <!-- Prioridad alta para LCP video -->
+  <video autoplay muted loop playsinline preload="auto" fetchpriority="high" poster="../assets/images/logo_comp.png?v=<?= time() ?>">
     <source src="../assets/videos/nosotros.mp4" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     Tu navegador no soporta videos HTML5.
@@ -32,7 +42,7 @@ include __DIR__ . "/../partials/header.php";
   
   <!-- Logo como marca de agua -->
   <div style="position: absolute; top: 20px; right: 20px; opacity: 0.1; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo_comp.png" alt="" style="width: 120px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png?v=<?= time() ?>" alt="" style="width: 120px; height: auto; filter: grayscale(100%);">
   </div>
   
   <!-- Galería de imágenes históricas -->
@@ -47,27 +57,27 @@ include __DIR__ . "/../partials/header.php";
       
       <!-- Logo en el modal -->
       <div class="modal-logo" style="position: fixed; bottom: 20px; left: 20px; z-index: 1001; opacity: 0.7;">
-        <img src="../assets/images/logo_comp.png" alt="" style="width: 80px; height: auto; filter: brightness(0) invert(1);">
+        <img src="../assets/images/logo_comp.png?v=<?= time() ?>" alt="" style="width: 80px; height: auto; filter: brightness(0) invert(1);">
       </div>
     </div>
   </div>
 
-<!-- JavaScript específico para la página Nosotros -->
-<script src="../assets/js/nosotros.js?v=<?= time() ?>"></script>
+<!-- Script optimizado con defer para mejor rendimiento -->
+<script src="../assets/js/nosotros.js?v=<?= time() ?>" defer></script>
 </section>
 
 <!-- Valores -->
 <section class="fade-in-up" style="position: relative;">
   <!-- Marca de agua en valores -->
   <div style="position: absolute; top: 20px; right: 20px; opacity: 0.08; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo_comp.png" alt="" style="width: 100px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png?v=<?= time() ?>" alt="" style="width: 100px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>Nuestros Valores</h2>
   <?= generateValuesHTML() ?>
   
   <!-- Logo en la sección de valores -->
   <div style="text-align: center; margin-top: 2rem; padding: 1rem; background: rgba(var(--primary-color-rgb), 0.05); border-radius: 10px;">
-    <img src="../assets/images/logo_comp.png" alt="" style="width: 100px; height: auto; opacity: 0.8;">
+    <img src="../assets/images/logo_comp.png?v=<?= time() ?>" alt="" style="width: 100px; height: auto; opacity: 0.8;">
     <p style="margin-top: 0.5rem; color: rgb(77, 57, 25); font-size: 14px; font-style: italic;">Más de cinco décadas de tradición familiar</p>
   </div>
 </section>
@@ -90,7 +100,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up" style="position: relative;">
   <!-- Marca de agua en ubicación -->
   <div style="position: absolute; top: 20px; left: 20px; opacity: 0.06; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo_comp.png" alt="" style="width: 80px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png?v=<?= time() ?>" alt="" style="width: 80px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>Nuestra Ubicación</h2>
   
@@ -127,7 +137,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up" style="position: relative;">
   <!-- Marca de agua en certificaciones -->
   <div style="position: absolute; top: 20px; right: 20px; opacity: 0.05; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo_comp.png" alt="" style="width: 90px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_comp.png?v=<?= time() ?>" alt="" style="width: 90px; height: auto; filter: grayscale(100%);">
   </div>
   <h2>Certificaciones y Compromisos</h2>
   <div class="cards-grid">

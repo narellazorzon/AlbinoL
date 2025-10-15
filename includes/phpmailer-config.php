@@ -2,7 +2,14 @@
 /**
  * Configuración de PHPMailer para Albino Luis Zorzon
  * Sistema profesional de envío de emails
+ * 
+ * ⚠️ ARCHIVO DESACTIVADO PARA EVITAR DUPLICADOS ⚠️
+ * Este archivo está desactivado para evitar emails duplicados.
+ * El envío de emails se maneja desde enviar-mensaje.php
  */
+
+// ARCHIVO DESACTIVADO - NO USAR
+return;
 
 // Incluir PHPMailer
 require_once __DIR__ . '/../PHPMailer-master/src/Exception.php';

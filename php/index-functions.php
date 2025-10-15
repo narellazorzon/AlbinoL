@@ -59,12 +59,7 @@ function getIndexCompromisos() {
             'description' => 'Prácticas agrícolas que respetan el medio ambiente y preservan los recursos naturales para las futuras generaciones.'
         ],
         [
-            'icon' => '👨‍👩‍👧‍👦',
-            'title' => 'Trabajo Familiar',
-            'description' => 'Valores familiares que se transmiten de generación en generación.'
-        ],
-        [
-            'icon' => '🔬',
+            'icon' => '🚜',
             'title' => 'Innovación',
             'description' => 'Adopción de nuevas tecnologías y técnicas que nos permiten ser más eficientes y competitivos.'
         ]
