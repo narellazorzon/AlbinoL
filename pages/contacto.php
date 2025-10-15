@@ -12,7 +12,7 @@ include __DIR__ . "/../partials/header.php";
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
-  <video id="heroVideo" autoplay muted loop playsinline preload="none" poster="../assets/images/logo_albino_comprimido.webp">
+  <video id="heroVideo" autoplay muted loop playsinline preload="none" poster="../assets/images/logo_comp.png">
     <source src="../assets/videos/video_contacto_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     Tu navegador no soporta videos HTML5.

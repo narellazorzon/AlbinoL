@@ -48,28 +48,7 @@ $basePath = $isInPages ? '../' : '';
     
   </div>
 </footer>
-<!-- Scripts críticos para LCP -->
-<script src="<?= $basePath ?>assets/js/app-core.js?v=<?= time() ?>"></script>
-
-<!-- Scripts no críticos cargados de forma diferida -->
-<script>
-// Cargar animaciones no críticas de forma diferida
-if ('requestIdleCallback' in window) {
-    requestIdleCallback(() => {
-        const script = document.createElement('script');
-        script.src = '<?= $basePath ?>assets/js/animations.js?v=<?= time() ?>';
-        script.async = true;
-        document.head.appendChild(script);
-    });
-} else {
-    setTimeout(() => {
-        const script = document.createElement('script');
-        script.src = '<?= $basePath ?>assets/js/animations.js?v=<?= time() ?>';
-        script.async = true;
-        document.head.appendChild(script);
-    }, 100);
-}
-</script>
+<script src="<?= $basePath ?>assets/js/app.js?v=<?= time() ?>"></script>
 <script>
 // Menú hamburguesa
 document.addEventListener('DOMContentLoaded', function() {
