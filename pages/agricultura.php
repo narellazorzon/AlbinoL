@@ -104,6 +104,51 @@ include __DIR__ . "/../partials/header.php";
 
 </section>
 
+<!-- Cumplimiento Normativo – Provincia de Santa Fe -->
+<section class="normativa-section fade-in-up">
+  <div class="normativa-header">
+    <video autoplay muted loop playsinline preload="metadata" class="normativa-video">
+      <source src="../assets/videos/cumplim_normativo_provincial_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
+      <!-- Fallback para navegadores que no soportan video -->
+      <div class="normativa-fallback"></div>
+    </video>
+    <div class="normativa-overlay"></div>
+    <div class="normativa-content">
+      <h2 class="normativa-title">Cumplimiento Normativo – Provincia de Santa Fe</h2>
+      <p class="normativa-subtitle">Todas nuestras labores de pulverización se realizan bajo los lineamientos de la Ley Provincial 11.273 y su Decreto Reglamentario 552/97</p>
+    </div>
+  </div>
+
+  <div class="normativa-cards">
+    <article class="normativa-card fade-in-up">
+      <div class="card-icon">✅</div>
+      <h3>Equipos Habilitados</h3>
+      <p>Utilizamos únicamente pulverizadoras registradas y aprobadas por el Ministerio de Producción, Ciencia y Tecnología de la provincia.</p>
+    </article>
+
+    <article class="normativa-card fade-in-up">
+      <div class="card-icon">👩‍🌾</div>
+      <h3>Aplicaciones Seguras</h3>
+      <p>Las tareas son supervisadas por ingenieros agrónomos matriculados, con recetas fitosanitarias que garantizan el cumplimiento técnico y legal.</p>
+    </article>
+
+    <article class="normativa-card fade-in-up">
+      <div class="card-icon">🌎</div>
+      <h3>Responsabilidad Ambiental</h3>
+      <p>Trabajamos con precisión y control para minimizar la deriva, proteger el suelo y cuidar la biodiversidad.</p>
+    </article>
+  </div>
+
+  <div class="normativa-links">
+    <a href="https://www.santafe.gov.ar/index.php/web/content/download/3686/21012/" target="_blank" rel="noopener noreferrer" class="normativa-link">
+      🔗 Ley 11.273 de Productos Fitosanitarios (Santa Fe)
+    </a>
+    <a href="https://www.ecofield.net/Legales/SantaFe/dec552-97.htm" target="_blank" rel="noopener noreferrer" class="normativa-link">
+      🔗 Decreto Reglamentario 552/97
+    </a>
+  </div>
+</section>
+
 <script src="../assets/js/agricultura.js?v=<?= time() ?>"></script>
 
 <?php include __DIR__ . "/../partials/footer.php"; ?>

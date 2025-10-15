@@ -25,6 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Animación de conteo para estadísticas
   initCounterAnimation();
+  
+  // Animaciones para la sección normativa
+  initNormativaAnimations();
 });
 
 /**
@@ -310,3 +313,41 @@ particleStyle.textContent = `
   }
 `;
 document.head.appendChild(particleStyle);
+
+/**
+ * Inicializa las animaciones para la sección normativa
+ */
+function initNormativaAnimations() {
+  const normativaSection = document.querySelector('.normativa-section');
+  if (!normativaSection) return;
+
+  // Intersection Observer para activar animaciones cuando la sección entra en viewport
+  const normativaObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Animar cards con delay escalonado
+        const cards = entry.target.querySelectorAll('.normativa-card');
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add('visible');
+          }, index * 150); // Delay de 150ms entre cada card
+        });
+        
+        // Animar enlaces
+        const links = entry.target.querySelectorAll('.normativa-link');
+        setTimeout(() => {
+          links.forEach(link => {
+            link.classList.add('visible');
+          });
+        }, cards.length * 150 + 200); // Animar enlaces después de las cards
+        
+        normativaObserver.unobserve(entry.target); // Solo animar una vez
+      }
+    });
+  }, {
+    threshold: 0.2, // Activar cuando 20% de la sección sea visible
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  normativaObserver.observe(normativaSection);
+}
