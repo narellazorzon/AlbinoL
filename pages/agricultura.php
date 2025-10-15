@@ -158,9 +158,9 @@ include __DIR__ . "/../partials/header.php";
       
       <div class="transporte-beneficios">
         <div class="beneficio-item">
-          <span class="beneficio-icon">👨‍💼</span>
-          <h3>Conductores Capacitados</h3>
-          <p>Nuestros choferes poseen licencias profesionales vigentes y realizan los cursos obligatorios de la provincia de Santa Fe, garantizando un transporte seguro, legal y responsable.</p>
+          <span class="beneficio-icon">⚡</span>
+          <h3>Eficiencia Logística</h3>
+          <p>Control total de tiempos y rutas de entrega</p>
         </div>
         
         <div class="beneficio-item">
