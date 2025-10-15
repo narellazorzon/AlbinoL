@@ -1,9 +1,9 @@
-// Albino Luis Zorzon - JavaScript Interactivo
+// Albino Luis Zorzon - JavaScript Core (Crítico para LCP)
 console.log("🌾 Sitio Albino Luis Zorzon activo");
 
-// Scripts críticos se ejecutan inmediatamente
+// Funciones críticas que deben ejecutarse inmediatamente
 document.addEventListener('DOMContentLoaded', function() {
-    // Animación de elementos al hacer scroll
+    // Animación de elementos al hacer scroll (crítico para UX)
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -26,8 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 
-
-    // Animación de números en las estadísticas
+    // Animación de números en las estadísticas (crítico para engagement)
     const animateNumbers = () => {
         const statNumbers = document.querySelectorAll('.stat-number');
         statNumbers.forEach(stat => {
@@ -61,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
         statsObserver.observe(statsSection);
     }
 
-    // Efecto hover mejorado para las cards
+    // Efecto hover mejorado para las cards (crítico para interactividad)
     document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-10px) scale(1.02)';
@@ -72,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Smooth scroll para enlaces internos
+    // Smooth scroll para enlaces internos (crítico para navegación)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -86,21 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Efecto parallax suave para el hero (no crítico)
-    if ('requestIdleCallback' in window) {
-        requestIdleCallback(() => {
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                window.addEventListener('scroll', () => {
-                    const scrolled = window.pageYOffset;
-                    const rate = scrolled * -0.5;
-                    hero.style.transform = `translateY(${rate}px)`;
-                });
-            }
-        });
-    }
-
-    // Navegación activa mejorada
+    // Navegación activa mejorada (crítico para UX)
     const currentPage = window.location.pathname.split('/').pop() || 'index.php';
     document.querySelectorAll('nav a').forEach(link => {
         const linkPage = link.getAttribute('href').split('/').pop();
@@ -109,72 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Botón de scroll to top (no crítico)
-    if ('requestIdleCallback' in window) {
-        requestIdleCallback(() => {
-            const scrollToTopBtn = document.createElement('button');
-            scrollToTopBtn.innerHTML = '↑';
-            scrollToTopBtn.className = 'scroll-to-top';
-            scrollToTopBtn.style.cssText = `
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                background: var(--accent-green);
-                color: white;
-                border: none;
-                font-size: 20px;
-                cursor: pointer;
-                opacity: 0;
-                transition: all 0.3s ease;
-                z-index: 1000;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            `;
-            
-            document.body.appendChild(scrollToTopBtn);
-
-            // Mostrar/ocultar botón de scroll to top
-            window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    scrollToTopBtn.style.opacity = '1';
-                } else {
-                    scrollToTopBtn.style.opacity = '0';
-                }
-            });
-
-            // Funcionalidad del botón scroll to top
-            scrollToTopBtn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        });
-    }
-
-    // Efecto de typing para el título principal (no crítico)
-    if ('requestIdleCallback' in window) {
-        requestIdleCallback(() => {
-            const heroTitle = document.querySelector('.hero h1');
-            if (heroTitle) {
-                const text = heroTitle.textContent;
-                heroTitle.textContent = '';
-                let i = 0;
-                const typeWriter = () => {
-                    if (i < text.length) {
-                        heroTitle.textContent += text.charAt(i);
-                        i++;
-                        setTimeout(typeWriter, 100);
-                    }
-                };
-                setTimeout(typeWriter, 500);
-            }
-        });
-    }
-
-    // Lazy loading para imágenes (si se agregan en el futuro)
+    // Lazy loading para imágenes (crítico para rendimiento)
     if ('IntersectionObserver' in window) {
         const imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -191,17 +111,9 @@ document.addEventListener('DOMContentLoaded', function() {
             imageObserver.observe(img);
         });
     }
-
-    // Mensaje de bienvenida
-    console.log(`
-    🌾🌱🐄🚜
-    Bienvenido a Albino Luis Zorzon
-    Empresa familiar de producción agropecuaria
-    🌾🌱🐄🚜
-    `);
 });
 
-// Funciones utilitarias
+// Funciones utilitarias críticas
 const utils = {
     // Formatear números con separadores de miles
     formatNumber: (num) => {
@@ -230,11 +142,3 @@ const utils = {
 
 // Exportar utils para uso global
 window.ALZUtils = utils;
-
-// Cargar validación del formulario de contacto
-if (document.querySelector('form[action="enviar-mensaje.php"]')) {
-    const script = document.createElement('script');
-    script.src = 'assets/js/form-validation.js';
-    script.async = true;
-    document.head.appendChild(script);
-}

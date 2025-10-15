@@ -11,10 +11,10 @@ include __DIR__ . "/../partials/header.php";
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
-  <video id="heroVideo" autoplay muted loop playsinline preload="none" poster="../assets/images/logo_comp.png">
+  <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="../assets/images/logo_albino_comprimido.webp" fetchpriority="high">
     <source src="../assets/videos/videos_agronomia_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
-    Tu navegador no soporta videos HTML5.
+    <img src="../assets/images/logo_albino_comprimido.webp" alt="Agricultura Albino Luis Zorzon" style="width: 100%; height: 100%; object-fit: cover;" fetchpriority="high">
   </video>
   <div class="hero-content">
     <h1>Agricultura</h1>
@@ -26,7 +26,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up" style="position: relative;">
   <!-- Marca de agua en cultivos -->
   <div style="position: absolute; top: 20px; right: 20px; opacity: 0.08; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo_comp.png" alt="" style="width: 100px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_albino_comprimido.webp" alt="" style="width: 100px; height: auto; filter: grayscale(100%);" loading="lazy">
   </div>
   <h2>Nuestros Cultivos</h2>
   <?= generateCultivosHTML() ?>
@@ -36,7 +36,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="fade-in-up" style="position: relative;">
   <!-- Marca de agua en tecnología -->
   <div style="position: absolute; top: 20px; left: 20px; opacity: 0.06; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo_comp.png" alt="" style="width: 80px; height: auto; filter: grayscale(100%);">
+    <img src="../assets/images/logo_albino_comprimido.webp" alt="" style="width: 80px; height: auto; filter: grayscale(100%);" loading="lazy">
   </div>
   <h2>Tecnología Agrícola</h2>
   <?= generateTecnologiaHTML() ?>
@@ -112,6 +112,7 @@ include __DIR__ . "/../partials/header.php";
   </footer>
 </section>
 
-<script src="../assets/js/agricultura.js?v=<?= time() ?>"></script>
+<!-- Script diferido para mejorar LCP -->
+<script src="../assets/js/agricultura.js?v=<?= time() ?>" defer></script>
 
 <?php include __DIR__ . "/../partials/footer.php"; ?>

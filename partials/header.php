@@ -26,6 +26,13 @@
   <title><?= htmlspecialchars($title) ?></title>
   <meta name="description" content="<?= htmlspecialchars($desc) ?>">
   <meta name="keywords" content="agricultura, ganadería, producción agropecuaria, Albino Luis Zorzon, La Lola Santa Fe, Reconquista , trigo, maíz, soja, girasol, algodón, Angus, Braford, Brangus, empresa familiar, campo argentino, siembra directa, agricultura de precisión, cría de ganado, engorde a corral, pastoreo rotativo, sanidad animal">
+  
+  <!-- Preload recursos críticos para mejorar LCP -->
+  <link rel="preload" href="<?= $basePath ?>assets/css/style_comp.css?v=<?= time() ?>" as="style">
+  <link rel="preload" href="<?= $basePath ?>assets/images/logo_albino_comprimido.webp?v=<?= time() ?>" as="image" fetchpriority="high">
+  <link rel="preload" href="<?= $basePath ?>assets/js/app-core.js?v=<?= time() ?>" as="script">
+  
+  <!-- CSS crítico -->
   <link rel="stylesheet" href="<?= $basePath ?>assets/css/style_comp.css?v=<?= time() ?>">
   
 </head>
@@ -33,7 +40,7 @@
 <header>
   <div class="header-container">
     <a href="<?= $basePath ?>index.php" class="logo">
-        <img src="<?= $basePath ?>assets/images/logo_comp.png?v=<?= time() ?>" alt="" class="logo-img">
+        <img src="<?= $basePath ?>assets/images/logo_albino_comprimido.webp?v=<?= time() ?>" alt="" class="logo-img">
       <div class="logo-text">
         <div class="company-name">Albino Luis Zorzon</div>
         <div class="company-suffix">e hijos</div>

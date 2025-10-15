@@ -14,7 +14,7 @@ include __DIR__ . "/partials/header.php";
   <video autoplay muted loop playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: cover;">
     <source src="assets/videos/index1080_preview.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
-    <img src="assets/images/logo_comp.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+    <img src="assets/images/logo_albino_comprimido.webp" alt="" style="width: 100%; height: 100%; object-fit: cover;">
   </video>
   <div class="hero-content">
             <h1>Albino Luis Zorzon e hijos</h1>

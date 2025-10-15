@@ -12,7 +12,7 @@ AlbinoL/
 │   ├── js/                # Scripts JavaScript
 │   │   └── app.js         # JavaScript principal
 │   └── images/            # Imágenes y logos
-│       └── logo_comp.png       # Logo de la empresa
+│       └── logo_albino_comprimido.webp       # Logo de la empresa
 ├── partials/              # Componentes reutilizables
 │   ├── header.php         # Cabecera del sitio
 │   └── footer.php         # Pie de página
