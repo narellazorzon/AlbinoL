@@ -201,19 +201,60 @@ function generateAgriculturaStatsHTML() {
 }
 
 /**
- * Genera el HTML de la sustentabilidad
+ * Genera el HTML de la sustentabilidad (versión legacy para compatibilidad)
  * @return string HTML de la sustentabilidad
  */
 function generateSustentabilidadHTML() {
-    $sustentabilidad = getAgriculturaSustentabilidad();
-    $html = '<div class="cards-grid">';
+    // Esta función se mantiene para compatibilidad con el código existente
+    // La nueva sección de sustentabilidad se renderiza directamente en agricultura.php
+    return '<div class="legacy-sustentabilidad-notice" style="display: none;">
+        <p>La sección de sustentabilidad se ha actualizado con un nuevo diseño.</p>
+    </div>';
+}
+
+/**
+ * Obtiene los datos de sustentabilidad para la nueva sección
+ * @return array Array con los datos de sustentabilidad
+ */
+function getSustentabilidadData() {
+    return [
+        [
+            'icon' => '📊',
+            'title' => 'Medición de Huella de Carbono',
+            'description' => 'Realizamos la medición de huella de carbono en nuestros principales cultivos —soja, maíz y algodón— para conocer las emisiones generadas y el carbono capturado en el suelo, optimizando así el uso de insumos y la eficiencia productiva.'
+        ],
+        [
+            'icon' => '🌾',
+            'title' => 'Trazabilidad y Programas de Sustentabilidad',
+            'description' => 'Implementamos trazabilidad digital con UCrop.it y participamos del programa ProCarbono de Bayer, garantizando transparencia, innovación y compromiso ambiental en cada lote.'
+        ],
+        [
+            'icon' => '🧪',
+            'title' => 'Manejo Responsable de Agroquímicos',
+            'description' => 'Evaluamos el Índice de Impacto Ambiental de los Agroquímicos (EIQ) para seleccionar los productos más seguros, reduciendo riesgos sobre el ambiente, los trabajadores y la comunidad.'
+        ],
+        [
+            'icon' => '♻️',
+            'title' => 'Enmiendas Orgánicas y Mejora del Suelo',
+            'description' => 'Incorporamos cama de pollo, digestato y digesto provenientes de plantas de biogás y etanol, aportando carbono y nutrientes naturales que mejoran la estructura, fertilidad y balance del suelo.'
+        ]
+    ];
+}
+
+/**
+ * Genera el HTML de las cards de sustentabilidad
+ * @return string HTML de las cards
+ */
+function generateSustentabilidadCardsHTML() {
+    $data = getSustentabilidadData();
+    $html = '<div class="sustentabilidad-cards">';
     
-    foreach ($sustentabilidad as $item) {
-        $html .= '<div class="card">';
-        $html .= '<span class="card-icon">' . $item['icon'] . '</span>';
-        $html .= '<h3>' . $item['title'] . '</h3>';
-        $html .= '<p>' . $item['description'] . '</p>';
-        $html .= '</div>';
+    foreach ($data as $item) {
+        $html .= '<article class="sustentabilidad-card fade-in-up">';
+        $html .= '<div class="card-icon">' . $item['icon'] . '</div>';
+        $html .= '<h3>' . htmlspecialchars($item['title']) . '</h3>';
+        $html .= '<p>' . htmlspecialchars($item['description']) . '</p>';
+        $html .= '</article>';
     }
     
     $html .= '</div>';

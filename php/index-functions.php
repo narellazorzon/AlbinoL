@@ -14,8 +14,8 @@ function getIndexStats() {
             'label' => 'Hectáreas Agrícolas'
         ],
         [
-            'number' => '10000+',
-            'label' => 'Hectáreas sembradas'
+            'number' => '12000+',
+            'label' => 'Hectáreas sembradas por año'
         ],
         [
             'number' => '50+',

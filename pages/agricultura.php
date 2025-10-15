@@ -59,15 +59,57 @@ include __DIR__ . "/../partials/header.php";
   </div>
 </div>
 
-<!-- Sustentabilidad -->
-<section class="fade-in-up" style="position: relative;">
-  <!-- Marca de agua en sustentabilidad -->
-  <div style="position: absolute; top: 20px; right: 20px; opacity: 0.05; z-index: 1; pointer-events: none;">
-    <img src="../assets/images/logo_comp.png" alt="" style="width: 90px; height: auto; filter: grayscale(100%);">
+<!-- Sustentabilidad y Compromiso Ambiental -->
+<section class="sustentabilidad-section">
+  <!-- Header con video de fondo -->
+  <header class="sustentabilidad-header">
+    <video autoplay muted loop playsinline preload="metadata" class="sustentabilidad-video">
+      <source src="../assets/videos/video_header.mp4?v=<?= time() ?>" type="video/mp4">
+      <!-- Fallback para navegadores que no soportan video -->
+      <div class="sustentabilidad-fallback"></div>
+    </video>
+    <div class="sustentabilidad-overlay"></div>
+    <div class="sustentabilidad-content">
+      <h2 class="sustentabilidad-title">🌿 Sustentabilidad y Compromiso Ambiental</h2>
+      <p class="sustentabilidad-subtitle">Trabajamos con la convicción de que producir alimentos de calidad implica cuidar los recursos naturales y el equilibrio del suelo</p>
+    </div>
+  </header>
+
+  <!-- Cards de sustentabilidad -->
+  <div class="sustentabilidad-cards">
+    <article class="sustentabilidad-card fade-in-up">
+      <div class="card-icon">📊</div>
+      <h3>Medición de Huella de Carbono</h3>
+      <p>Realizamos la medición de huella de carbono en nuestros principales cultivos —soja, maíz y algodón— para conocer las emisiones generadas y el carbono capturado en el suelo, optimizando así el uso de insumos y la eficiencia productiva.</p>
+    </article>
+
+    <article class="sustentabilidad-card fade-in-up">
+      <div class="card-icon">🌾</div>
+      <h3>Trazabilidad y Programas de Sustentabilidad</h3>
+      <p>Implementamos trazabilidad digital con UCrop.it y participamos del programa ProCarbono de Bayer, garantizando transparencia, innovación y compromiso ambiental en cada lote.</p>
+    </article>
+
+    <article class="sustentabilidad-card fade-in-up">
+      <div class="card-icon">🧪</div>
+      <h3>Manejo Responsable de Agroquímicos</h3>
+      <p>Evaluamos el Índice de Impacto Ambiental de los Agroquímicos (EIQ) para seleccionar los productos más seguros, reduciendo riesgos sobre el ambiente, los trabajadores y la comunidad.</p>
+    </article>
+
+    <article class="sustentabilidad-card fade-in-up">
+      <div class="card-icon">♻️</div>
+      <h3>Enmiendas Orgánicas y Mejora del Suelo</h3>
+      <p>Incorporamos cama de pollo, digestato y digesto provenientes de plantas de biogás y etanol, aportando carbono y nutrientes naturales que mejoran la estructura, fertilidad y balance del suelo.</p>
+    </article>
   </div>
-  <h2>Compromiso Sustentable</h2>
-  <p>En Albino Luis Zorzon, creemos en una agricultura que respete el medio ambiente y preserve los recursos para las futuras generaciones.</p>
-  <?= generateSustentabilidadHTML() ?>
+
+  <!-- Bloque destacado del propósito -->
+  <footer class="sustentabilidad-highlight">
+    <div class="highlight-content">
+      <div class="highlight-icon">💚</div>
+      <h3>Nuestro Propósito</h3>
+      <p>Generar alimentos de calidad, proteger la salud del suelo e integrar innovación tecnológica y respeto por la tierra que nos vio crecer.</p>
+    </div>
+  </footer>
 </section>
 
 <script src="../assets/js/agricultura.js?v=<?= time() ?>"></script>

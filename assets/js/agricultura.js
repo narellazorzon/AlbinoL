@@ -120,3 +120,193 @@ function animateCounter(element, target, originalText) {
   
   requestAnimationFrame(updateCounter);
 }
+
+// ===============================================
+// ANIMACIONES DE SUSTENTABILIDAD
+// ===============================================
+
+// IntersectionObserver para animaciones de scroll
+const sustentabilidadObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      
+      // Animación escalonada para cards
+      if (entry.target.classList.contains('sustentabilidad-card')) {
+        const cards = document.querySelectorAll('.sustentabilidad-card');
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add('visible');
+          }, index * 150); // Delay escalonado de 150ms
+        });
+      }
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+});
+
+// Observar elementos de sustentabilidad
+document.addEventListener('DOMContentLoaded', function() {
+  // Cargar video de sustentabilidad
+  const sustentabilidadVideo = document.querySelector('.sustentabilidad-video');
+  if (sustentabilidadVideo) {
+    sustentabilidadVideo.addEventListener('loadeddata', function() {
+      console.log('Sustentabilidad video loaded successfully');
+      this.play().catch(e => {
+        console.log('Sustentabilidad video autoplay failed:', e);
+      });
+    });
+    
+    sustentabilidadVideo.addEventListener('error', function(e) {
+      console.error('Sustentabilidad video error:', e);
+      // Mostrar fallback si el video falla
+      const fallback = this.nextElementSibling;
+      if (fallback && fallback.classList.contains('sustentabilidad-fallback')) {
+        fallback.style.display = 'block';
+      }
+    });
+    
+    // Cargar el video
+    sustentabilidadVideo.load();
+  }
+  
+  // Observar cards de sustentabilidad
+  const sustentabilidadCards = document.querySelectorAll('.sustentabilidad-card');
+  sustentabilidadCards.forEach(card => {
+    sustentabilidadObserver.observe(card);
+  });
+  
+  // Observar header de sustentabilidad
+  const sustentabilidadHeader = document.querySelector('.sustentabilidad-header');
+  if (sustentabilidadHeader) {
+    sustentabilidadObserver.observe(sustentabilidadHeader);
+  }
+  
+  // Observar highlight de sustentabilidad
+  const sustentabilidadHighlight = document.querySelector('.sustentabilidad-highlight');
+  if (sustentabilidadHighlight) {
+    sustentabilidadObserver.observe(sustentabilidadHighlight);
+  }
+});
+
+// Animaciones adicionales para efectos hover
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.sustentabilidad-card');
+  
+  cards.forEach(card => {
+    // Efecto de parallax sutil en hover
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-8px) scale(1.02)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0) scale(1)';
+    });
+    
+    // Efecto de ripple al hacer click
+    card.addEventListener('click', function(e) {
+      const ripple = document.createElement('span');
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+      
+      ripple.style.cssText = `
+        position: absolute;
+        width: ${size}px;
+        height: ${size}px;
+        left: ${x}px;
+        top: ${y}px;
+        background: rgba(45, 80, 22, 0.3);
+        border-radius: 50%;
+        transform: scale(0);
+        animation: ripple 0.6s linear;
+        pointer-events: none;
+        z-index: 1;
+      `;
+      
+      this.appendChild(ripple);
+      
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
+  });
+});
+
+// CSS para animación ripple
+const rippleStyle = document.createElement('style');
+rippleStyle.textContent = `
+  @keyframes ripple {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+`;
+document.head.appendChild(rippleStyle);
+
+// Animación de entrada para el título principal
+document.addEventListener('DOMContentLoaded', function() {
+  const title = document.querySelector('.sustentabilidad-title');
+  if (title) {
+    // Animación de escritura para el título
+    const titleText = title.textContent;
+    title.textContent = '';
+    title.style.opacity = '1';
+    
+    let i = 0;
+    const typeWriter = () => {
+      if (i < titleText.length) {
+        title.textContent += titleText.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+      }
+    };
+    
+    // Iniciar animación después de un pequeño delay
+    setTimeout(typeWriter, 500);
+  }
+});
+
+// Efecto de partículas flotantes en el header
+document.addEventListener('DOMContentLoaded', function() {
+  const header = document.querySelector('.sustentabilidad-header');
+  if (header) {
+    // Crear partículas flotantes
+    for (let i = 0; i < 20; i++) {
+      const particle = document.createElement('div');
+      particle.style.cssText = `
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: float ${3 + Math.random() * 4}s ease-in-out infinite;
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        animation-delay: ${Math.random() * 2}s;
+      `;
+      header.appendChild(particle);
+    }
+  }
+});
+
+// CSS para animación de partículas
+const particleStyle = document.createElement('style');
+particleStyle.textContent = `
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+      opacity: 0.3;
+    }
+    50% {
+      transform: translateY(-20px) rotate(180deg);
+      opacity: 0.8;
+    }
+  }
+`;
+document.head.appendChild(particleStyle);
