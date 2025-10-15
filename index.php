@@ -61,6 +61,6 @@ include __DIR__ . "/partials/header.php";
   <?= generateIndexCompromisosHTML() ?>
 </section>
 
-<script src="assets/js/index.js"></script>
+<script src="assets/js/index.js?v=<?= time() ?>"></script>
 
 <?php include __DIR__ . "/partials/footer.php"; ?>

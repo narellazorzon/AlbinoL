@@ -48,7 +48,7 @@ $basePath = $isInPages ? '../' : '';
     
   </div>
 </footer>
-<script src="<?= $basePath ?>assets/js/app.js"></script>
+<script src="<?= $basePath ?>assets/js/app.js?v=<?= time() ?>"></script>
 <script>
 // Menú hamburguesa
 document.addEventListener('DOMContentLoaded', function() {

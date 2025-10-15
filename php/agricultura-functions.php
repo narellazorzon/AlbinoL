@@ -146,7 +146,7 @@ function generateCultivosHTML() {
         $html .= '<div class="crop-card">';
         $html .= '<div class="crop-card-header">';
         $html .= '<span class="crop-icon">' . $cultivo['icon'] . '</span>';
-        $html .= '<h4>' . $cultivo['title'] . '</h4>';
+        $html .= '<h3>' . $cultivo['title'] . '</h3>';
         $html .= '</div>';
         $html .= '<p>' . $cultivo['description'] . '</p>';
         $html .= '<ul class="crop-list">';

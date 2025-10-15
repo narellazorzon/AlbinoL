@@ -7,7 +7,7 @@ $desc = "Cría y engorde de ganado bovino con manejo integral y alimentación ba
 include __DIR__ . "/../partials/header.php";
 ?>
 
-<link rel="stylesheet" href="../assets/css/ganaderia.css">
+<link rel="stylesheet" href="../assets/css/ganaderia.css?v=<?= time() ?>">
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
@@ -72,6 +72,6 @@ include __DIR__ . "/../partials/header.php";
   <?= generateAlimentacionHTML() ?>
 </section>
 
-<script src="../assets/js/ganaderia.js"></script>
+<script src="../assets/js/ganaderia.js?v=<?= time() ?>"></script>
 
 <?php include __DIR__ . "/../partials/footer.php"; ?>

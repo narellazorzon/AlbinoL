@@ -7,7 +7,7 @@ $desc = "Contactanos para conocer más sobre nuestros servicios agropecuarios. E
 include __DIR__ . "/../partials/header.php";
 ?>
 
-<link rel="stylesheet" href="../assets/css/contacto.css">
+<link rel="stylesheet" href="../assets/css/contacto.css?v=<?= time() ?>">
 
 
 <!-- Hero Section -->
@@ -176,7 +176,7 @@ include __DIR__ . "/../partials/header.php";
       Para llegar a nuestras instalaciones, puedes contactarnos y te enviaremos las indicaciones detalladas.
     </p>
     <div style="background: var(--warm-beige); padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
-      <h3 style="color: var(--earth-brown); margin-bottom: 1rem;">📍 Dirección Completa</h3>
+      <div style="color: var(--earth-brown); margin-bottom: 1rem; font-size: 1.1rem; font-weight: 600;">📍 Dirección Completa</div>
       <p style="font-size: 1.1rem; line-height: 1.6;">
         <?= SITE_ADDRESS ?><br>
         <?= SITE_CITY ?><br>
@@ -200,7 +200,7 @@ include __DIR__ . "/../partials/header.php";
   </div>
 </section>
 
-<script src="../assets/js/contacto.js"></script>
+<script src="../assets/js/contacto.js?v=<?= time() ?>"></script>
 
-<script src="../assets/js/contacto-validation.js"></script>
+<script src="../assets/js/contacto-validation.js?v=<?= time() ?>"></script>
 <?php include __DIR__ . "/../partials/footer.php"; ?>

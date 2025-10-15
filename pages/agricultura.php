@@ -7,7 +7,7 @@ $desc = "Producción sustentable de cereales y oleaginosas integrando toda la ca
 include __DIR__ . "/../partials/header.php";
 ?>
 
-<link rel="stylesheet" href="../assets/css/agricultura.css">
+<link rel="stylesheet" href="../assets/css/agricultura.css?v=<?= time() ?>">
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
@@ -70,6 +70,6 @@ include __DIR__ . "/../partials/header.php";
   <?= generateSustentabilidadHTML() ?>
 </section>
 
-<script src="../assets/js/agricultura.js"></script>
+<script src="../assets/js/agricultura.js?v=<?= time() ?>"></script>
 
 <?php include __DIR__ . "/../partials/footer.php"; ?>

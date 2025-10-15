@@ -8,7 +8,7 @@ include __DIR__ . "/../partials/header.php";
 ?>
 
 <!-- CSS específico para la página Nosotros -->
-<link rel="stylesheet" href="../assets/css/nosotros.css">
+<link rel="stylesheet" href="../assets/css/nosotros.css?v=<?= time() ?>">
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
@@ -53,7 +53,7 @@ include __DIR__ . "/../partials/header.php";
   </div>
 
 <!-- JavaScript específico para la página Nosotros -->
-<script src="../assets/js/nosotros.js"></script>
+<script src="../assets/js/nosotros.js?v=<?= time() ?>"></script>
 </section>
 
 <!-- Valores -->
@@ -96,7 +96,7 @@ include __DIR__ . "/../partials/header.php";
   
   <!-- Dirección específica -->
   <div style="text-align: center; margin-bottom: 2rem; padding: 1.5rem; background: rgba(var(--primary-color-rgb), 0.05); border-radius: 10px; border-left: 4px solid var(--primary-color);">
-    <h3 style="color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.3rem;">📍 Ubicación</h3>
+    <div style="color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.3rem; font-weight: 600;">📍 Ubicación</div>
     <p style="font-size: 1.1rem; color: var(--text-dark); margin: 0; font-weight: 500;">
       Zona Rural La Lola RP 1 km 306<br>
       <span style="color: var(--text-light); font-size: 1rem;">Provincia de Santa Fe, Argentina</span>
