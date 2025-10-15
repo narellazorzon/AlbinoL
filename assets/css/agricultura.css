@@ -267,6 +267,19 @@ video {
 }
 
 /* ===============================================
+   GENERAL RESPONSIVE FIXES FOR STICKY HEADER
+   =============================================== */
+
+/* Ensure proper spacing from sticky header on mobile */
+@media (max-width: 768px) {
+  main {
+    padding: 1rem; /* Match the main CSS pattern */
+    position: relative; /* Ensure proper positioning context */
+    z-index: 1; /* Ensure it's above other content but below header */
+  }
+}
+
+/* ===============================================
    SECCIÓN SUSTENTABILIDAD Y COMPROMISO AMBIENTAL
    =============================================== */
 
@@ -276,8 +289,10 @@ video {
   margin: 4rem 0;
   background: linear-gradient(135deg, #f8f9fa 0%, #eee5d6 100%);
   border-radius: 20px;
-  overflow: hidden;
+  overflow: visible; /* Allow border radius to show properly */
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: relative; /* Ensure proper positioning context */
+  z-index: 1; /* Ensure it's above other content but below header (header has z-index: 1000) */
 }
 
 /* Header con video de fondo */
@@ -290,6 +305,7 @@ video {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 20px; /* Full rounded corners since no highlight section */
 }
 
 /* Video de fondo */
@@ -414,53 +430,6 @@ video {
   font-size: 1rem;
 }
 
-/* Bloque destacado del propósito */
-.sustentabilidad-highlight {
-  background: linear-gradient(135deg, #2d5016 0%, #4a6b2a 100%);
-  padding: 3rem 2rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.sustentabilidad-highlight::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-  animation: shimmer 3s ease-in-out infinite;
-}
-
-.highlight-content {
-  position: relative;
-  z-index: 2;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.highlight-icon {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-}
-
-.sustentabilidad-highlight h3 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 1rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.sustentabilidad-highlight p {
-  font-size: 1.2rem;
-  color: #f0f0f0;
-  line-height: 1.6;
-  margin: 0;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
 
 /* Animaciones */
 @keyframes fadeInUp {
@@ -505,6 +474,8 @@ video {
   
   .sustentabilidad-header {
     padding: 3rem 1.5rem;
+    min-height: 300px; /* Reduce height on mobile */
+    border-radius: 15px; /* Full rounded corners for mobile */
   }
   
   .sustentabilidad-title {
@@ -525,26 +496,18 @@ video {
     padding: 1.5rem;
   }
   
-  .sustentabilidad-highlight {
-    padding: 2rem 1.5rem;
-  }
-  
-  .highlight-icon {
-    font-size: 3rem;
-  }
-  
-  .sustentabilidad-highlight h3 {
-    font-size: 1.6rem;
-  }
-  
-  .sustentabilidad-highlight p {
-    font-size: 1.1rem;
-  }
 }
 
 @media (max-width: 480px) {
+  .sustentabilidad-section {
+    margin: 2rem 0;
+    border-radius: 15px;
+  }
+  
   .sustentabilidad-header {
     padding: 2rem 1rem;
+    min-height: 250px; /* Further reduce height on small mobile */
+    border-radius: 15px; /* Full rounded corners for small mobile */
   }
   
   .sustentabilidad-title {
@@ -567,15 +530,36 @@ video {
     font-size: 1.1rem;
   }
   
-  .sustentabilidad-highlight {
-    padding: 1.5rem 1rem;
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+  .sustentabilidad-section {
+    margin: 2rem 0;
+    border-radius: 10px; /* Smaller border radius for very small screens */
   }
   
-  .highlight-icon {
-    font-size: 2.5rem;
+  .sustentabilidad-header {
+    padding: 1.5rem 0.8rem;
+    min-height: 200px; /* Minimal height for very small screens */
+    border-radius: 10px; /* Full rounded corners for very small screens */
   }
   
-  .sustentabilidad-highlight h3 {
-    font-size: 1.4rem;
+  .sustentabilidad-title {
+    font-size: 1.5rem;
   }
+  
+  .sustentabilidad-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .sustentabilidad-cards {
+    padding: 1rem 0.8rem;
+  }
+  
+  .sustentabilidad-card {
+    padding: 1rem;
+    border-radius: 10px; /* Smaller border radius for cards on very small screens */
+  }
+  
 }

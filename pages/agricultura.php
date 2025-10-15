@@ -11,7 +11,7 @@ include __DIR__ . "/../partials/header.php";
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
-  <video id="heroVideo" autoplay muted loop playsinline preload="none" poster="../assets/images/logo_comp.png">
+  <video id="heroVideo" autoplay muted loop playsinline preload="none" poster="../assets/images/logo_albino_comprimido.webp">
     <source src="../assets/videos/videos_agronomia_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     <img src="../assets/images/logo_albino_comprimido.webp" alt="Agricultura Albino Luis Zorzon - Producción Sustentable" style="width: 100%; height: 100%; object-fit: cover;">
@@ -102,14 +102,6 @@ include __DIR__ . "/../partials/header.php";
     </article>
   </div>
 
-  <!-- Bloque destacado del propósito -->
-  <footer class="sustentabilidad-highlight">
-    <div class="highlight-content">
-      <div class="highlight-icon">💚</div>
-      <h3>Nuestro Propósito</h3>
-      <p>Generar alimentos de calidad, proteger la salud del suelo e integrar innovación tecnológica y respeto por la tierra que nos vio crecer.</p>
-    </div>
-  </footer>
 </section>
 
 <script src="../assets/js/agricultura.js?v=<?= time() ?>"></script>
