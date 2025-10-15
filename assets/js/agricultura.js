@@ -28,6 +28,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Animaciones para la sección normativa
   initNormativaAnimations();
+  
+  // Inicializar video de transporte
+  initTransporteVideo();
 });
 
 /**
@@ -350,4 +353,31 @@ function initNormativaAnimations() {
   });
 
   normativaObserver.observe(normativaSection);
+}
+
+/**
+ * Inicializa el video de transporte
+ */
+function initTransporteVideo() {
+  const transporteVideo = document.querySelector('.transporte-video');
+  if (transporteVideo) {
+    transporteVideo.addEventListener('loadeddata', function() {
+      console.log('Transporte video loaded successfully');
+      this.play().catch(e => {
+        console.log('Transporte video autoplay failed:', e);
+      });
+    });
+    
+    transporteVideo.addEventListener('error', function(e) {
+      console.error('Transporte video error:', e);
+      // Mostrar fallback si el video falla
+      const fallback = this.querySelector('.transporte-video-fallback');
+      if (fallback) {
+        fallback.style.display = 'flex';
+      }
+    });
+    
+    // Cargar el video
+    transporteVideo.load();
+  }
 }

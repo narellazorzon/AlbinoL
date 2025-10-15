@@ -149,6 +149,46 @@ include __DIR__ . "/../partials/header.php";
   </div>
 </section>
 
+<!-- Cadena Completa de Transporte -->
+<section class="transporte-section fade-in-up">
+  <div class="transporte-container">
+    <div class="transporte-content">
+      <h2>Cadena Completa de Transporte</h2>
+      <p>Contamos con nuestra propia flota de camiones, lo que nos permite mantener una <strong>cadena productiva completa</strong> desde la siembra hasta la entrega final. Esta integración nos garantiza:</p>
+      
+      <div class="transporte-beneficios">
+        <div class="beneficio-item">
+          <span class="beneficio-icon">👨‍💼</span>
+          <h3>Conductores Capacitados</h3>
+          <p>Nuestros choferes poseen licencias profesionales vigentes y realizan los cursos obligatorios de la provincia de Santa Fe, garantizando un transporte seguro, legal y responsable.</p>
+        </div>
+        
+        <div class="beneficio-item">
+          <span class="beneficio-icon">🛡️</span>
+          <h3>Calidad Garantizada</h3>
+          <p>Cuidado especializado de nuestros productos durante el transporte</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="transporte-video-container">
+      <video autoplay muted loop playsinline preload="metadata" class="transporte-video">
+        <source src="../assets/videos/camion_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
+        <!-- Fallback para navegadores que no soportan video -->
+        <div class="transporte-video-fallback">
+          <div class="fallback-content">
+            <span class="fallback-icon">🚛</span>
+            <p>Nuestra flota de camiones</p>
+          </div>
+        </div>
+      </video>
+      
+      <!-- Overlay verde para tono verde -->
+      <div class="transporte-video-overlay"></div>
+    </div>
+  </div>
+</section>
+
 <script src="../assets/js/agricultura.js?v=<?= time() ?>"></script>
 
 <?php include __DIR__ . "/../partials/footer.php"; ?>
