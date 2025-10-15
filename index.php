@@ -11,10 +11,20 @@ include __DIR__ . "/partials/header.php";
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
-  <video autoplay muted loop playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: cover;">
-    <source src="assets/videos/index1080_preview.mp4?v=<?= time() ?>" type="video/mp4">
+  <!-- Prioridad alta para video LCP -->
+  <video 
+    id="heroVideo"
+    autoplay 
+    muted 
+    loop 
+    playsinline 
+    preload="auto" 
+    fetchpriority="high"
+    poster="assets/images/logo_albino_comprimido.webp"
+    style="width: 100%; height: 100%; object-fit: cover;">
+    <source src="assets/videos/Index1080_preview.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
-    <img src="assets/images/logo_albino_comprimido.webp" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+    <img src="assets/images/logo_albino_comprimido.webp" alt="Albino Luis Zorzon - Producción Agropecuaria" style="width: 100%; height: 100%; object-fit: cover;">
   </video>
   <div class="hero-content">
             <h1>Albino Luis Zorzon e hijos</h1>

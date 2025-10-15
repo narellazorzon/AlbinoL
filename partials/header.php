@@ -32,6 +32,14 @@
   <link rel="preload" href="<?= $basePath ?>assets/images/logo_albino_comprimido.webp?v=<?= time() ?>" as="image" fetchpriority="high">
   <link rel="preload" href="<?= $basePath ?>assets/js/app-core.js?v=<?= time() ?>" as="script">
   
+  <!-- Preload video principal para LCP optimizado -->
+  <link rel="preload" href="<?= $basePath ?>assets/videos/Index1080_preview.mp4?v=<?= time() ?>" as="video" type="video/mp4">
+  
+  <?php if (basename($_SERVER['PHP_SELF']) == 'agricultura.php'): ?>
+  <!-- Preload video de agricultura para LCP optimizado -->
+  <link rel="preload" href="<?= $basePath ?>assets/videos/videos_agronomia_comprimido.mp4?v=<?= time() ?>" as="video" type="video/mp4">
+  <?php endif; ?>
+  
   <!-- CSS crítico -->
   <link rel="stylesheet" href="<?= $basePath ?>assets/css/style_comp.css?v=<?= time() ?>">
   
