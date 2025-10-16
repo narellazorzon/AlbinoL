@@ -45,7 +45,7 @@ RewriteRule ^(.*)$ /maintenance.html [R=302,L]
 # Redirección de la página principal
 RewriteRule ^$ index.php [L]
 
-# Redirección de páginas sin .php
+# URLs amigables para páginas principales
 RewriteRule ^agricultura/?$ pages/agricultura.php [L]
 RewriteRule ^ganaderia/?$ pages/ganaderia.php [L]
 RewriteRule ^nosotros/?$ pages/nosotros.php [L]
@@ -54,6 +54,13 @@ RewriteRule ^contacto/?$ pages/contacto.php [L]
 # Redirección de archivos PHP en la raíz (solo si no existe en la raíz)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^/]+)\.php$ pages/$1.php [L]
+
+# Redirección de URLs con .php a URLs amigables (opcional - para SEO)
+RewriteCond %{THE_REQUEST} /pages/([^/]+)\.php[\s?] [NC]
+RewriteRule ^pages/([^/]+)\.php$ /%1? [R=301,L]
+
+# Manejo de errores 404
+ErrorDocument 404 /404.php
 
 # Configuración de seguridad
 # Ocultar archivos sensibles
