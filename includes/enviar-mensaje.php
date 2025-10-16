@@ -9,22 +9,73 @@ error_reporting(0);
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 
-// Headers para JSON - DEBE ir antes de cualquier output
-header('Content-Type: application/json; charset=utf-8');
-header('Cache-Control: no-cache, must-revalidate');
+// Detectar si la petición viene de JavaScript (fetch) o HTML directo
+$isAjaxRequest = !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && 
+                 strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
 
-// Función para enviar respuesta JSON
+// Si es petición AJAX, responder con JSON, sino con HTML
+if ($isAjaxRequest) {
+    // Headers para JSON - DEBE ir antes de cualquier output
+    header('Content-Type: application/json; charset=utf-8');
+    header('Cache-Control: no-cache, must-revalidate');
+} else {
+    // Headers para HTML
+    header('Content-Type: text/html; charset=utf-8');
+}
+
+// Función para enviar respuesta (JSON o HTML según el tipo de petición)
 function enviarRespuesta($success, $message, $data = []) {
-    $respuesta = [
-        'success' => $success,
-        'message' => $message
-    ];
+    global $isAjaxRequest;
     
-    if (!empty($data)) {
-        $respuesta = array_merge($respuesta, $data);
+    if ($isAjaxRequest) {
+        // Respuesta JSON para JavaScript
+        $respuesta = [
+            'success' => $success,
+            'message' => $message
+        ];
+        
+        if (!empty($data)) {
+            $respuesta = array_merge($respuesta, $data);
+        }
+        
+        echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+    } else {
+        // Respuesta HTML para envío directo
+        $title = $success ? 'Mensaje Enviado' : 'Error en el Envío';
+        $class = $success ? 'success' : 'error';
+        $icon = $success ? '✅' : '❌';
+        
+        echo "<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>$title - AlbinoL</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 600px; margin: 50px auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; }
+        .message { padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .success { background: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+        .error { background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+        .btn { display: inline-block; padding: 12px 24px; margin: 10px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; }
+        .btn:hover { background: #0056b3; }
+        h1 { color: #333; margin-bottom: 20px; }
+        .icon { font-size: 48px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class='container'>
+        <div class='icon'>$icon</div>
+        <h1>$title</h1>
+        <div class='message $class'>
+            <strong>$message</strong>
+        </div>
+        <a href='../pages/contacto.php' class='btn'>Volver al Formulario</a>
+        <a href='../index.php' class='btn'>Ir al Inicio</a>
+    </div>
+</body>
+</html>";
     }
-    
-    echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
     exit;
 }
 

@@ -134,6 +134,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Manejo del envío del formulario
     form.addEventListener('submit', function(e) {
+        const activeButton = document.activeElement;
+        
+        // Si es el botón de modo servidor, permitir envío HTML normal
+        if (activeButton && activeButton.id === 'btnEnviarServidor') {
+            return; // No prevenir el comportamiento por defecto
+        }
+        
+        // Prevenir envío por defecto para modo JavaScript
         e.preventDefault();
         
         // Agregar clase para mostrar errores de validación
@@ -155,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        const submitBtn = form.querySelector('button[type="submit"]');
+        const submitBtn = form.querySelector('#btnEnviarJS');
         const originalText = submitBtn.innerHTML;
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<span class="btn-text">Enviando...</span><span class="btn-icon" aria-hidden="true">⏳</span>';
@@ -164,6 +172,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         fetch('../includes/enviar-mensaje.php', {
             method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            },
             body: formData
         })
         .then(response => response.json())

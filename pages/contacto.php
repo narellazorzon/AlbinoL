@@ -35,6 +35,8 @@ include __DIR__ . "/../partials/header.php";
   <h2>Envíanos un Mensaje</h2>
   <div class="contact-form">
     <form id="contact-form"
+          method="POST"
+          action="../includes/enviar-mensaje.php"
           novalidate
           aria-labelledby="form-title"
           style="background: var(--cream-white); padding: 1.5rem; border-radius: 15px; box-shadow: var(--shadow);">
@@ -142,11 +144,23 @@ include __DIR__ . "/../partials/header.php";
       
       <!-- Grupo de botones -->
       <div class="form-actions" style="text-align: center; margin-top: 1.5rem;">
+        <!-- Botón principal para JavaScript -->
         <button type="submit" 
                 class="btn btn-primary"
->
+                id="btnEnviarJS">
           <span class="btn-text">Enviar Mensaje</span>
           <span class="btn-icon" aria-hidden="true">📤</span>
+        </button>
+        
+        <!-- Botón fallback para HTML-only -->
+        <button type="submit" 
+                formaction="../includes/enviar-mensaje.php" 
+                formmethod="POST" 
+                class="btn btn-secondary" 
+                id="btnEnviarServidor"
+                style="margin-left: 1rem;">
+          <span class="btn-text">Enviar (modo servidor)</span>
+          <span class="btn-icon" aria-hidden="true">🔄</span>
         </button>
       </div>
       
