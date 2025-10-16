@@ -42,6 +42,9 @@ RewriteEngine On
 # CONFIGURACIÓN NORMAL DEL SITIO (cuando NO está en mantenimiento)
 # ===============================================
 
+# Forzar recarga del .htaccess (temporal)
+# RewriteRule ^reload$ - [E=reload:1]
+
 # Redirección de la página principal
 RewriteRule ^$ index.php [L]
 
