@@ -26,6 +26,11 @@
   <title><?= htmlspecialchars($title) ?></title>
   <meta name="description" content="<?= htmlspecialchars($desc) ?>">
   <meta name="keywords" content="agricultura, ganadería, producción agropecuaria, Albino Luis Zorzon, La Lola Santa Fe, Reconquista , trigo, maíz, soja, girasol, algodón, Angus, Braford, Brangus, empresa familiar, campo argentino, siembra directa, agricultura de precisión, cría de ganado, engorde a corral, pastoreo rotativo, sanidad animal">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="<?= $basePath ?>assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="<?= $basePath ?>assets/images/favicon.png">
+  
   <link rel="stylesheet" href="<?= $basePath ?>assets/css/style_comp.css?v=<?= time() ?>">
   
 </head>
