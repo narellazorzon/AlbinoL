@@ -19,24 +19,24 @@ RewriteEngine On
 # Comenta las siguientes líneas para desactivar el modo mantenimiento
 
 # Excluir la IP del administrador (cambiar por tu IP real)
-RewriteCond %{REMOTE_ADDR} !^190\.2\.96\.145$
+# RewriteCond %{REMOTE_ADDR} !^190\.2\.96\.145$
 
 # Excluir la página de mantenimiento para evitar bucles infinitos
-RewriteCond %{REQUEST_URI} !^/maintenance\.html$
+# RewriteCond %{REQUEST_URI} !^/maintenance\.html$
 
 # Excluir recursos estáticos de la página de mantenimiento
-RewriteCond %{REQUEST_URI} !^/assets/images/logo\.png$
-RewriteCond %{REQUEST_URI} !^/assets/css/.*$
-RewriteCond %{REQUEST_URI} !^/assets/js/.*$
-RewriteCond %{REQUEST_URI} !^/assets/videos/.*$
+# RewriteCond %{REQUEST_URI} !^/assets/images/logo\.png$
+# RewriteCond %{REQUEST_URI} !^/assets/css/.*$
+# RewriteCond %{REQUEST_URI} !^/assets/js/.*$
+# RewriteCond %{REQUEST_URI} !^/assets/videos/.*$
 
 # Excluir archivos del sistema que podrían ser necesarios
-RewriteCond %{REQUEST_URI} !^/favicon\.ico$
-RewriteCond %{REQUEST_URI} !^/robots\.txt$
-RewriteCond %{REQUEST_URI} !^/sitemap\.xml$
+# RewriteCond %{REQUEST_URI} !^/favicon\.ico$
+# RewriteCond %{REQUEST_URI} !^/robots\.txt$
+# RewriteCond %{REQUEST_URI} !^/sitemap\.xml$
 
 # Redirigir todo el tráfico a la página de mantenimiento
-RewriteRule ^(.*)$ /maintenance.html [R=302,L]
+# RewriteRule ^(.*)$ /maintenance.html [R=302,L]
 
 # ===============================================
 # CONFIGURACIÓN NORMAL DEL SITIO (cuando NO está en mantenimiento)
