@@ -28,13 +28,13 @@
   <meta name="keywords" content="agricultura, ganadería, producción agropecuaria, Albino Luis Zorzon, La Lola Santa Fe, Reconquista , trigo, maíz, soja, girasol, algodón, Angus, Braford, Brangus, empresa familiar, campo argentino, siembra directa, agricultura de precisión, cría de ganado, engorde a corral, pastoreo rotativo, sanidad animal">
   
   <!-- Favicon -->
-  <!-- Favicon -->
-<link rel="icon" type="image/png" sizes="64x64" href="<?= $basePath ?>assets/images/favicon.png?v=<?= time() ?>">
-<link rel="icon" type="image/png" sizes="32x32" href="<?= $basePath ?>assets/images/favicon.png?v=<?= time() ?>">
-<link rel="icon" type="image/png" sizes="16x16" href="<?= $basePath ?>assets/images/favicon.png?v=<?= time() ?>">
-<link rel="apple-touch-icon" sizes="180x180" href="<?= $basePath ?>assets/images/favicon.png?v=<?= time() ?>">
-<link rel="shortcut icon" href="<?= $basePath ?>assets/images/favicon.png?v=<?= time() ?>">
-
+  <link rel="icon" type="image/png" sizes="64x64" href="<?= $basePath ?>assets/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="<?= $basePath ?>assets/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="<?= $basePath ?>assets/images/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="<?= $basePath ?>assets/images/favicon.png">
+  <link rel="shortcut icon" href="<?= $basePath ?>assets/images/favicon.png">
+  
+  <link rel="stylesheet" href="<?= $basePath ?>assets/css/style_comp.css?v=<?= time() ?>">
   
 </head>
 <body>
