@@ -107,6 +107,9 @@ function showNotification(type, title, message) {
 
 // Manejo del envío del formulario
 document.addEventListener('DOMContentLoaded', function() {
+    // Agregar clase para indicar que JavaScript está disponible
+    document.body.classList.add('js-enabled');
+    
     const form = document.getElementById('contact-form');
     if (!form) return;
     

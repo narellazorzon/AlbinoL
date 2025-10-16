@@ -20,6 +20,9 @@ class ContactFormValidator {
     init() {
         if (!this.form) return;
         
+        // Agregar clase para indicar que JavaScript está disponible
+        document.body.classList.add('js-enabled');
+        
         // Event listeners
         this.form.addEventListener('submit', (e) => this.handleSubmit(e));
         

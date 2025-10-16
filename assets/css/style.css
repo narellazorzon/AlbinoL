@@ -1046,19 +1046,20 @@ footer {
   box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.2);
 }
 
-.form-input:invalid:not(:focus):not(:placeholder-shown),
-.form-textarea:invalid:not(:focus):not(:placeholder-shown) {
+/* Estilos de validación solo cuando JavaScript está disponible */
+.js-enabled .form-input:invalid:not(:focus):not(:placeholder-shown),
+.js-enabled .form-textarea:invalid:not(:focus):not(:placeholder-shown) {
   border-color: #dc3545;
 }
 
 /* Solo mostrar error en select cuando el formulario ha sido enviado */
-.form-submitted .form-select:invalid:not(:focus) {
+.js-enabled .form-submitted .form-select:invalid:not(:focus) {
   border-color: #dc3545;
 }
 
-.form-input:valid:not(:focus):not(:placeholder-shown),
-.form-select:valid:not(:focus),
-.form-textarea:valid:not(:focus):not(:placeholder-shown) {
+.js-enabled .form-input:valid:not(:focus):not(:placeholder-shown),
+.js-enabled .form-select:valid:not(:focus),
+.js-enabled .form-textarea:valid:not(:focus):not(:placeholder-shown) {
   border-color: #28a745;
 }
 
