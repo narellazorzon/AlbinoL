@@ -144,23 +144,11 @@ include __DIR__ . "/../partials/header.php";
       
       <!-- Grupo de botones -->
       <div class="form-actions" style="text-align: center; margin-top: 1.5rem;">
-        <!-- Botón principal para JavaScript -->
         <button type="submit" 
                 class="btn btn-primary"
-                id="btnEnviarJS">
+                id="btnEnviar">
           <span class="btn-text">Enviar Mensaje</span>
           <span class="btn-icon" aria-hidden="true">📤</span>
-        </button>
-        
-        <!-- Botón fallback para HTML-only -->
-        <button type="submit" 
-                formaction="../includes/enviar-mensaje.php" 
-                formmethod="POST" 
-                class="btn btn-secondary" 
-                id="btnEnviarServidor"
-                style="margin-left: 1rem;">
-          <span class="btn-text">Enviar (modo servidor)</span>
-          <span class="btn-icon" aria-hidden="true">🔄</span>
         </button>
       </div>
       

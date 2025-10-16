@@ -132,15 +132,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Manejo del envío del formulario
+    // Manejo del envío del formulario con JavaScript
     form.addEventListener('submit', function(e) {
-        const activeButton = document.activeElement;
-        
-        // Si es el botón de modo servidor, permitir envío HTML normal
-        if (activeButton && activeButton.id === 'btnEnviarServidor') {
-            return; // No prevenir el comportamiento por defecto
-        }
-        
         // Prevenir envío por defecto para modo JavaScript
         e.preventDefault();
         
@@ -163,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        const submitBtn = form.querySelector('#btnEnviarJS');
+        const submitBtn = form.querySelector('#btnEnviar');
         const originalText = submitBtn.innerHTML;
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<span class="btn-text">Enviando...</span><span class="btn-icon" aria-hidden="true">⏳</span>';
