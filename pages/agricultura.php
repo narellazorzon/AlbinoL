@@ -153,7 +153,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="transporte-section fade-in-up">
   <div class="transporte-container">
     <div class="transporte-content">
-      <h2>Cadena Completa de Transporte</h2>
+      <h2>Cadena Completa de Transporte propio</h2>
       <p>Contamos con nuestra propia flota de camiones, lo que nos permite mantener una <strong>cadena productiva completa</strong> desde la siembra hasta la entrega final. Esta integración nos garantiza:</p>
       
       <div class="transporte-beneficios">
