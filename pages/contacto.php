@@ -200,7 +200,5 @@ include __DIR__ . "/../partials/header.php";
   </div>
 </section>
 
-<script src="../assets/js/contacto.js?v=<?= time() ?>"></script>
-
 <script src="../assets/js/contacto-validation.js?v=<?= time() ?>"></script>
 <?php include __DIR__ . "/../partials/footer.php"; ?>
