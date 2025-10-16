@@ -12,7 +12,7 @@ define('DB_PASS', '');
 
 // Configuración del sitio
 define('SITE_NAME', 'Albino Luis Zorzon e hijos');
-define('SITE_URL', 'http://localhost/AlbinoL');
+define('SITE_URL', 'https://albinozorzonehijos.com.ar');
 define('SITE_EMAIL', 'alzorzon@gmail.com');
 
 // Configuración de ubicación
