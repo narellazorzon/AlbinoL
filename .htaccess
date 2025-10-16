@@ -45,11 +45,15 @@ RewriteRule ^(.*)$ /maintenance.html [R=302,L]
 # Redirección de la página principal
 RewriteRule ^$ index.php [L]
 
+# Forzar HTTPS (opcional)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
 # URLs amigables para páginas principales
-RewriteRule ^agricultura/?$ pages/agricultura.php [L]
-RewriteRule ^ganaderia/?$ pages/ganaderia.php [L]
-RewriteRule ^nosotros/?$ pages/nosotros.php [L]
-RewriteRule ^contacto/?$ pages/contacto.php [L]
+RewriteRule ^agricultura/?$ pages/agricultura.php [L,QSA]
+RewriteRule ^ganaderia/?$ pages/ganaderia.php [L,QSA]
+RewriteRule ^nosotros/?$ pages/nosotros.php [L,QSA]
+RewriteRule ^contacto/?$ pages/contacto.php [L,QSA]
 
 # Redirección de archivos PHP en la raíz (solo si no existe en la raíz)
 RewriteCond %{REQUEST_FILENAME} !-f

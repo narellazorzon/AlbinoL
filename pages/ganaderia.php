@@ -12,7 +12,7 @@ include __DIR__ . "/../partials/header.php";
 <!-- Hero Section -->
 <div class="hero fade-in-up">
   <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="../assets/images/logo_empresa_comp.webp" style="width: 100%; height: 100%; object-fit: cover;">
-    <source src="../assets/videos/recopilacion_ganaderia_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
+    <source src="../assets/videos/ganaderia_recopilacion_comp.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     <img src="../assets/images/logo_empresa_comp.webp" alt="" style="width: 100%; height: 100%; object-fit: cover;">
   </video>
@@ -46,7 +46,7 @@ include __DIR__ . "/../partials/header.php";
 <div class="stats fade-in-up" style="position: relative; overflow: hidden;">
   <!-- Video de fondo para números ganaderos -->
   <video autoplay muted loop playsinline preload="metadata" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.6;">
-    <source src="../assets/videos/numeros_ganaderos_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
+    <source src="../assets/videos/numeros_ganaderos_comp.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%); z-index: 1;"></div>
   </video>

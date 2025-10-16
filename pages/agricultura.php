@@ -12,7 +12,7 @@ include __DIR__ . "/../partials/header.php";
 <!-- Hero Section -->
 <div class="hero fade-in-up">
   <video id="heroVideo" autoplay muted loop playsinline preload="none" poster="../assets/images/logo_empresa_comp.webp">
-    <source src="../assets/videos/videos_agronomia_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
+    <source src="../assets/videos/video_agro_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     <img src="../assets/images/logo_empresa_comp.webp" alt="Agricultura Albino Luis Zorzon - Producción Sustentable" style="width: 100%; height: 100%; object-fit: cover;">
   </video>
@@ -45,7 +45,7 @@ include __DIR__ . "/../partials/header.php";
 <!-- Estadísticas Agrícolas -->
 <div class="stats fade-in-up">
   <video autoplay muted loop playsinline preload="none">
-    <source src="../assets/videos/nuestros_numeros_agricolas_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
+    <source src="../assets/videos/numeros_agricolas_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     Tu navegador no soporta videos HTML5.
   </video>
@@ -64,13 +64,13 @@ include __DIR__ . "/../partials/header.php";
   <!-- Header con video de fondo -->
   <header class="sustentabilidad-header">
     <video autoplay muted loop playsinline preload="metadata" class="sustentabilidad-video">
-      <source src="../assets/videos/video_header.mp4?v=<?= time() ?>" type="video/mp4">
+      <source src="../assets/videos/sustentabilidad_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
       <!-- Fallback para navegadores que no soportan video -->
       <div class="sustentabilidad-fallback"></div>
     </video>
     <div class="sustentabilidad-overlay"></div>
     <div class="sustentabilidad-content">
-      <h2 class="sustentabilidad-title">🌿 Sustentabilidad y Compromiso Ambiental</h2>
+      <h2 class="sustentabilidad-title">Sustentabilidad y Compromiso Ambiental</h2>
       <p class="sustentabilidad-subtitle">Trabajamos con la convicción de que producir alimentos de calidad implica cuidar los recursos naturales y el equilibrio del suelo</p>
     </div>
   </header>
@@ -108,7 +108,7 @@ include __DIR__ . "/../partials/header.php";
 <section class="normativa-section fade-in-up">
   <div class="normativa-header">
     <video autoplay muted loop playsinline preload="metadata" class="normativa-video">
-      <source src="../assets/videos/cumplim_normativo_provincial_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
+      <source src="../assets/videos/normativo_provincial_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
       <!-- Fallback para navegadores que no soportan video -->
       <div class="normativa-fallback"></div>
     </video>

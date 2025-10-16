@@ -22,7 +22,7 @@ include __DIR__ . "/partials/header.php";
     fetchpriority="high"
     poster="assets/images/logo_empresa_comp.webp"
     style="width: 100%; height: 100%; object-fit: cover;">
-    <source src="assets/videos/Index1080_preview.mp4?v=<?= time() ?>" type="video/mp4">
+    <source src="assets/videos/index_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     <img src="assets/images/logo_empresa_comp.webp" alt="Albino Luis Zorzon - Producción Agropecuaria" style="width: 100%; height: 100%; object-fit: cover;">
   </video>
@@ -36,7 +36,7 @@ include __DIR__ . "/partials/header.php";
 <!-- Estadísticas -->
 <div class="stats fade-in-up">
   <video autoplay muted loop playsinline preload="metadata" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.6;">
-    <source src="assets/videos/numeros.mp4?v=<?= time() ?>" type="video/mp4">
+    <source src="assets/videos/numeros_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%); z-index: 1;"></div>
   </video>
