@@ -22,7 +22,7 @@ include __DIR__ . "/partials/header.php";
     fetchpriority="high"
     poster="assets/images/back_videos.webp"
     style="width: 100%; height: 100%; object-fit: cover;">
-    <source src="assets/videos/index_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
+    <source src="assets/videos/index__comprimido.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     <img src="assets/images/logo_empresa_comp.webp" alt="Albino Luis Zorzon - Producción Agropecuaria" style="width: 100%; height: 100%; object-fit: cover;">
   </video>
