@@ -11,7 +11,7 @@ include __DIR__ . "/../partials/header.php";
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
-  <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="../assets/images/back_videos.webp">
+  <video id="heroVideo" autoplay muted loop playsinline preload="metadata">
     <source src="../assets/videos/agro__comprimido.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     <img src="../assets/images/logo_empresa_comp.webp" alt="Agricultura Albino Luis Zorzon - Producción Sustentable" style="width: 100%; height: 100%; object-fit: cover;">

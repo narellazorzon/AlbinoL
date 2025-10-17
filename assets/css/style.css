@@ -633,6 +633,7 @@ section p {
   object-fit: cover;
   z-index: 0;
   background: transparent;
+  pointer-events: none;
 }
 
 .stats .stats-content {

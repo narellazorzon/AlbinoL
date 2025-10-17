@@ -36,7 +36,7 @@ include __DIR__ . "/partials/header.php";
 
 <!-- Estadísticas -->
 <div class="stats fade-in-up">
-  <video autoplay muted loop playsinline preload="metadata" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.6;">
+  <video autoplay muted loop playsinline preload="metadata" ">
     <source src="assets/videos/numeros_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%); z-index: 1;"></div>
@@ -44,11 +44,12 @@ include __DIR__ . "/partials/header.php";
   
   <!-- Overlay para mejorar contraste del texto -->
   <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(139,69,19,0.4) 0%, rgba(160,82,45,0.2) 50%, rgba(101,67,33,0.3) 100%); z-index: 1;"></div>
-  
-  <div class="stats-content" style="position: relative; z-index: 2;">
-    <?= generateIndexStatsHTML() ?>
+ 
+  <div style="position: relative; z-index: 2;">
+     <?= generateIndexStatsHTML() ?>
   </div>
-</div>
+
+ </div>
 
 <!-- Servicios -->
 <section class="fade-in-up" style="position: relative;">
