@@ -80,6 +80,5 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>
