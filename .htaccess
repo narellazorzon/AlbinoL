@@ -57,6 +57,8 @@ RewriteRule ^agricultura/?$ pages/agricultura.php [L,QSA]
 RewriteRule ^ganaderia/?$ pages/ganaderia.php [L,QSA]
 RewriteRule ^nosotros/?$ pages/nosotros.php [L,QSA]
 RewriteRule ^contacto/?$ pages/contacto.php [L,QSA]
+RewriteRule ^confirmacion/?$ pages/confirmacion.php [L,QSA]
+RewriteRule ^enviar-mensaje/?$ pages/contacto.php [R=301,L]
 
 # Redirección de archivos PHP en la raíz (solo si no existe en la raíz)
 RewriteCond %{REQUEST_FILENAME} !-f

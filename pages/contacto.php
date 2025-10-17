@@ -12,7 +12,7 @@ include __DIR__ . "/../partials/header.php";
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
-  <video id="heroVideo" autoplay muted loop playsinline preload="none" poster="../assets/images/back_videos.webp">
+  <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="../assets/images/back_videos.webp">
     <source src="../assets/videos/contacto_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     Tu navegador no soporta videos HTML5.
@@ -142,13 +142,12 @@ include __DIR__ . "/../partials/header.php";
         </div>
       </fieldset>
       
-      <!-- reCAPTCHA -->
-      <div class="g-recaptcha" data-sitekey="TU_SITE_KEY"></div>
-      
       <!-- Grupo de botones -->
       <div class="form-actions" style="text-align: center; margin-top: 1.5rem;">
-        <button type="submit" 
-                class="btn btn-primary"
+        <button class="g-recaptcha btn btn-primary"
+                data-sitekey="6LdLre0rAAAAAAPgWrKGOBSumU7EbrpSEasFrdlo"
+                data-callback='onSubmit'
+                data-action='submit'
                 id="btnEnviar">
           <span class="btn-text">Enviar Mensaje</span>
           <span class="btn-icon" aria-hidden="true">📤</span>
@@ -206,4 +205,11 @@ include __DIR__ . "/../partials/header.php";
 </section>
 
 <script src="../assets/js/contacto-validation.js?v=<?= time() ?>"></script>
+
+<script>
+function onSubmit(token) {
+  document.getElementById("contact-form").submit();
+}
+</script>
+
 <?php include __DIR__ . "/../partials/footer.php"; ?>

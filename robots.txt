@@ -1,4 +1,18 @@
 User-agent: *
 Allow: /
 
+# Páginas principales
+Allow: /agricultura
+Allow: /ganaderia
+Allow: /nosotros
+Allow: /contacto
+Allow: /confirmacion
+
+# Bloquear acceso directo a archivos de procesamiento
+Disallow: /includes/
+Disallow: /partials/
+Disallow: /php/
+Disallow: /assets/js/
+Disallow: /assets/css/
+
 Sitemap: https://albinozorzonehijos.com.ar/sitemap.xml

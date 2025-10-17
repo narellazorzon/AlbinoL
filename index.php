@@ -20,7 +20,8 @@ include __DIR__ . "/partials/header.php";
     playsinline 
     preload="auto" 
     fetchpriority="high"
-    poster="assets/images/back_videos.webp"
+    aria-hidden="true"
+    tabindex="-1"
     style="width: 100%; height: 100%; object-fit: cover;">
     <source src="assets/videos/index__comprimido.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->

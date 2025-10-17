@@ -137,60 +137,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Manejo del envío del formulario con JavaScript
     form.addEventListener('submit', function(e) {
-        // Prevenir envío por defecto para modo JavaScript
-        e.preventDefault();
-        
-        // Agregar clase para mostrar errores de validación
-        form.classList.add('form-submitted');
-        
-        // Validación básica
-        const nombre = form.querySelector('#nombre').value.trim();
-        const email = form.querySelector('#email').value.trim();
-        const asunto = form.querySelector('#asunto').value.trim();
-        const mensaje = form.querySelector('#mensaje').value.trim();
-        
-        if (!nombre || !email || !asunto || !mensaje) {
-            showNotification('error', 'Campos Obligatorios', 'Por favor complete todos los campos obligatorios (incluyendo el asunto de la consulta)');
-            return;
-        }
-        
-        if (mensaje.length < 5) {
-            showNotification('error', 'Mensaje Muy Corto', 'El mensaje debe tener al menos 5 caracteres');
-            return;
-        }
-        
-        const submitBtn = form.querySelector('#btnEnviar');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span class="btn-text">Enviando...</span><span class="btn-icon" aria-hidden="true">⏳</span>';
-        
-        const formData = new FormData(form);
-        
-        fetch('../includes/enviar-mensaje.php', {
-            method: 'POST',
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest'
-            },
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                showNotification('success', '¡Mensaje Enviado!', data.message);
-                form.reset();
-                form.classList.remove('form-submitted');
-            } else {
-                showNotification('error', 'Error al Enviar', data.message || 'Error al enviar el mensaje');
-            }
-        })
-        .catch(error => {
-            showNotification('error', 'Error de Conexión', 'Error al enviar el mensaje. Intente nuevamente.');
-            console.error('Error:', error);
-        })
-        .finally(() => {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalText;
-        });
+        // Con reCAPTCHA en el botón, permitir el envío normal
+        // El reCAPTCHA manejará la validación automáticamente
+        return true;
     });
     
     // Carga inteligente del video para mejor rendimiento

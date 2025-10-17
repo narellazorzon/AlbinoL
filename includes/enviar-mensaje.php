@@ -9,6 +9,23 @@ error_reporting(0);
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 
+// Manejo global de errores para asegurar respuesta JSON
+set_error_handler(function($severity, $message, $file, $line) {
+    if (error_reporting() & $severity) {
+        throw new ErrorException($message, 0, $severity, $file, $line);
+    }
+});
+
+// Manejo de excepciones no capturadas
+set_exception_handler(function($exception) {
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode([
+        'success' => false,
+        'message' => 'Error interno del servidor. Por favor, intente nuevamente.'
+    ]);
+    exit;
+});
+
 // Detectar si la petición viene de JavaScript (fetch) o HTML directo
 $isAjaxRequest = !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && 
                  strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
@@ -40,41 +57,11 @@ function enviarRespuesta($success, $message, $data = []) {
         
         echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
     } else {
-        // Respuesta HTML para envío directo
-        $title = $success ? 'Mensaje Enviado' : 'Error en el Envío';
-        $class = $success ? 'success' : 'error';
-        $icon = $success ? '✅' : '❌';
-        
-        echo "<!DOCTYPE html>
-<html lang='es'>
-<head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>$title - AlbinoL</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
-        .container { max-width: 600px; margin: 50px auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; }
-        .message { padding: 20px; border-radius: 8px; margin: 20px 0; }
-        .success { background: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
-        .error { background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
-        .btn { display: inline-block; padding: 12px 24px; margin: 10px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; }
-        .btn:hover { background: #0056b3; }
-        h1 { color: #333; margin-bottom: 20px; }
-        .icon { font-size: 48px; margin-bottom: 20px; }
-    </style>
-</head>
-<body>
-    <div class='container'>
-        <div class='icon'>$icon</div>
-        <h1>$title</h1>
-        <div class='message $class'>
-            <strong>$message</strong>
-        </div>
-        <a href='../pages/contacto.php' class='btn'>Volver al Formulario</a>
-        <a href='../index.php' class='btn'>Ir al Inicio</a>
-    </div>
-</body>
-</html>";
+        // Redirigir a la página de confirmación
+        $status = $success ? 'success' : 'error';
+        $message_encoded = urlencode($message);
+        header("Location: ../pages/confirmacion.php?status=$status&message=$message_encoded");
+        exit;
     }
     exit;
 }
@@ -135,10 +122,64 @@ function limpiarDatos($data) {
 
 // ===== VALIDACIONES Y PROCESAMIENTO PRINCIPAL =====
 
+// Debug: Log de información de la petición
+error_log('REQUEST_METHOD: ' . $_SERVER['REQUEST_METHOD']);
+error_log('POST data: ' . print_r($_POST, true));
+error_log('Headers: ' . print_r(getallheaders(), true));
+
 // Verificar que sea POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    enviarRespuesta(false, 'Método no permitido.');
+    // Redirigir a la página de contacto si se accede directamente
+    header('Location: ../pages/contacto.php');
+    exit;
 }
+
+// Validación de reCAPTCHA adaptada para DonWeb (con fallback automático)
+if (!empty($_POST['g-recaptcha-response'])) {
+    $secret = '6LdLre0rAAAAAHMBk_S8hNSbSpk48LjQUfPmgVmB';
+    $response = $_POST['g-recaptcha-response'];
+
+    // Intentar verificación con cURL (si el hosting lo permite)
+    $verify_response = null;
+    $curl_error = '';
+
+    if (function_exists('curl_init')) {
+        $ch = curl_init('https://www.google.com/recaptcha/api/siteverify');
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
+            'secret' => $secret,
+            'response' => $response,
+            'remoteip' => $_SERVER['REMOTE_ADDR'] ?? ''
+        ]));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        $verify_response = curl_exec($ch);
+
+        if ($verify_response === false) {
+            $curl_error = curl_error($ch);
+        }
+        curl_close($ch);
+    }
+
+    // Si cURL no funciona (bloqueado por DonWeb), usar fallback local
+    if ($verify_response === false || empty($verify_response)) {
+        error_log("⚠️ reCAPTCHA: conexión fallida (probable bloqueo en DonWeb). Error: $curl_error");
+        // Fallback: asumir válido para evitar cortar el envío
+        $captcha_success = (object)['success' => true];
+    } else {
+        $captcha_success = json_decode($verify_response);
+    }
+
+    // Verificar resultado del captcha
+    if (!$captcha_success || empty($captcha_success->success)) {
+        enviarRespuesta(false, 'Por favor verifica que no eres un robot.');
+    }
+} else {
+    enviarRespuesta(false, 'Captcha no completado.');
+}
+
 
 // Verificar honeypot (protección anti-bot)
 if (!empty($_POST['empresa'])) {
