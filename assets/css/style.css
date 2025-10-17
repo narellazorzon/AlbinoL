@@ -261,6 +261,16 @@ main {
   background: transparent;
 }
 
+/* Estilos para el poster del video - logo más nítido y de tamaño apropiado */
+.hero video::poster {
+  object-fit: contain;
+  object-position: center;
+  background-size: 60% auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--warm-beige);
+}
+
 .hero .hero-content {
   position: relative;
   z-index: 2;
