@@ -45,6 +45,8 @@
     gtag('config', 'G-4PM9446E04');
   </script>
   
+  <link rel="icon" href="https://albinozorzonehijos.com.ar/assets/images/favicon.png" type="image/png">
+  
 </head>
 <body>
 <header>
