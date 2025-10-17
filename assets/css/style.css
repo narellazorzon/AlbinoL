@@ -1466,3 +1466,31 @@ footer {
     font-size: 0.9rem;
   }
 }
+
+/* Mejoras específicas para videos en móvil */
+@media (max-width: 768px) {
+  .hero video,
+  .stats video {
+    /* Forzar reproducción en móvil */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    /* Mejorar rendimiento */
+    will-change: transform;
+    /* Asegurar que se reproduzca inline */
+    -webkit-playsinline: true;
+    playsinline: true;
+  }
+  
+  /* Asegurar que los videos de fondo no interfieran */
+  .hero video {
+    pointer-events: none;
+  }
+  
+  /* Mejorar la calidad de video en móvil */
+  video {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
