@@ -13,11 +13,37 @@ ini_set('log_errors', 1);
 $isAjaxRequest = !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && 
                  strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
 
-// Si es petición AJAX, responder con JSON, sino con HTML
+// Si es petición AJAX, iniciar buffer de salida para capturar cualquier output inesperado
 if ($isAjaxRequest) {
+    ob_start();
     // Headers para JSON - DEBE ir antes de cualquier output
     header('Content-Type: application/json; charset=utf-8');
     header('Cache-Control: no-cache, must-revalidate');
+    
+    // Manejo global de errores para peticiones AJAX
+    set_error_handler(function($severity, $message, $file, $line) {
+        // Limpiar buffer y enviar error JSON
+        if (ob_get_level()) {
+            ob_clean();
+        }
+        echo json_encode([
+            'success' => false,
+            'message' => 'Error interno del servidor. Por favor, intente nuevamente.'
+        ], JSON_UNESCAPED_UNICODE);
+        exit;
+    });
+    
+    set_exception_handler(function($exception) {
+        // Limpiar buffer y enviar error JSON
+        if (ob_get_level()) {
+            ob_clean();
+        }
+        echo json_encode([
+            'success' => false,
+            'message' => 'Error interno del servidor. Por favor, intente nuevamente.'
+        ], JSON_UNESCAPED_UNICODE);
+        exit;
+    });
 } else {
     // Headers para HTML
     header('Content-Type: text/html; charset=utf-8');
@@ -28,6 +54,11 @@ function enviarRespuesta($success, $message, $data = []) {
     global $isAjaxRequest;
     
     if ($isAjaxRequest) {
+        // Limpiar cualquier output previo que pueda haber interferido
+        if (ob_get_level()) {
+            ob_clean();
+        }
+        
         // Respuesta JSON para JavaScript
         $respuesta = [
             'success' => $success,
@@ -39,6 +70,7 @@ function enviarRespuesta($success, $message, $data = []) {
         }
         
         echo json_encode($respuesta, JSON_UNESCAPED_UNICODE);
+        exit; // Importante: salir inmediatamente después de enviar JSON
     } else {
         // Respuesta HTML para envío directo
         $title = $success ? 'Mensaje Enviado' : 'Error en el Envío';

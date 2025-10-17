@@ -254,25 +254,76 @@ class ContactFormValidator {
             
             const response = await fetch('../includes/enviar-mensaje.php', {
                 method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
                 body: formData
             });
             
-            const result = await response.json();
+            // Verificar el tipo de contenido antes de parsear
+            const contentType = response.headers.get('content-type');
+            console.log('Content-Type recibido:', contentType);
             
-            if (result.success) {
-                this.showFormSuccess(result.message);
-                this.form.reset();
-                this.clearAllErrors();
-                
-                // Scroll al formulario
-                this.form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            // Obtener el texto de la respuesta primero
+            const responseText = await response.text();
+            console.log('Respuesta del servidor:', responseText);
+            
+            // Verificar si la respuesta es JSON válido
+            if (contentType && contentType.includes('application/json')) {
+                try {
+                    const result = JSON.parse(responseText);
+                    
+                    if (result.success) {
+                        this.showFormSuccess(result.message);
+                        this.form.reset();
+                        this.clearAllErrors();
+                        
+                        // Scroll al formulario
+                        this.form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    } else {
+                        this.showFormError(result.message);
+                    }
+                } catch (jsonError) {
+                    console.error('Error al parsear JSON:', jsonError);
+                    console.error('Respuesta recibida:', responseText);
+                    this.showFormError('Error en la respuesta del servidor. Por favor, intente nuevamente.');
+                }
             } else {
-                this.showFormError(result.message);
+                // Si no es JSON, verificar si contiene indicadores de éxito
+                console.warn('El servidor no devolvió JSON. Tipo de contenido:', contentType);
+                
+                if (responseText.includes('Mensaje enviado') || 
+                    responseText.includes('success') || 
+                    responseText.includes('exitoso') ||
+                    responseText.includes('correctamente')) {
+                    
+                    this.showFormSuccess('Tu mensaje ha sido enviado exitosamente. Te contactaremos pronto.');
+                    this.form.reset();
+                    this.clearAllErrors();
+                    
+                    // Scroll al formulario
+                    this.form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    console.error('Respuesta no-JSON del servidor:', responseText);
+                    this.showFormError('Error en la respuesta del servidor. Por favor, intente nuevamente.');
+                }
             }
             
         } catch (error) {
             console.error('Error al enviar formulario:', error);
-            this.showFormError('Error de conexión. Por favor, intente nuevamente.');
+            
+            // Mostrar mensaje específico según el tipo de error
+            if (error.message.includes('HTTP error')) {
+                this.showFormError('Error del servidor. Por favor, intente nuevamente más tarde.');
+            } else if (error.message.includes('Failed to fetch')) {
+                this.showFormError('Error de conexión. Verifique su conexión a internet e intente nuevamente.');
+            } else {
+                this.showFormError('Error inesperado. Por favor, intente nuevamente.');
+            }
         } finally {
             // Restaurar botón
             submitBtn.disabled = false;
