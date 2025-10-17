@@ -11,7 +11,7 @@ include __DIR__ . "/../partials/header.php";
 
 <!-- Hero Section -->
 <div class="hero fade-in-up">
-  <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="../assets/images/logo_background.webp" style="width: 100%; height: 100%; object-fit: cover;">
+  <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="../assets/images/back_videos.webp" style="width: 100%; height: 100%; object-fit: cover;">
     <source src="../assets/videos/ganaderia_recopilacion_comp.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     <img src="../assets/images/logo_empresa_comp.webp" alt="" style="width: 100%; height: 100%; object-fit: cover;">
