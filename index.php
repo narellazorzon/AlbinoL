@@ -18,11 +18,7 @@ include __DIR__ . "/partials/header.php";
     muted 
     loop 
     playsinline 
-    preload="auto" 
-    fetchpriority="high"
-    aria-hidden="true"
-    tabindex="-1"
-    style="width: 100%; height: 100%; object-fit: cover;">
+    preload="metadata">
     <source src="assets/videos/index__comprimido.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     <img src="assets/images/logo_empresa_comp.webp" alt="Albino Luis Zorzon - Producción Agropecuaria" style="width: 100%; height: 100%; object-fit: cover;">
@@ -36,7 +32,7 @@ include __DIR__ . "/partials/header.php";
 
 <!-- Estadísticas -->
 <div class="stats fade-in-up">
-  <video autoplay muted loop playsinline preload="metadata" ">
+  <video autoplay muted loop playsinline preload="metadata" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.6;">
     <source src="assets/videos/numeros_comprimido.mp4?v=<?= time() ?>" type="video/mp4">
     <!-- Fallback para navegadores que no soportan video -->
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%); z-index: 1;"></div>
