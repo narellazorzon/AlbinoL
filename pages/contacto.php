@@ -142,6 +142,9 @@ include __DIR__ . "/../partials/header.php";
         </div>
       </fieldset>
       
+      <!-- reCAPTCHA -->
+      <div class="g-recaptcha" data-sitekey="TU_SITE_KEY"></div>
+      
       <!-- Grupo de botones -->
       <div class="form-actions" style="text-align: center; margin-top: 1.5rem;">
         <button type="submit" 
